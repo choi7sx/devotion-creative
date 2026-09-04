@@ -1,0 +1,741 @@
+# Homepage-only inputs. Content values are plain text; layout stays in Astro.
+title:
+  type: text
+  options:
+    empty_type: string
+  label: Page title
+seo:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - seo
+  label: Search appearance
+seo.page_description:
+  type: textarea
+  options:
+    empty_type: string
+brand:
+  type: object
+  options:
+    preview:
+      text:
+        - key: first_line
+        - brand
+  label: Brand
+brand.first_line:
+  type: text
+  options:
+    empty_type: string
+brand.second_line:
+  type: text
+  options:
+    empty_type: string
+brand.home_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true
+brand.copyright_name:
+  type: text
+  options:
+    empty_type: string
+header:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - header
+  label: Header navigation
+header.outcomes_text:
+  type: text
+  options:
+    empty_type: string
+header.services_text:
+  type: text
+  options:
+    empty_type: string
+header.process_text:
+  type: text
+  options:
+    empty_type: string
+header.why_text:
+  type: text
+  options:
+    empty_type: string
+header.review_text:
+  type: text
+  options:
+    empty_type: string
+header.outcomes_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true
+header.services_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true
+header.process_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true
+header.why_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true
+header.review_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true
+hero:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - hero
+  label: Hero
+hero.eyebrow:
+  type: text
+  options:
+    empty_type: string
+hero.heading_start:
+  type: text
+  options:
+    empty_type: string
+hero.heading_highlight:
+  type: text
+  options:
+    empty_type: string
+  comment: The orange words in the main heading. The surrounding parts are edited separately to
+    preserve the design.
+hero.heading_end:
+  type: text
+  options:
+    empty_type: string
+hero.description:
+  type: textarea
+  options:
+    empty_type: string
+hero.button_text:
+  type: text
+  options:
+    empty_type: string
+hero.note:
+  type: textarea
+  options:
+    empty_type: string
+hero.outcome_trust:
+  type: text
+  options:
+    empty_type: string
+hero.outcome_clarity:
+  type: text
+  options:
+    empty_type: string
+hero.outcome_conversion:
+  type: text
+  options:
+    empty_type: string
+hero.outcome_performance:
+  type: text
+  options:
+    empty_type: string
+hero.button_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true
+problem:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - problem
+  label: Customer questions
+problem.eyebrow:
+  type: text
+  options:
+    empty_type: string
+problem.heading:
+  type: text
+  options:
+    empty_type: string
+problem.introduction:
+  type: text
+  options:
+    empty_type: string
+problem.description:
+  type: textarea
+  options:
+    empty_type: string
+problem.questions_heading:
+  type: text
+  options:
+    empty_type: string
+problem.question_services:
+  type: text
+  options:
+    empty_type: string
+problem.question_area:
+  type: text
+  options:
+    empty_type: string
+problem.question_trust:
+  type: text
+  options:
+    empty_type: string
+problem.question_estimate:
+  type: text
+  options:
+    empty_type: string
+outcomes:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - outcomes
+  label: Outcomes
+outcomes.items:
+  type: array
+  options:
+    empty_type: array
+    structures:
+      values:
+        - label: Outcome
+          icon: article
+          value:
+            number: ""
+            title: ""
+            text: ""
+  comment: Edit text inline, or add, remove, and reorder items here. Save to rebuild the preview.
+outcomes.items[*]:
+  type: object
+  options:
+    preview:
+      text:
+        - key: title
+        - New item
+      subtext:
+        - key: text
+outcomes.items[*].number:
+  type: text
+  options:
+    empty_type: string
+outcomes.items[*].title:
+  type: text
+  options:
+    empty_type: string
+outcomes.items[*].text:
+  type: textarea
+  options:
+    empty_type: string
+outcomes.eyebrow:
+  type: text
+  options:
+    empty_type: string
+outcomes.heading:
+  type: text
+  options:
+    empty_type: string
+work:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - work
+  label: Selected work
+work.mobile_caption:
+  type: text
+  options:
+    empty_type: string
+work.project_name:
+  type: text
+  options:
+    empty_type: string
+work.view_project_text:
+  type: text
+  options:
+    empty_type: string
+work.eyebrow:
+  type: text
+  options:
+    empty_type: string
+work.heading:
+  type: text
+  options:
+    empty_type: string
+work.description:
+  type: textarea
+  options:
+    empty_type: string
+work.project_label:
+  type: text
+  options:
+    empty_type: string
+work.service_strategy:
+  type: text
+  options:
+    empty_type: string
+work.service_design:
+  type: text
+  options:
+    empty_type: string
+work.service_development:
+  type: text
+  options:
+    empty_type: string
+work.desktop_label:
+  type: text
+  options:
+    empty_type: string
+work.mobile_label:
+  type: text
+  options:
+    empty_type: string
+work.display_domain:
+  type: text
+  options:
+    empty_type: string
+work.note:
+  type: textarea
+  options:
+    empty_type: string
+work.view_full_text:
+  type: text
+  options:
+    empty_type: string
+work.desktop_caption:
+  type: text
+  options:
+    empty_type: string
+images:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - images
+  label: Project images
+images.mobile:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - mobile
+images.mobile.image:
+  type: image
+  comment: Shared by the project thumbnail, preview, and full design viewer where applicable.
+  options:
+    empty_type: string
+    required: true
+    paths:
+      static: public
+      uploads: public/images/work
+images.mobile.width:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image with a different size.
+  options:
+    required: true
+    min: 1
+images.mobile.height:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image with a different size.
+  options:
+    required: true
+    min: 1
+images.mobile.alt:
+  type: textarea
+  options:
+    empty_type: string
+images.mobile.full_alt:
+  type: textarea
+  options:
+    empty_type: string
+images.desktop:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - desktop
+images.desktop.image:
+  type: image
+  comment: Shared by the project thumbnail, preview, and full design viewer where applicable.
+  options:
+    empty_type: string
+    required: true
+    paths:
+      static: public
+      uploads: public/images/work
+images.desktop.alt:
+  type: textarea
+  options:
+    empty_type: string
+images.desktop.width:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image with a different size.
+  options:
+    required: true
+    min: 1
+images.desktop.height:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image with a different size.
+  options:
+    required: true
+    min: 1
+images.desktop.full_alt:
+  type: textarea
+  options:
+    empty_type: string
+images.audit:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - audit
+images.audit.image:
+  type: image
+  comment: Shared by the project thumbnail, preview, and full design viewer where applicable.
+  options:
+    empty_type: string
+    required: true
+    paths:
+      static: public
+      uploads: public/images/work
+images.audit.alt:
+  type: textarea
+  options:
+    empty_type: string
+images.audit.width:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image with a different size.
+  options:
+    required: true
+    min: 1
+images.audit.height:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image with a different size.
+  options:
+    required: true
+    min: 1
+testimonial:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - testimonial
+  label: Testimonial
+testimonial.eyebrow:
+  type: text
+  options:
+    empty_type: string
+testimonial.heading:
+  type: text
+  options:
+    empty_type: string
+testimonial.quote:
+  type: textarea
+  options:
+    empty_type: string
+testimonial.client_name:
+  type: text
+  options:
+    empty_type: string
+testimonial.client_role:
+  type: text
+  options:
+    empty_type: string
+services:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - services
+  label: Services
+services.items:
+  type: array
+  options:
+    empty_type: array
+    structures:
+      values:
+        - label: Service
+          icon: article
+          value:
+            title: ""
+            text: ""
+  comment: Edit text inline, or add, remove, and reorder items here. Save to rebuild the preview.
+services.items[*]:
+  type: object
+  options:
+    preview:
+      text:
+        - key: title
+        - New item
+      subtext:
+        - key: text
+services.items[*].title:
+  type: text
+  options:
+    empty_type: string
+services.items[*].text:
+  type: text
+  options:
+    empty_type: string
+services.eyebrow:
+  type: text
+  options:
+    empty_type: string
+services.heading:
+  type: text
+  options:
+    empty_type: string
+process:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - process
+  label: Process
+process.steps:
+  type: array
+  options:
+    empty_type: array
+    structures:
+      values:
+        - label: Step
+          icon: article
+          value:
+            title: ""
+            text: ""
+  comment: Edit text inline, or add, remove, and reorder items here. Save to rebuild the preview.
+process.steps[*]:
+  type: object
+  options:
+    preview:
+      text:
+        - key: title
+        - New item
+      subtext:
+        - key: text
+process.steps[*].title:
+  type: text
+  options:
+    empty_type: string
+process.steps[*].text:
+  type: text
+  options:
+    empty_type: string
+process.eyebrow:
+  type: text
+  options:
+    empty_type: string
+process.heading:
+  type: text
+  options:
+    empty_type: string
+why:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - why
+  label: Why us
+why.principles:
+  type: array
+  options:
+    empty_type: array
+  comment: Add, remove, or reorder principles here. Save to rebuild the preview.
+why.principles[*]:
+  type: text
+  options:
+    empty_type: string
+why.eyebrow:
+  type: text
+  options:
+    empty_type: string
+why.heading:
+  type: text
+  options:
+    empty_type: string
+why.introduction:
+  type: textarea
+  options:
+    empty_type: string
+why.description:
+  type: textarea
+  options:
+    empty_type: string
+why.principles_heading:
+  type: text
+  options:
+    empty_type: string
+review:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - review
+  label: Review form and confirmation
+review.eyebrow:
+  type: text
+  options:
+    empty_type: string
+review.heading:
+  type: text
+  options:
+    empty_type: string
+review.introduction:
+  type: textarea
+  options:
+    empty_type: string
+review.description:
+  type: textarea
+  options:
+    empty_type: string
+review.name_label:
+  type: text
+  options:
+    empty_type: string
+review.email_label:
+  type: text
+  options:
+    empty_type: string
+review.website_label:
+  type: text
+  options:
+    empty_type: string
+review.form_note:
+  type: text
+  options:
+    empty_type: string
+review.security_error:
+  type: text
+  options:
+    empty_type: string
+review.submit_text:
+  type: text
+  options:
+    empty_type: string
+review.submit_error:
+  type: text
+  options:
+    empty_type: string
+review.success_eyebrow:
+  type: text
+  options:
+    empty_type: string
+review.success_heading:
+  type: text
+  options:
+    empty_type: string
+review.success_message:
+  type: text
+  options:
+    empty_type: string
+review.phone_eyebrow:
+  type: text
+  options:
+    empty_type: string
+review.phone_heading:
+  type: text
+  options:
+    empty_type: string
+review.phone_description:
+  type: text
+  options:
+    empty_type: string
+review.phone_security_error:
+  type: text
+  options:
+    empty_type: string
+review.phone_label:
+  type: text
+  options:
+    empty_type: string
+review.phone_submit_text:
+  type: text
+  options:
+    empty_type: string
+review.phone_error:
+  type: text
+  options:
+    empty_type: string
+review.phone_confirmation:
+  type: text
+  options:
+    empty_type: string
+review.name_placeholder:
+  type: text
+  options:
+    empty_type: string
+review.email_placeholder:
+  type: text
+  options:
+    empty_type: string
+review.website_placeholder:
+  type: text
+  options:
+    empty_type: string
+review.phone_placeholder:
+  type: text
+  options:
+    empty_type: string
+footer:
+  type: object
+  options:
+    preview:
+      text:
+        - key: heading
+        - footer
+  label: Footer
+footer.description:
+  type: text
+  options:
+    empty_type: string
+footer.email:
+  type: text
+  options:
+    empty_type: string
+footer.phone:
+  type: text
+  options:
+    empty_type: string
+footer.location:
+  type: text
+  options:
+    empty_type: string
+footer.back_text:
+  type: text
+  options:
+    empty_type: string
+footer.back_link:
+  type: text
+  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  options:
+    empty_type: string
+    required: true

@@ -12,22 +12,21 @@ commit_templates:
 
 collections_config:
   pages:
-    # The site homepage is a source-editable Astro file, not a Markdown page
-    # under src/content/pages. Point this collection at the actual route so it
-    # appears in the Pages browser.
-    path: src/pages
+    # Edit structured content; the Astro route owns layout and behavior.
+    path: data
     glob:
-      - 'index.astro'
+      - 'homepage.json'
     url: '/'
     icon: laptop_mac
-    include_developer_files: true
     preview:
       text: Devotion Creative
       subtext: Home page
     _enabled_editors:
       - visual
-    # This collection contains the single existing homepage, so editors cannot
-    # accidentally create route files that have no associated Astro template.
+      - data
+    _inputs_from_glob:
+      - /.cloudcannon/homepage.cloudcannon.inputs.yml
+    # There is only one homepage route.
     disable_add: true
     disable_add_folder: true
   blog:
@@ -120,6 +119,9 @@ collections_config:
           empty_type: array
   data:
     path: data
+    glob:
+      - '*.json'
+      - '!homepage.json'
     disable_url: true
     disable_add: true
     disable_add_folder: true
@@ -157,6 +159,8 @@ collection_groups:
       - data
 
 data_config:
+  homepage:
+    path: data/homepage.json
   tags:
     path: data/tags.json
 
