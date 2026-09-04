@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+
 const improvements = [
   {
     number: "01",
@@ -509,13 +511,23 @@ const principles = [
                 placeholder="https://yourwebsite.com"
                 required
               />
+              <p class="form-note review-form-note">Free, practical, and no sales pitch required.</p>
             </div>
           </div>
+          <input type="hidden" name="inbox_key" value="potential-client-contact" />
           <input type="hidden" name="_replyto" value="" data-review-replyto />
           <input type="hidden" name="_subject" value="Free website review request" />
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          <p class="form-error" role="alert" data-review-recaptcha-error hidden>
+            Please complete the security check before sending your request.
+          </p>
           <div class="review-submit-row">
-            <p class="form-note">Free, practical, and no sales pitch required.</p>
+            <div
+              class="recaptcha-field"
+              data-recaptcha-container
+              data-recaptcha-site-key={recaptchaSiteKey}
+              aria-label="Security check"
+            ></div>
             <button class="button button-dark" type="submit" data-review-submit>
               <span data-review-submit-label>Get my free review</span> <span aria-hidden="true">↗</span>
             </button>
@@ -553,8 +565,18 @@ const principles = [
               <input type="hidden" name="name" value="" data-phone-name />
               <input type="hidden" name="email" value="" data-phone-email />
               <input type="hidden" name="website" value="" data-phone-website />
+              <input type="hidden" name="inbox_key" value="potential-client-contact" />
               <input type="hidden" name="_subject" value="Phone number added to website review request" />
               <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              <div
+                class="recaptcha-field"
+                data-recaptcha-container
+                data-recaptcha-site-key={recaptchaSiteKey}
+                aria-label="Security check"
+              ></div>
+              <p class="form-error" role="alert" data-phone-recaptcha-error hidden>
+                Please complete the security check before adding your number.
+              </p>
               <label for="review-phone">Phone number</label>
               <div class="input-row phone-input-row">
                 <input
@@ -584,6 +606,10 @@ const principles = [
   </section>
 
   </div>
+
+  {recaptchaSiteKey && (
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+  )}
 
   <script>
     const previewButtons = document.querySelectorAll<HTMLButtonElement>("[data-preview-choice]");
@@ -662,6 +688,36 @@ const principles = [
     const phoneError = document.querySelector<HTMLElement>("[data-phone-error]");
     const phoneSubmit = document.querySelector<HTMLButtonElement>("[data-phone-submit]");
     const phoneSubmitLabel = document.querySelector<HTMLElement>("[data-phone-submit-label]");
+    const reviewRecaptchaError = document.querySelector<HTMLElement>("[data-review-recaptcha-error]");
+    const phoneRecaptchaError = document.querySelector<HTMLElement>("[data-phone-recaptcha-error]");
+    const recaptchaContainers = document.querySelectorAll<HTMLElement>("[data-recaptcha-container]");
+
+    type Recaptcha = {
+      render: (container: HTMLElement, options: { sitekey: string; theme: "light" | "dark" }) => number;
+    };
+
+    const getRecaptcha = () => (window as Window & { grecaptcha?: Recaptcha }).grecaptcha;
+
+    const renderRecaptcha = (container?: HTMLElement | null) => {
+      if (!container || container.dataset.recaptchaWidgetId) return;
+      const siteKey = container.dataset.recaptchaSiteKey;
+      const recaptcha = getRecaptcha();
+      if (!siteKey || !recaptcha) return;
+      container.dataset.recaptchaWidgetId = String(
+        recaptcha.render(container, { sitekey: siteKey, theme: "light" }),
+      );
+    };
+
+    const renderVisibleRecaptcha = () => {
+      recaptchaContainers.forEach((container) => {
+        if (!container.closest("[hidden]")) renderRecaptcha(container);
+      });
+    };
+
+    window.addEventListener("load", renderVisibleRecaptcha);
+
+    const hasRecaptchaResponse = (form: HTMLFormElement) =>
+      Boolean(form.querySelector<HTMLTextAreaElement>("textarea[name='g-recaptcha-response']")?.value);
 
     const setPhoneContext = (contact: ReviewContact) => {
       const phoneName = document.querySelector<HTMLInputElement>("[data-phone-name]");
@@ -679,6 +735,7 @@ const principles = [
       if (reviewForm) reviewForm.hidden = true;
       if (reviewSuccess) {
         reviewSuccess.hidden = false;
+        renderVisibleRecaptcha();
         if (shouldFocus) reviewSuccess.focus();
       }
     };
@@ -704,6 +761,12 @@ const principles = [
     reviewForm?.addEventListener("submit", async (event) => {
       event.preventDefault();
       reviewError?.setAttribute("hidden", "");
+      reviewRecaptchaError?.setAttribute("hidden", "");
+
+      if (!hasRecaptchaResponse(reviewForm)) {
+        reviewRecaptchaError?.removeAttribute("hidden");
+        return;
+      }
 
       const formData = new FormData(reviewForm);
       const contact: ReviewContact = {
@@ -735,6 +798,12 @@ const principles = [
     phoneForm?.addEventListener("submit", async (event) => {
       event.preventDefault();
       phoneError?.setAttribute("hidden", "");
+      phoneRecaptchaError?.setAttribute("hidden", "");
+
+      if (!hasRecaptchaResponse(phoneForm)) {
+        phoneRecaptchaError?.removeAttribute("hidden");
+        return;
+      }
       phoneSubmit?.setAttribute("disabled", "");
       if (phoneSubmitLabel) phoneSubmitLabel.textContent = "Adding…";
 
