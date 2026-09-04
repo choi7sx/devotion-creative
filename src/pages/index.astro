@@ -106,11 +106,21 @@ const principles = [
           </p>
         </div>
       </div>
-      <div class="hero-visual image-placeholder" aria-label="Project image placeholder">
-        <div class="placeholder-label">
-          <span>Project image</span>
-          <span>4:5</span>
-        </div>
+      <div class="hero-visual image-placeholder has-image">
+        <picture>
+          <source
+            media="(max-width: 900px)"
+            srcset="/images/work/energy-transport-desktop.webp"
+          />
+          <img
+            src="/images/work/energy-transport-mobile.webp"
+            alt="Energy Transport website presented in its mobile layout"
+            width="405"
+            height="4661"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
     </div>
     <div class="shell value-rail" aria-label="Core website outcomes">
@@ -309,11 +319,15 @@ const principles = [
       <div class="services-sticky">
         <p class="eyebrow">What we provide</p>
         <h2 id="services-heading">A website built around how your business actually wins work.</h2>
-        <div class="services-visual image-placeholder" aria-label="Website project image placeholder">
-          <div class="placeholder-label">
-            <span>Website project</span>
-            <span>4:3</span>
-          </div>
+        <div class="services-visual image-placeholder has-image">
+          <img
+            src="/images/work/energy-transport-desktop.webp"
+            alt="Energy Transport website presented in its desktop layout"
+            width="2200"
+            height="4704"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
       <div class="service-list">
