@@ -993,6 +993,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
   color: #aeb5b1;
   font-size: 0.8rem;
 }
+.footer-contact a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color var(--ease), text-decoration-color var(--ease);
+}
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
+  color: var(--color-accent);
+}
 .footer-bottom {
   display: flex;
   justify-content: space-between;
