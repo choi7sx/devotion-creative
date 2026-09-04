@@ -931,6 +931,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .review-submit-row .button-dark { flex: 0 0 auto; border-radius: var(--radius-sm); }
 .button-dark:disabled { cursor: wait; opacity: 0.72; }
 .form-note { margin: 0; color: var(--color-muted); font-size: 0.78rem; }
+.review-form-note { margin-top: 0.65rem; }
 .form-error { margin: 0.85rem 0 0; color: #a42b18; font-size: 0.875rem; font-weight: 600; }
 .form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 
@@ -964,6 +965,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .phone-step { margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--color-line); }
 .phone-step h4 { margin: 0 0 0.55rem; font-family: var(--font-display); font-size: 1.35rem; letter-spacing: -0.025em; }
 .phone-step > p:not(.phone-step-label) { margin: 0 0 1.25rem; color: var(--color-muted); font-size: 0.95rem; }
+.recaptcha-field { margin: 1.25rem 0; }
+.review-submit-row .recaptcha-field { margin: 0; }
 .phone-confirmation {
   margin: 2rem 0 0;
   padding: 1rem 1.1rem;
@@ -1120,7 +1123,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .input-row input, .button-dark { border: 1px solid var(--color-line); border-radius: var(--radius-sm); }
   .review-fields { grid-template-columns: 1fr; }
   .review-field-wide { grid-column: auto; }
-  .review-submit-row { align-items: stretch; flex-direction: column-reverse; }
+  .review-submit-row { align-items: stretch; flex-direction: column; }
   .review-submit-row .button-dark { width: 100%; }
   .footer-contact { align-items: start; }
 }
