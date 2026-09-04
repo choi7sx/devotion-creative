@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import site from "../../data/site.json";
 import home from "../../data/homepage.json";
 import { editableText, editableImage, homepageProp } from "../utils/homepage-editing";
 
@@ -8,10 +9,45 @@ const improvements = home.outcomes.items;
 const services = home.services.items;
 const process = home.process.steps;
 const principles = home.why.principles;
+
+const siteUrl = Astro.site!.href;
+const organizationId = new URL("#organization", siteUrl).href;
+const structuredData = [
+  {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: site.site_title,
+    url: siteUrl,
+    description: site.description,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Website design and management services",
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          description: service.text,
+          url: new URL("#services", siteUrl).href,
+          provider: { "@id": organizationId },
+        },
+      })),
+    },
+  },
+  {
+    "@type": "WebSite",
+    "@id": new URL("#website", siteUrl).href,
+    name: site.site_title,
+    url: siteUrl,
+    inLanguage: "en-US",
+    publisher: { "@id": organizationId },
+  },
+];
 ---
 
 <Layout
   title={home.title}
+  structuredData={structuredData}
   seo={{
     page_description: home.seo.page_description,
     featured_image: null,
@@ -245,6 +281,7 @@ const principles = home.why.principles;
     </div>
   </dialog>
 
+  {home.testimonial.quote.trim() && home.testimonial.client_name.trim() && (
   <section class="section testimonials" aria-labelledby="testimonials-heading">
     <div class="shell testimonial-grid">
       <div class="testimonial-heading">
@@ -260,6 +297,7 @@ const principles = home.why.principles;
       </figure>
     </div>
   </section>
+  )}
 
   <section class="section services" id="services" aria-labelledby="services-heading">
     <div class="shell services-grid">

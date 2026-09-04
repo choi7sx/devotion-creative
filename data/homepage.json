@@ -1,7 +1,7 @@
 {
-  "title": "Devotion Creative",
+  "title": "Web Design for Local Service Businesses | Devotion Creative",
   "seo": {
-    "page_description": "Conversion-focused websites for local service businesses, built to establish trust and turn more visitors into calls and estimate requests."
+    "page_description": "Devotion Creative designs and manages websites for local service businesses. Turn more visitors into calls and estimate requests. Get a free website review."
   },
   "brand": {
     "first_line": "Devotion",
@@ -15,14 +15,14 @@
     "process_text": "Process",
     "why_text": "Why us",
     "review_text": "Free website review",
-    "outcomes_link": "#outcomes",
-    "services_link": "#services",
-    "process_link": "#process",
-    "why_link": "#why",
-    "review_link": "#review"
+    "outcomes_link": "/#outcomes",
+    "services_link": "/#services",
+    "process_link": "/#process",
+    "why_link": "/#why",
+    "review_link": "/#review"
   },
   "hero": {
-    "eyebrow": "Websites for local service businesses",
+    "eyebrow": "Web design for local service businesses",
     "heading_start": "Turn your website into a",
     "heading_highlight": "lead-generating",
     "heading_end": "asset.",
@@ -115,9 +115,9 @@
   "testimonial": {
     "eyebrow": "What clients say",
     "heading": "A website that finally reflects the business.",
-    "quote": "“Lorem impsum…”",
-    "client_name": "[Client Name]",
-    "client_role": "[Role], [Company Name]"
+    "quote": "",
+    "client_name": "",
+    "client_role": ""
   },
   "services": {
     "items": [
@@ -138,7 +138,7 @@
         "text": "Hosting, security, backups, content updates, and continued website improvements after launch."
       }
     ],
-    "eyebrow": "What we provide",
+    "eyebrow": "Web design and website management services",
     "heading": "A website built around how your business actually wins work."
   },
   "process": {
@@ -207,9 +207,9 @@
   },
   "footer": {
     "description": "Conversion-focused websites for local service businesses.",
-    "email": "Email address",
-    "phone": "Phone number",
-    "location": "City, State",
+    "email": "",
+    "phone": "",
+    "location": "",
     "back_text": "Back to top ↑",
     "back_link": "#top"
   }

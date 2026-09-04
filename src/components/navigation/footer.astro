@@ -13,9 +13,10 @@ import { editableText, homepageProp } from "../../utils/homepage-editing";
       <p {...editableText("footer.description")}>{home.footer.description}</p>
     </div>
     <div class="footer-contact">
-      <p {...editableText("footer.email")}>{home.footer.email}</p>
-      <p {...editableText("footer.phone")}>{home.footer.phone}</p>
-      <p {...editableText("footer.location")}>{home.footer.location}</p>
+      <a href={home.header.review_link}><editable-text data-prop={homepageProp("hero.button_text")} data-type="span">{home.hero.button_text}</editable-text> ↗</a>
+      {home.footer.email.trim() && <p {...editableText("footer.email")}>{home.footer.email}</p>}
+      {home.footer.phone.trim() && <p {...editableText("footer.phone")}>{home.footer.phone}</p>}
+      {home.footer.location.trim() && <p {...editableText("footer.location")}>{home.footer.location}</p>}
     </div>
   </div>
   <div class="shell footer-bottom">
