@@ -1,19 +1,24 @@
+---
+import home from "../../../data/homepage.json";
+import { editableText, homepageProp } from "../../utils/homepage-editing";
+---
+
 <header class="site-header">
   <div class="shell">
     <nav class="site-nav" aria-label="Primary navigation">
-      <a class="wordmark" href="/" aria-label="Devotion Creative home">
+      <a class="wordmark" href={home.brand.home_link} aria-label={`${home.brand.first_line} ${home.brand.second_line} home`}>
         <span class="wordmark-mark" aria-hidden="true"></span>
-        <span>Devotion<br />Creative</span>
+        <span><editable-text data-prop={homepageProp("brand.first_line")} data-type="span">{home.brand.first_line}</editable-text><br /><editable-text data-prop={homepageProp("brand.second_line")} data-type="span">{home.brand.second_line}</editable-text></span>
       </a>
 
       <ul class="desktop-nav">
-        <li><a href="#outcomes">Outcomes</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#why">Why us</a></li>
+        <li><a {...editableText("header.outcomes_text")} href={home.header.outcomes_link}>{home.header.outcomes_text}</a></li>
+        <li><a {...editableText("header.services_text")} href={home.header.services_link}>{home.header.services_text}</a></li>
+        <li><a {...editableText("header.process_text")} href={home.header.process_link}>{home.header.process_text}</a></li>
+        <li><a {...editableText("header.why_text")} href={home.header.why_link}>{home.header.why_text}</a></li>
       </ul>
 
-      <a class="nav-cta" href="#review">Free website review <span aria-hidden="true">↗</span></a>
+      <a class="nav-cta" href={home.header.review_link}><editable-text data-prop={homepageProp("header.review_text")} data-type="span">{home.header.review_text}</editable-text> <span aria-hidden="true">↗</span></a>
 
       <button
         class="menu-button"
@@ -26,9 +31,9 @@
 
       <div popover id="mobile-menu" class="mobile-menu">
         <div class="mobile-menu-head">
-          <a class="wordmark" href="/">
+          <a class="wordmark" href={home.brand.home_link}>
             <span class="wordmark-mark" aria-hidden="true"></span>
-            <span>Devotion<br />Creative</span>
+            <span><editable-text data-prop={homepageProp("brand.first_line")} data-type="span">{home.brand.first_line}</editable-text><br /><editable-text data-prop={homepageProp("brand.second_line")} data-type="span">{home.brand.second_line}</editable-text></span>
           </a>
           <button
             class="menu-close"
@@ -38,11 +43,11 @@
           >×</button>
         </div>
         <ul>
-          <li><a href="#outcomes">Outcomes</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#why">Why us</a></li>
-          <li><a href="#review">Free website review</a></li>
+          <li><a {...editableText("header.outcomes_text")} href={home.header.outcomes_link}>{home.header.outcomes_text}</a></li>
+          <li><a {...editableText("header.services_text")} href={home.header.services_link}>{home.header.services_text}</a></li>
+          <li><a {...editableText("header.process_text")} href={home.header.process_link}>{home.header.process_text}</a></li>
+          <li><a {...editableText("header.why_text")} href={home.header.why_link}>{home.header.why_text}</a></li>
+          <li><a {...editableText("header.review_text")} href={home.header.review_link}>{home.header.review_text}</a></li>
         </ul>
       </div>
     </nav>

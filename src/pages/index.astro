@@ -1,83 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import home from "../../data/homepage.json";
+import { editableText, editableImage, homepageProp } from "../utils/homepage-editing";
 
 const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
-
-const improvements = [
-  {
-    number: "01",
-    title: "Trust",
-    text: "Present your reviews, completed projects, credentials, and experience where potential customers can see them.",
-  },
-  {
-    number: "02",
-    title: "Clarity",
-    text: "Organize your services and service areas so visitors immediately understand how you can help.",
-  },
-  {
-    number: "03",
-    title: "Conversion",
-    text: "Make it simple to call, submit a request, or schedule the next step from any device.",
-  },
-  {
-    number: "04",
-    title: "Performance",
-    text: "Give visitors a fast, reliable, mobile-friendly experience that reflects the quality of your business.",
-  },
-];
-
-const services = [
-  {
-    title: "Website strategy and design",
-    text: "A professional website structured around your customers, services, and sales process.",
-  },
-  {
-    title: "Conversion-focused pages",
-    text: "Clear service pages, service-area pages, calls to action, estimate forms, reviews, and project galleries.",
-  },
-  {
-    title: "Lead tracking",
-    text: "Tracking for calls and form submissions so you can understand what your website is producing.",
-  },
-  {
-    title: "Ongoing management",
-    text: "Hosting, security, backups, content updates, and continued website improvements after launch.",
-  },
-];
-
-const process = [
-  {
-    title: "Review",
-    text: "We learn about your business, customers, services, and current website.",
-  },
-  {
-    title: "Plan",
-    text: "We determine what the site needs to communicate and how visitors should move toward contacting you.",
-  },
-  {
-    title: "Build",
-    text: "We create the pages, content, and conversion paths that support those goals.",
-  },
-  {
-    title: "Launch and manage",
-    text: "After testing the site across devices, we launch it and continue keeping it secure, current, and effective.",
-  },
-];
-
-const principles = [
-  "Clear strategy before design",
-  "Simple and professional user experiences",
-  "Decisions centered on trust and conversion",
-  "Direct communication throughout the project",
-  "Ongoing support after the site goes live",
-];
+const improvements = home.outcomes.items;
+const services = home.services.items;
+const process = home.process.steps;
+const principles = home.why.principles;
 ---
 
 <Layout
-  title="Devotion Creative"
+  title={home.title}
   seo={{
-    page_description:
-      "Conversion-focused websites for local service businesses, built to establish trust and turn more visitors into calls and estimate requests.",
+    page_description: home.seo.page_description,
     featured_image: null,
     featured_image_alt: null,
     canonical_url: null,
@@ -86,30 +22,22 @@ const principles = [
     author_twitter_handle: null,
   }}
 >
-  <div
-    data-editable="source"
-    data-path="/src/pages/index.astro"
-    data-key="homepage-content"
-  >
+  <div>
   <section class="hero" aria-labelledby="hero-heading">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Websites for local service businesses</p>
-        <h1 id="hero-heading">Turn your website into a <em>lead-generating</em> asset.</h1>
+        <p {...editableText("hero.eyebrow")} class="eyebrow">{home.hero.eyebrow}</p>
+        <h1 id="hero-heading"><editable-text data-prop={homepageProp("hero.heading_start")} data-type="span">{home.hero.heading_start}</editable-text> <em {...editableText("hero.heading_highlight")}>{home.hero.heading_highlight}</em> <editable-text data-prop={homepageProp("hero.heading_end")} data-type="span">{home.hero.heading_end}</editable-text></h1>
         <div class="hero-intro">
-          <p>
-            We design and manage conversion-focused websites for local service
-            businesses. Each site is built to establish trust, explain your
-            services clearly, and turn more visitors into calls and estimate
-            requests.
+          <p {...editableText("hero.description")}>
+            {home.hero.description}
           </p>
-          <a class="button button-primary" href="#review">
-            Get a free website review
+          <a class="button button-primary" href={home.hero.button_link}>
+            <editable-text data-prop={homepageProp("hero.button_text")} data-type="span">{home.hero.button_text}</editable-text>
             <span aria-hidden="true">↗</span>
           </a>
-          <p class="microcopy">
-            No sales pitch required. We’ll review your homepage and show you a
-            few practical opportunities to improve it.
+          <p {...editableText("hero.note")} class="microcopy">
+            {home.hero.note}
           </p>
         </div>
       </div>
@@ -119,16 +47,16 @@ const principles = [
           type="button"
           data-open-project
           data-project-view="mobile"
-          aria-label="View the full Energy Transport mobile design"
+          aria-label={`View the full ${home.work.project_name} mobile design`}
         >
           <span class="mini-phone" aria-hidden="true">
             <span class="mini-phone-speaker"></span>
             <span class="mini-phone-screen">
-              <img
-                src="/images/work/energy-transport-mobile.webp"
+              <img {...editableImage("images.mobile")}
+                src={home.images.mobile.image}
                 alt=""
-                width="405"
-                height="4661"
+                width={home.images.mobile.width}
+                height={home.images.mobile.height}
                 fetchpriority="high"
                 decoding="async"
               />
@@ -137,47 +65,45 @@ const principles = [
         </button>
         <div class="project-tile-caption">
           <div>
-            <span>Mobile experience</span>
-            <strong>Energy Transport</strong>
+            <span {...editableText("work.mobile_caption")}>{home.work.mobile_caption}</span>
+            <strong {...editableText("work.project_name")}>{home.work.project_name}</strong>
           </div>
           <button type="button" data-open-project data-project-view="mobile">
-            View project <span aria-hidden="true">↗</span>
+            <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text> <span aria-hidden="true">↗</span>
           </button>
         </div>
       </div>
     </div>
     <div class="shell value-rail" aria-label="Core website outcomes">
-      <span>Trust</span>
-      <span>Clarity</span>
-      <span>Conversion</span>
-      <span>Performance</span>
+      <span {...editableText("hero.outcome_trust")}>{home.hero.outcome_trust}</span>
+      <span {...editableText("hero.outcome_clarity")}>{home.hero.outcome_clarity}</span>
+      <span {...editableText("hero.outcome_conversion")}>{home.hero.outcome_conversion}</span>
+      <span {...editableText("hero.outcome_performance")}>{home.hero.outcome_performance}</span>
     </div>
   </section>
 
   <section class="section problem" id="approach" aria-labelledby="problem-heading">
     <div class="shell">
       <div class="section-heading split-heading">
-        <p class="eyebrow">The real job of your website</p>
-        <h2 id="problem-heading">Your website should help you win more business.</h2>
+        <p {...editableText("problem.eyebrow")} class="eyebrow">{home.problem.eyebrow}</p>
+        <h2 {...editableText("problem.heading")} id="problem-heading">{home.problem.heading}</h2>
       </div>
       <div class="problem-grid">
         <div class="problem-copy">
-          <p>
-            Potential customers visit your website to decide whether they can
-            trust you with the job.
+          <p {...editableText("problem.introduction")}>
+            {home.problem.introduction}
           </p>
-          <p>
-            If your site looks outdated, is difficult to use on a phone, or
-            makes the next step unclear, they may leave and contact a competitor.
+          <p {...editableText("problem.description")}>
+            {home.problem.description}
           </p>
         </div>
         <div class="question-panel">
-          <p class="panel-kicker">We answer the questions customers care about</p>
+          <p {...editableText("problem.questions_heading")} class="panel-kicker">{home.problem.questions_heading}</p>
           <ul>
-            <li><span>01</span> What services do you provide?</li>
-            <li><span>02</span> Do you serve my area?</li>
-            <li><span>03</span> Why should I trust your company?</li>
-            <li><span>04</span> How can I request an estimate?</li>
+            <li><span>01</span> <editable-text data-prop={homepageProp("problem.question_services")} data-type="span">{home.problem.question_services}</editable-text></li>
+            <li><span>02</span> <editable-text data-prop={homepageProp("problem.question_area")} data-type="span">{home.problem.question_area}</editable-text></li>
+            <li><span>03</span> <editable-text data-prop={homepageProp("problem.question_trust")} data-type="span">{home.problem.question_trust}</editable-text></li>
+            <li><span>04</span> <editable-text data-prop={homepageProp("problem.question_estimate")} data-type="span">{home.problem.question_estimate}</editable-text></li>
           </ul>
         </div>
       </div>
@@ -187,15 +113,15 @@ const principles = [
   <section class="section outcomes" id="outcomes" aria-labelledby="outcomes-heading">
     <div class="shell">
       <div class="section-heading compact-heading">
-        <p class="eyebrow">What we help improve</p>
-        <h2 id="outcomes-heading">A better path from first visit to first call.</h2>
+        <p {...editableText("outcomes.eyebrow")} class="eyebrow">{home.outcomes.eyebrow}</p>
+        <h2 {...editableText("outcomes.heading")} id="outcomes-heading">{home.outcomes.heading}</h2>
       </div>
       <div class="outcome-grid">
-        {improvements.map((item) => (
+        {improvements.map((item, index) => (
           <article class="outcome-card">
-            <span class="card-number">/{item.number}</span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
+            <span class="card-number">/<editable-text data-prop={homepageProp(`outcomes.items.${index}.number`)} data-type="span">{item.number}</editable-text></span>
+            <h3 {...editableText(`outcomes.items.${index}.title`)}>{item.title}</h3>
+            <p {...editableText(`outcomes.items.${index}.text`)}>{item.text}</p>
           </article>
         ))}
       </div>
@@ -205,33 +131,32 @@ const principles = [
   <section class="section recent-work" id="work" aria-labelledby="work-heading">
     <div class="shell">
       <div class="work-heading">
-        <p class="eyebrow">Selected work</p>
-        <h2 id="work-heading">Built to earn trust on every screen.</h2>
-        <p>
-          A responsive website for a family-owned fuel carrier, designed to
-          make decades of reliable service clear at a glance.
+        <p {...editableText("work.eyebrow")} class="eyebrow">{home.work.eyebrow}</p>
+        <h2 {...editableText("work.heading")} id="work-heading">{home.work.heading}</h2>
+        <p {...editableText("work.description")}>
+          {home.work.description}
         </p>
       </div>
 
       <article class="project-feature" aria-labelledby="energy-project-title">
         <header class="project-feature-header">
           <div>
-            <p class="project-number">Project / 01</p>
-            <h3 id="energy-project-title">Energy Transport</h3>
+            <p {...editableText("work.project_label")} class="project-number">{home.work.project_label}</p>
+            <h3 {...editableText("work.project_name")} id="energy-project-title">{home.work.project_name}</h3>
           </div>
           <ul class="project-services" aria-label="Project services">
-            <li>Strategy</li>
-            <li>Web design</li>
-            <li>Development</li>
+            <li {...editableText("work.service_strategy")}>{home.work.service_strategy}</li>
+            <li {...editableText("work.service_design")}>{home.work.service_design}</li>
+            <li {...editableText("work.service_development")}>{home.work.service_development}</li>
           </ul>
         </header>
 
         <div class="device-switch" role="group" aria-label="Choose a design preview">
           <button class="is-active" type="button" data-preview-choice="desktop" aria-pressed="true">
-            Desktop
+            <editable-text data-prop={homepageProp("work.desktop_label")} data-type="span">{home.work.desktop_label}</editable-text>
           </button>
           <button type="button" data-preview-choice="mobile" aria-pressed="false">
-            Mobile
+            <editable-text data-prop={homepageProp("work.mobile_label")} data-type="span">{home.work.mobile_label}</editable-text>
           </button>
         </div>
 
@@ -239,14 +164,14 @@ const principles = [
           <div class="browser-frame project-device is-active" data-project-preview="desktop">
             <div class="browser-bar" aria-hidden="true">
               <span class="browser-dots"><i></i><i></i><i></i></span>
-              <span class="browser-address">energytransport.com</span>
+              <span {...editableText("work.display_domain")} class="browser-address">{home.work.display_domain}</span>
             </div>
             <div class="browser-viewport">
-              <img
-                src="/images/work/energy-transport-desktop.webp"
-                alt="Energy Transport homepage shown at desktop size"
-                width="2200"
-                height="4704"
+              <img {...editableImage("images.desktop", "alt")}
+                src={home.images.desktop.image}
+                alt={home.images.desktop.alt}
+                width={home.images.desktop.width}
+                height={home.images.desktop.height}
                 loading="lazy"
                 decoding="async"
               />
@@ -256,11 +181,11 @@ const principles = [
           <div class="phone-frame project-device" data-project-preview="mobile">
             <div class="phone-speaker" aria-hidden="true"></div>
             <div class="phone-viewport">
-              <img
-                src="/images/work/energy-transport-mobile.webp"
-                alt="Energy Transport homepage shown at mobile size"
-                width="405"
-                height="4661"
+              <img {...editableImage("images.mobile", "alt")}
+                src={home.images.mobile.image}
+                alt={home.images.mobile.alt}
+                width={home.images.mobile.width}
+                height={home.images.mobile.height}
                 loading="lazy"
                 decoding="async"
               />
@@ -269,12 +194,11 @@ const principles = [
         </div>
 
         <footer class="project-feature-footer">
-          <p>
-            The same clear story, thoughtfully adapted from a wide desktop
-            canvas to a focused mobile experience.
+          <p {...editableText("work.note")}>
+            {home.work.note}
           </p>
           <button class="project-view-button" type="button" data-open-project>
-            View full design <span aria-hidden="true">↗</span>
+            <editable-text data-prop={homepageProp("work.view_full_text")} data-type="span">{home.work.view_full_text}</editable-text> <span aria-hidden="true">↗</span>
           </button>
         </footer>
       </article>
@@ -285,34 +209,34 @@ const principles = [
     <div class="project-dialog-inner">
       <header class="project-dialog-header">
         <div>
-          <span class="project-number">Project / 01</span>
-          <h2 id="project-dialog-title">Energy Transport</h2>
+          <span {...editableText("work.project_label")} class="project-number">{home.work.project_label}</span>
+          <h2 {...editableText("work.project_name")} id="project-dialog-title">{home.work.project_name}</h2>
         </div>
         <div class="dialog-actions">
           <div class="dialog-switch" role="group" aria-label="Choose a full design view">
-            <button class="is-active" type="button" data-dialog-choice="desktop" aria-pressed="true">Desktop</button>
-            <button type="button" data-dialog-choice="mobile" aria-pressed="false">Mobile</button>
+            <button class="is-active" type="button" data-dialog-choice="desktop" aria-pressed="true"><editable-text data-prop={homepageProp("work.desktop_label")} data-type="span">{home.work.desktop_label}</editable-text></button>
+            <button type="button" data-dialog-choice="mobile" aria-pressed="false"><editable-text data-prop={homepageProp("work.mobile_label")} data-type="span">{home.work.mobile_label}</editable-text></button>
           </div>
           <button class="dialog-close" type="button" data-close-project aria-label="Close full design viewer">×</button>
         </div>
       </header>
       <div class="project-dialog-scroll">
         <div class="dialog-design is-active" data-dialog-design="desktop">
-          <img
-            src="/images/work/energy-transport-desktop.webp"
-            alt="Full Energy Transport desktop homepage design"
-            width="2200"
-            height="4704"
+          <img {...editableImage("images.desktop", "full_alt")}
+            src={home.images.desktop.image}
+            alt={home.images.desktop.full_alt}
+            width={home.images.desktop.width}
+            height={home.images.desktop.height}
             loading="lazy"
             decoding="async"
           />
         </div>
         <div class="dialog-design" data-dialog-design="mobile">
-          <img
-            src="/images/work/energy-transport-mobile.webp"
-            alt="Full Energy Transport mobile homepage design"
-            width="405"
-            height="4661"
+          <img {...editableImage("images.mobile", "full_alt")}
+            src={home.images.mobile.image}
+            alt={home.images.mobile.full_alt}
+            width={home.images.mobile.width}
+            height={home.images.mobile.height}
             loading="lazy"
             decoding="async"
           />
@@ -324,14 +248,14 @@ const principles = [
   <section class="section testimonials" aria-labelledby="testimonials-heading">
     <div class="shell testimonial-grid">
       <div class="testimonial-heading">
-        <p class="eyebrow eyebrow-light">What clients say</p>
-        <h2 id="testimonials-heading">A website that finally reflects the business.</h2>
+        <p {...editableText("testimonial.eyebrow")} class="eyebrow eyebrow-light">{home.testimonial.eyebrow}</p>
+        <h2 {...editableText("testimonial.heading")} id="testimonials-heading">{home.testimonial.heading}</h2>
       </div>
       <figure class="testimonial-card">
-        <blockquote>“Lorem impsum…”</blockquote>
+        <blockquote {...editableText("testimonial.quote")}>{home.testimonial.quote}</blockquote>
         <figcaption>
-          <strong>[Client Name]</strong>
-          <span>[Role], [Company Name]</span>
+          <strong {...editableText("testimonial.client_name")}>{home.testimonial.client_name}</strong>
+          <span {...editableText("testimonial.client_role")}>{home.testimonial.client_role}</span>
         </figcaption>
       </figure>
     </div>
@@ -340,27 +264,27 @@ const principles = [
   <section class="section services" id="services" aria-labelledby="services-heading">
     <div class="shell services-grid">
       <div class="services-sticky">
-        <p class="eyebrow">What we provide</p>
-        <h2 id="services-heading">A website built around how your business actually wins work.</h2>
+        <p {...editableText("services.eyebrow")} class="eyebrow">{home.services.eyebrow}</p>
+        <h2 {...editableText("services.heading")} id="services-heading">{home.services.heading}</h2>
         <div class="project-tile services-project-tile">
           <button
             class="services-visual device-card desktop-showcase"
             type="button"
             data-open-project
             data-project-view="desktop"
-            aria-label="View the full Energy Transport desktop design"
+            aria-label={`View the full ${home.work.project_name} desktop design`}
           >
             <span class="mini-browser" aria-hidden="true">
               <span class="mini-browser-bar">
                 <span class="mini-browser-dots"><i></i><i></i><i></i></span>
-                <span class="mini-browser-address">energytransport.com</span>
+                <span {...editableText("work.display_domain")} class="mini-browser-address">{home.work.display_domain}</span>
               </span>
               <span class="mini-browser-screen">
-                <img
-                  src="/images/work/energy-transport-desktop.webp"
+                <img {...editableImage("images.desktop")}
+                  src={home.images.desktop.image}
                   alt=""
-                  width="2200"
-                  height="4704"
+                  width={home.images.desktop.width}
+                  height={home.images.desktop.height}
                   loading="lazy"
                   decoding="async"
                 />
@@ -369,11 +293,11 @@ const principles = [
           </button>
           <div class="project-tile-caption">
             <div>
-              <span>Desktop experience</span>
-              <strong>Energy Transport</strong>
+              <span {...editableText("work.desktop_caption")}>{home.work.desktop_caption}</span>
+              <strong {...editableText("work.project_name")}>{home.work.project_name}</strong>
             </div>
             <button type="button" data-open-project data-project-view="desktop">
-              View project <span aria-hidden="true">↗</span>
+              <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text> <span aria-hidden="true">↗</span>
             </button>
           </div>
         </div>
@@ -383,8 +307,8 @@ const principles = [
           <article class="service-item">
             <span class="service-number">0{index + 1}</span>
             <div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+              <h3 {...editableText(`services.items.${index}.title`)}>{item.title}</h3>
+              <p {...editableText(`services.items.${index}.text`)}>{item.text}</p>
             </div>
           </article>
         ))}
@@ -395,15 +319,15 @@ const principles = [
   <section class="section process" id="process" aria-labelledby="process-heading">
     <div class="shell">
       <div class="section-heading split-heading process-heading">
-        <p class="eyebrow eyebrow-light">A straightforward process</p>
-        <h2 id="process-heading">Clear steps. Direct communication. No mystery.</h2>
+        <p {...editableText("process.eyebrow")} class="eyebrow eyebrow-light">{home.process.eyebrow}</p>
+        <h2 {...editableText("process.heading")} id="process-heading">{home.process.heading}</h2>
       </div>
       <div class="process-list">
         {process.map((item, index) => (
           <article class="process-row">
             <span class="process-number">0{index + 1}</span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
+            <h3 {...editableText(`process.steps.${index}.title`)}>{item.title}</h3>
+            <p {...editableText(`process.steps.${index}.text`)}>{item.text}</p>
           </article>
         ))}
       </div>
@@ -413,23 +337,20 @@ const principles = [
   <section class="section why" id="why" aria-labelledby="why-heading">
     <div class="shell why-grid">
       <div class="why-copy">
-        <p class="eyebrow">Why Devotion Creative</p>
-        <h2 id="why-heading">Polished is only useful when it has a purpose.</h2>
-        <p class="lead">
-          We believe a business website should do more than look polished. It
-          should communicate the quality of your work and help potential
-          customers confidently take the next step.
+        <p {...editableText("why.eyebrow")} class="eyebrow">{home.why.eyebrow}</p>
+        <h2 {...editableText("why.heading")} id="why-heading">{home.why.heading}</h2>
+        <p {...editableText("why.introduction")} class="lead">
+          {home.why.introduction}
         </p>
-        <p>
-          That means every decision has a purpose—from the information visitors
-          see first to the placement of each call button and estimate form.
+        <p {...editableText("why.description")}>
+          {home.why.description}
         </p>
       </div>
       <div class="principles-panel">
-        <p class="panel-kicker">Our approach is practical</p>
+        <p {...editableText("why.principles_heading")} class="panel-kicker">{home.why.principles_heading}</p>
         <ul>
-          {principles.map((principle) => (
-            <li><span aria-hidden="true">↳</span>{principle}</li>
+          {principles.map((principle, index) => (
+            <li><span aria-hidden="true">↳</span><editable-text data-prop={homepageProp(`why.principles.${index}`)} data-type="span">{principle}</editable-text></li>
           ))}
         </ul>
       </div>
@@ -439,15 +360,13 @@ const principles = [
   <section class="review" id="review" aria-labelledby="review-heading">
     <div class="shell review-grid">
       <div class="review-copy">
-        <p class="eyebrow eyebrow-light">A useful first step</p>
-        <h2 id="review-heading">See what your current website could do better.</h2>
-        <p>
-          Send us your website address. We’ll return a screenshot with a few
-          specific opportunities marked directly on the page.
+        <p {...editableText("review.eyebrow")} class="eyebrow eyebrow-light">{home.review.eyebrow}</p>
+        <h2 {...editableText("review.heading")} id="review-heading">{home.review.heading}</h2>
+        <p {...editableText("review.introduction")}>
+          {home.review.introduction}
         </p>
-        <p>
-          You’ll see where the site may be creating confusion, weakening trust,
-          or making it harder for visitors to contact you.
+        <p {...editableText("review.description")}>
+          {home.review.description}
         </p>
       </div>
       <div class="review-card">
@@ -455,14 +374,14 @@ const principles = [
           <span class="mini-browser review-audit-browser">
             <span class="mini-browser-bar" aria-hidden="true">
               <span class="mini-browser-dots"><i></i><i></i><i></i></span>
-              <span class="mini-browser-address">energytransport.com</span>
+              <span {...editableText("work.display_domain")} class="mini-browser-address">{home.work.display_domain}</span>
             </span>
             <span class="mini-browser-screen review-audit-screen">
-              <img
-                src="/images/work/energy-transport-audit.webp"
-                alt="Annotated Energy Transport homepage audit highlighting its primary call to action and opportunities to add proof"
-                width="918"
-                height="1714"
+              <img {...editableImage("images.audit", "alt")}
+                src={home.images.audit.image}
+                alt={home.images.audit.alt}
+                width={home.images.audit.width}
+                height={home.images.audit.height}
                 loading="lazy"
                 decoding="async"
               />
@@ -478,48 +397,48 @@ const principles = [
         >
           <div class="review-fields">
             <div class="review-field">
-              <label for="review-name">Name</label>
+              <label {...editableText("review.name_label")} for="review-name">{home.review.name_label}</label>
               <input
                 id="review-name"
                 name="name"
                 type="text"
                 autocomplete="name"
-                placeholder="Your name"
+                placeholder={home.review.name_placeholder}
                 required
               />
             </div>
             <div class="review-field">
-              <label for="review-email">Email</label>
+              <label {...editableText("review.email_label")} for="review-email">{home.review.email_label}</label>
               <input
                 id="review-email"
                 name="email"
                 type="email"
                 inputmode="email"
                 autocomplete="email"
-                placeholder="you@company.com"
+                placeholder={home.review.email_placeholder}
                 required
               />
             </div>
             <div class="review-field review-field-wide">
-              <label for="website">Website address</label>
+              <label {...editableText("review.website_label")} for="website">{home.review.website_label}</label>
               <input
                 id="website"
                 name="website"
                 type="url"
                 inputmode="url"
                 autocomplete="url"
-                placeholder="https://yourwebsite.com"
+                placeholder={home.review.website_placeholder}
                 required
               />
-              <p class="form-note review-form-note">Free, practical, and no sales pitch required.</p>
+              <p {...editableText("review.form_note")} class="form-note review-form-note">{home.review.form_note}</p>
             </div>
           </div>
           <input type="hidden" name="inbox_key" value="potential-client-contact" />
           <input type="hidden" name="_replyto" value="" data-review-replyto />
           <input type="hidden" name="_subject" value="Free website review request" />
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-          <p class="form-error" role="alert" data-review-recaptcha-error hidden>
-            Please complete the security check before sending your request.
+          <p {...editableText("review.security_error")} class="form-error" role="alert" data-review-recaptcha-error hidden>
+            {home.review.security_error}
           </p>
           <div class="review-submit-row">
             <div
@@ -529,11 +448,11 @@ const principles = [
               aria-label="Security check"
             ></div>
             <button class="button button-dark" type="submit" data-review-submit>
-              <span data-review-submit-label>Get my free review</span> <span aria-hidden="true">↗</span>
+              <span {...editableText("review.submit_text")} data-review-submit-label>{home.review.submit_text}</span> <span aria-hidden="true">↗</span>
             </button>
           </div>
-          <p class="form-error" role="alert" data-review-error hidden>
-            We couldn’t send your request. Please try again.
+          <p {...editableText("review.submit_error")} class="form-error" role="alert" data-review-error hidden>
+            {home.review.submit_error}
           </p>
         </form>
 
@@ -545,17 +464,17 @@ const principles = [
           hidden
         >
           <div class="success-mark" aria-hidden="true">✓</div>
-          <p class="success-kicker">Request received</p>
-          <h3 id="review-success-heading">You’re all set.</h3>
+          <p {...editableText("review.success_eyebrow")} class="success-kicker">{home.review.success_eyebrow}</p>
+          <h3 {...editableText("review.success_heading")} id="review-success-heading">{home.review.success_heading}</h3>
           <p>
-            We received your website and will email your marked-up review to
+            <editable-text data-prop={homepageProp("review.success_message")} data-type="span">{home.review.success_message}</editable-text>
             <strong data-review-email>your inbox</strong>.
           </p>
 
           <div class="phone-step" data-phone-step>
-            <p class="phone-step-label">Optional next step</p>
-            <h4>Add your phone number</h4>
-            <p>If you’d like us to have another way to reach you, add it below.</p>
+            <p {...editableText("review.phone_eyebrow")} class="phone-step-label">{home.review.phone_eyebrow}</p>
+            <h4 {...editableText("review.phone_heading")}>{home.review.phone_heading}</h4>
+            <p {...editableText("review.phone_description")}>{home.review.phone_description}</p>
             <form
               class="phone-form"
               action="/?review=sent&amp;phone=added#review"
@@ -574,10 +493,10 @@ const principles = [
                 data-recaptcha-site-key={recaptchaSiteKey}
                 aria-label="Security check"
               ></div>
-              <p class="form-error" role="alert" data-phone-recaptcha-error hidden>
-                Please complete the security check before adding your number.
+              <p {...editableText("review.phone_security_error")} class="form-error" role="alert" data-phone-recaptcha-error hidden>
+                {home.review.phone_security_error}
               </p>
-              <label for="review-phone">Phone number</label>
+              <label {...editableText("review.phone_label")} for="review-phone">{home.review.phone_label}</label>
               <div class="input-row phone-input-row">
                 <input
                   id="review-phone"
@@ -585,20 +504,20 @@ const principles = [
                   type="tel"
                   inputmode="tel"
                   autocomplete="tel"
-                  placeholder="(555) 555-5555"
+                  placeholder={home.review.phone_placeholder}
                   required
                 />
                 <button class="button button-dark" type="submit" data-phone-submit>
-                  <span data-phone-submit-label>Add my number</span> <span aria-hidden="true">↗</span>
+                  <span {...editableText("review.phone_submit_text")} data-phone-submit-label>{home.review.phone_submit_text}</span> <span aria-hidden="true">↗</span>
                 </button>
               </div>
-              <p class="form-error" role="alert" data-phone-error hidden>
-                We couldn’t add your number. Please try again.
+              <p {...editableText("review.phone_error")} class="form-error" role="alert" data-phone-error hidden>
+                {home.review.phone_error}
               </p>
             </form>
           </div>
           <p class="phone-confirmation" data-phone-confirmation role="status" hidden>
-            <span aria-hidden="true">✓</span> Your phone number was added.
+            <span aria-hidden="true">✓</span> <editable-text data-prop={homepageProp("review.phone_confirmation")} data-type="span">{home.review.phone_confirmation}</editable-text>
           </p>
         </section>
       </div>
@@ -627,7 +546,10 @@ const principles = [
     };
 
     previewButtons.forEach((button) => {
-      button.addEventListener("click", () => setPreview(button.dataset.previewChoice || "desktop"));
+      button.addEventListener("click", (event) => {
+        if (event.defaultPrevented) return; // CloudCannon is editing the button label.
+        setPreview(button.dataset.previewChoice || "desktop");
+      });
     });
 
     const projectDialog = document.querySelector<HTMLDialogElement>("#energy-project-dialog");
@@ -647,7 +569,8 @@ const principles = [
     };
 
     document.querySelectorAll<HTMLButtonElement>("[data-open-project]").forEach((button) => {
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (event) => {
+        if (event.defaultPrevented) return; // CloudCannon is editing the image or label.
         const activePreview = document.querySelector<HTMLButtonElement>("[data-preview-choice].is-active");
         setDialogDesign(button.dataset.projectView || activePreview?.dataset.previewChoice || "desktop");
         projectDialog?.showModal();
@@ -656,7 +579,10 @@ const principles = [
     });
 
     dialogButtons.forEach((button) => {
-      button.addEventListener("click", () => setDialogDesign(button.dataset.dialogChoice || "desktop"));
+      button.addEventListener("click", (event) => {
+        if (event.defaultPrevented) return;
+        setDialogDesign(button.dataset.dialogChoice || "desktop");
+      });
     });
 
     document.querySelector<HTMLButtonElement>("[data-close-project]")?.addEventListener("click", () => {
@@ -681,6 +607,7 @@ const principles = [
     const reviewError = document.querySelector<HTMLElement>("[data-review-error]");
     const reviewSubmit = document.querySelector<HTMLButtonElement>("[data-review-submit]");
     const reviewSubmitLabel = document.querySelector<HTMLElement>("[data-review-submit-label]");
+    const reviewSubmitText = reviewSubmitLabel?.textContent || "Get my free review";
     const reviewReplyTo = document.querySelector<HTMLInputElement>("[data-review-replyto]");
     const phoneForm = document.querySelector<HTMLFormElement>("[data-phone-form]");
     const phoneStep = document.querySelector<HTMLElement>("[data-phone-step]");
@@ -688,6 +615,7 @@ const principles = [
     const phoneError = document.querySelector<HTMLElement>("[data-phone-error]");
     const phoneSubmit = document.querySelector<HTMLButtonElement>("[data-phone-submit]");
     const phoneSubmitLabel = document.querySelector<HTMLElement>("[data-phone-submit-label]");
+    const phoneSubmitText = phoneSubmitLabel?.textContent || "Add my number";
     const reviewRecaptchaError = document.querySelector<HTMLElement>("[data-review-recaptcha-error]");
     const phoneRecaptchaError = document.querySelector<HTMLElement>("[data-phone-recaptcha-error]");
     const recaptchaContainers = document.querySelectorAll<HTMLElement>("[data-recaptcha-container]");
@@ -791,7 +719,7 @@ const principles = [
         reviewError?.removeAttribute("hidden");
       } finally {
         reviewSubmit?.removeAttribute("disabled");
-        if (reviewSubmitLabel) reviewSubmitLabel.textContent = "Get my free review";
+        if (reviewSubmitLabel) reviewSubmitLabel.textContent = reviewSubmitText;
       }
     });
 
@@ -815,7 +743,7 @@ const principles = [
         phoneError?.removeAttribute("hidden");
       } finally {
         phoneSubmit?.removeAttribute("disabled");
-        if (phoneSubmitLabel) phoneSubmitLabel.textContent = "Add my number";
+        if (phoneSubmitLabel) phoneSubmitLabel.textContent = phoneSubmitText;
       }
     });
 

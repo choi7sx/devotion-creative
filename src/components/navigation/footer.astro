@@ -1,20 +1,25 @@
+---
+import home from "../../../data/homepage.json";
+import { editableText, homepageProp } from "../../utils/homepage-editing";
+---
+
 <footer class="site-footer">
   <div class="shell footer-top">
     <div>
-      <a class="wordmark wordmark-light" href="/" aria-label="Devotion Creative home">
+      <a class="wordmark wordmark-light" href={home.brand.home_link} aria-label={`${home.brand.first_line} ${home.brand.second_line} home`}>
         <span class="wordmark-mark" aria-hidden="true"></span>
-        <span>Devotion<br />Creative</span>
+        <span><editable-text data-prop={homepageProp("brand.first_line")} data-type="span">{home.brand.first_line}</editable-text><br /><editable-text data-prop={homepageProp("brand.second_line")} data-type="span">{home.brand.second_line}</editable-text></span>
       </a>
-      <p>Conversion-focused websites for local service businesses.</p>
+      <p {...editableText("footer.description")}>{home.footer.description}</p>
     </div>
     <div class="footer-contact">
-      <p>Email address</p>
-      <p>Phone number</p>
-      <p>City, State</p>
+      <p {...editableText("footer.email")}>{home.footer.email}</p>
+      <p {...editableText("footer.phone")}>{home.footer.phone}</p>
+      <p {...editableText("footer.location")}>{home.footer.location}</p>
     </div>
   </div>
   <div class="shell footer-bottom">
-    <p>© {new Date().getFullYear()} Devotion Creative</p>
-    <a href="#top">Back to top ↑</a>
+    <p>© {new Date().getFullYear()} <editable-text data-prop={homepageProp("brand.copyright_name")} data-type="span">{home.brand.copyright_name}</editable-text></p>
+    <a {...editableText("footer.back_text")} href={home.footer.back_link}>{home.footer.back_text}</a>
   </div>
 </footer>
