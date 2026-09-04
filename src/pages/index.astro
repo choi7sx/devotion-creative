@@ -106,22 +106,32 @@ const principles = [
           </p>
         </div>
       </div>
-      <div class="hero-visual image-placeholder has-image">
-        <picture>
-          <source
-            media="(max-width: 900px)"
-            srcset="/images/work/energy-transport-desktop.webp"
-          />
-          <img
-            src="/images/work/energy-transport-mobile.webp"
-            alt="Energy Transport website presented in its mobile layout"
-            width="405"
-            height="4661"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </picture>
-      </div>
+      <button
+        class="hero-visual device-card mobile-showcase"
+        type="button"
+        data-open-project
+        data-project-view="mobile"
+        aria-label="View the full Energy Transport mobile design"
+      >
+        <span class="slot-copy" aria-hidden="true">
+          <span class="slot-label">Mobile experience</span>
+          <strong>Energy<br />Transport</strong>
+          <span class="slot-action">View project ↗</span>
+        </span>
+        <span class="mini-phone" aria-hidden="true">
+          <span class="mini-phone-speaker"></span>
+          <span class="mini-phone-screen">
+            <img
+              src="/images/work/energy-transport-mobile.webp"
+              alt=""
+              width="405"
+              height="4661"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </span>
+        </span>
+      </button>
     </div>
     <div class="shell value-rail" aria-label="Core website outcomes">
       <span>Trust</span>
@@ -319,16 +329,35 @@ const principles = [
       <div class="services-sticky">
         <p class="eyebrow">What we provide</p>
         <h2 id="services-heading">A website built around how your business actually wins work.</h2>
-        <div class="services-visual image-placeholder has-image">
-          <img
-            src="/images/work/energy-transport-desktop.webp"
-            alt="Energy Transport website presented in its desktop layout"
-            width="2200"
-            height="4704"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+        <button
+          class="services-visual device-card desktop-showcase"
+          type="button"
+          data-open-project
+          data-project-view="desktop"
+          aria-label="View the full Energy Transport desktop design"
+        >
+          <span class="mini-browser" aria-hidden="true">
+            <span class="mini-browser-bar">
+              <span class="mini-browser-dots"><i></i><i></i><i></i></span>
+              <span class="mini-browser-address">energytransport.com</span>
+            </span>
+            <span class="mini-browser-screen">
+              <img
+                src="/images/work/energy-transport-desktop.webp"
+                alt=""
+                width="2200"
+                height="4704"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+          </span>
+          <span class="desktop-slot-label" aria-hidden="true">
+            <span>Desktop experience</span>
+            <strong>Energy Transport</strong>
+            <span>View project ↗</span>
+          </span>
+        </button>
       </div>
       <div class="service-list">
         {services.map((item, index) => (
@@ -468,7 +497,7 @@ const principles = [
     document.querySelectorAll<HTMLButtonElement>("[data-open-project]").forEach((button) => {
       button.addEventListener("click", () => {
         const activePreview = document.querySelector<HTMLButtonElement>("[data-preview-choice].is-active");
-        setDialogDesign(activePreview?.dataset.previewChoice || "desktop");
+        setDialogDesign(button.dataset.projectView || activePreview?.dataset.previewChoice || "desktop");
         projectDialog?.showModal();
         document.body.classList.add("dialog-open");
       });
