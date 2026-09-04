@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import site from "../../data/site.json";
 
 const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 
@@ -71,13 +72,47 @@ const principles = [
   "Direct communication throughout the project",
   "Ongoing support after the site goes live",
 ];
+
+const siteUrl = Astro.site!.href;
+const organizationId = new URL("#organization", siteUrl).href;
+const structuredData = [
+  {
+    "@type": "Organization",
+    "@id": organizationId,
+    name: site.site_title,
+    url: siteUrl,
+    description: site.description,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Website design and management services",
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          description: service.text,
+          url: new URL("#services", siteUrl).href,
+          provider: { "@id": organizationId },
+        },
+      })),
+    },
+  },
+  {
+    "@type": "WebSite",
+    "@id": new URL("#website", siteUrl).href,
+    name: site.site_title,
+    url: siteUrl,
+    inLanguage: "en-US",
+    publisher: { "@id": organizationId },
+  },
+];
 ---
 
 <Layout
-  title="Devotion Creative"
+  title="Web Design for Local Service Businesses | Devotion Creative"
+  structuredData={structuredData}
   seo={{
-    page_description:
-      "Conversion-focused websites for local service businesses, built to establish trust and turn more visitors into calls and estimate requests.",
+    page_description: site.description,
     featured_image: null,
     featured_image_alt: null,
     canonical_url: null,
@@ -94,7 +129,7 @@ const principles = [
   <section class="hero" aria-labelledby="hero-heading">
     <div class="shell hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Websites for local service businesses</p>
+        <p class="eyebrow">Web design for local service businesses</p>
         <h1 id="hero-heading">Turn your website into a <em>lead-generating</em> asset.</h1>
         <div class="hero-intro">
           <p>
@@ -321,26 +356,10 @@ const principles = [
     </div>
   </dialog>
 
-  <section class="section testimonials" aria-labelledby="testimonials-heading">
-    <div class="shell testimonial-grid">
-      <div class="testimonial-heading">
-        <p class="eyebrow eyebrow-light">What clients say</p>
-        <h2 id="testimonials-heading">A website that finally reflects the business.</h2>
-      </div>
-      <figure class="testimonial-card">
-        <blockquote>“Lorem impsum…”</blockquote>
-        <figcaption>
-          <strong>[Client Name]</strong>
-          <span>[Role], [Company Name]</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
   <section class="section services" id="services" aria-labelledby="services-heading">
     <div class="shell services-grid">
       <div class="services-sticky">
-        <p class="eyebrow">What we provide</p>
+        <p class="eyebrow">Web design and website management services</p>
         <h2 id="services-heading">A website built around how your business actually wins work.</h2>
         <div class="project-tile services-project-tile">
           <button

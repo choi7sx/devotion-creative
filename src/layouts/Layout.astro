@@ -3,24 +3,24 @@ import "../styles/main.css";
 import site from "../../data/site.json";
 import Header from "../components/navigation/header.astro";
 import Footer from "../components/navigation/footer.astro";
-import { SEO } from "astro-seo";
 
 export interface SEOProps {
-  page_description: string | null;
-  featured_image: string | null;
-  featured_image_alt: string | null;
-  canonical_url: string | null;
-  no_index: boolean | null;
-  open_graph_type: string | null;
-  author_twitter_handle: string | null;
+  page_description?: string | null;
+  featured_image?: string | null;
+  featured_image_alt?: string | null;
+  canonical_url?: string | null;
+  no_index?: boolean | null;
+  open_graph_type?: string | null;
+  author_twitter_handle?: string | null;
 }
 
 export interface Props {
   title: string;
   seo?: SEOProps;
+  structuredData?: Record<string, unknown>[];
 }
 
-const { seo, title } = Astro.props;
+const { seo, title, structuredData = [] } = Astro.props;
 const baseUrl = Astro.site?.toString();
 
 let pageTitle = "";
@@ -32,13 +32,19 @@ if (!title) {
   pageTitle = `${title} | ${site.site_title}`;
 }
 
-const description = seo?.page_description ?? site.description;
-const image = seo?.featured_image ?? site.image;
+const description = seo?.page_description?.trim() || site.description;
+const image = seo?.featured_image?.trim() || site.image;
 const imagePath = image && baseUrl ? new URL(image, baseUrl).toString() : null;
 const imageAlt = seo?.featured_image_alt ?? site.image_alt;
-const canonicalURL = baseUrl
-  ? new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl)
+const canonicalURL = baseUrl && !seo?.no_index
+  ? new URL(seo?.canonical_url?.trim() || Astro.url.pathname, baseUrl)
   : undefined;
+if (canonicalURL) {
+  canonicalURL.search = "";
+  canonicalURL.hash = "";
+}
+const twitterSite = site.twitter_site?.trim();
+const twitterCreator = seo?.author_twitter_handle?.trim() || twitterSite;
 ---
 
 <!doctype html>
@@ -55,27 +61,32 @@ const canonicalURL = baseUrl
     />
     <meta name="generator" content={Astro.generator} />
 
-    <SEO
-      noindex={seo?.no_index || false}
-      title={pageTitle}
-      description={description}
-      canonical={canonicalURL?.toString()}
-      openGraph={imagePath ? {
-          basic: {
-            title: pageTitle,
-            url: baseUrl,
-            type: seo?.open_graph_type || "website",
-            image: imagePath,
-          },
-          optional: { description },
-          image: { url: imagePath, alt: imageAlt || "" },
-        } : undefined}
-      twitter={{
-        creator: `${seo?.author_twitter_handle || site.twitter_site}`,
-        site: `${site.twitter_site}`,
-        card: "summary_large_image",
-      }}
-    />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={seo?.no_index ? "noindex, follow" : "index, follow, max-image-preview:large"} />
+    {canonicalURL && <link rel="canonical" href={canonicalURL.href} />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:site_name" content={site.site_title} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={seo?.open_graph_type || "website"} />
+    <meta property="og:locale" content="en_US" />
+    {canonicalURL && <meta property="og:url" content={canonicalURL.href} />}
+    {imagePath && <meta property="og:image" content={imagePath} />}
+    {imagePath && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+    <meta name="twitter:card" content={imagePath ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    {imagePath && <meta name="twitter:image" content={imagePath} />}
+    {imagePath && imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+    {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+    {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
+    {structuredData.length > 0 && !seo?.no_index && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": structuredData,
+      }).replace(/</g, "\\u003c")} />
+    )}
   </head>
   <body id="top">
     <Header />
