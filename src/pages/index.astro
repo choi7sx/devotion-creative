@@ -169,6 +169,51 @@ const principles = [
     </div>
   </section>
 
+  <section class="section recent-work" id="work" aria-labelledby="work-heading">
+    <div class="shell">
+      <div class="work-heading">
+        <p class="eyebrow">Recent work</p>
+        <h2 id="work-heading">Websites designed with a clear purpose.</h2>
+        <p>
+          Every project starts with the same question: what does a potential
+          customer need to see before they feel confident reaching out?
+        </p>
+      </div>
+      <div class="work-grid" aria-label="Recent project thumbnails">
+        {[1, 2, 3].map((project) => (
+          <article class="work-card">
+            <div
+              class="work-thumbnail image-placeholder"
+              role="img"
+              aria-label={`Recent project image placeholder ${project}`}
+            >
+              <div class="placeholder-label">
+                <span>Project {String(project).padStart(2, "0")}</span>
+                <span>Thumbnail</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials" aria-labelledby="testimonials-heading">
+    <div class="shell testimonial-grid">
+      <div class="testimonial-heading">
+        <p class="eyebrow eyebrow-light">What clients say</p>
+        <h2 id="testimonials-heading">A website that finally reflects the business.</h2>
+      </div>
+      <figure class="testimonial-card">
+        <blockquote>“Lorem impsum…”</blockquote>
+        <figcaption>
+          <strong>[Client Name]</strong>
+          <span>[Role], [Company Name]</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="section services" id="services" aria-labelledby="services-heading">
     <div class="shell services-grid">
       <div class="services-sticky">
