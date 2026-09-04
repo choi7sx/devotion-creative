@@ -10,7 +10,8 @@
   deployment to crawl the site. These changes do not change hosting access.
 - Shared metadata is in `src/layouts/Layout.astro`; default description and optional
   social image settings are in `data/site.json`. Give each new page a distinct title
-  and description. Social title and description tags work without an image.
+  and description. The homepage title and description are editable in
+  `data/homepage.json`. Social title and description tags work without an image.
 - The homepage includes Organization, WebSite, and service catalog JSON-LD derived
   from the displayed business information. Add real contact details or testimonials
   when available; do not add invented addresses, ratings, or service areas.
@@ -58,6 +59,18 @@ npm run dev
 
 This site is pre-configured for CloudCannon. Connect your repository and CloudCannon will detect the configuration in `.cloudcannon/initial-site-settings.json` and build your site automatically. The editing experience is defined in `cloudcannon.config.yml`, which you can modify to control your editors' experience.
 
+### Editing the Devotion Creative homepage
+
+Open **Pages → Devotion Creative** in CloudCannon. The Visual Editor connects individual text and image regions to `data/homepage.json`. The Data Editor and the Visual Editor sidebar expose the same content, grouped by section, including navigation links, repeated services and process steps, image descriptions, and form labels. Save after changing links or adding/reordering items so CloudCannon rebuilds the preview.
+
+The hero heading has separate beginning, highlighted, and ending fields to retain its orange emphasis. Project images are shared between thumbnails, previews, and the full design viewer. Header and footer content is shared across routes. Hidden form confirmation messages can be changed in the Review form and confirmation fields.
+
+The testimonial appears once both a real quote and client name are filled in. Blank footer contact fields are omitted; fill these through the Data Editor or sidebar to display them. Use homepage paths such as `/#review` for shared navigation so links also work from the 404 page.
+
+Content is plain text, escaped by Astro. Layout, styling, section IDs, form endpoints, reCAPTCHA, and interaction code remain in the templates. Do not wrap the homepage in a Source Editable Region: its forms, dialogs, and template loops cannot safely be edited as rich text. Homepage input configuration lives in `.cloudcannon/homepage.cloudcannon.inputs.yml`.
+
+These changes take effect in CloudCannon after this branch is merged into the branch connected to the site and its build finishes. Open the homepage again from Pages; an old editor tab may still point to `src/pages/index.astro`.
+
 ### Editable Regions
 
 This starter demonstrates several types of Editable Region:
@@ -86,7 +99,7 @@ Three page-building components are included:
 
 ### Content
 
-- **Pages** are in `src/content/pages/` as Markdown with structured front matter, and support a component-based page-building workflow. Developers can also add standalone pages paired with a routing file in `src/pages/` (like `src/content/pages/about.astro`), and decide which parts of those pages are editable in CloudCannon.
+- **Homepage content** is in `data/homepage.json`; `src/pages/index.astro` renders the existing design. The CloudCannon Pages collection opens this content file at `/`.
 - **Blog posts** are in `src/content/blog/` as MDX files
 - **Data** files (site settings, navigation) are in `data/`
 

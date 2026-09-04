@@ -1,0 +1,216 @@
+{
+  "title": "Web Design for Local Service Businesses | Devotion Creative",
+  "seo": {
+    "page_description": "Devotion Creative designs and manages websites for local service businesses. Turn more visitors into calls and estimate requests. Get a free website review."
+  },
+  "brand": {
+    "first_line": "Devotion",
+    "second_line": "Creative",
+    "home_link": "/",
+    "copyright_name": "Devotion Creative"
+  },
+  "header": {
+    "outcomes_text": "Outcomes",
+    "services_text": "Services",
+    "process_text": "Process",
+    "why_text": "Why us",
+    "review_text": "Free website review",
+    "outcomes_link": "/#outcomes",
+    "services_link": "/#services",
+    "process_link": "/#process",
+    "why_link": "/#why",
+    "review_link": "/#review"
+  },
+  "hero": {
+    "eyebrow": "Web design for local service businesses",
+    "heading_start": "Turn your website into a",
+    "heading_highlight": "lead-generating",
+    "heading_end": "asset.",
+    "description": "We design and manage conversion-focused websites for local service businesses. Each site is built to establish trust, explain your services clearly, and turn more visitors into calls and estimate requests.",
+    "button_text": "Get a free website review",
+    "note": "No sales pitch required. We’ll review your homepage and show you a few practical opportunities to improve it.",
+    "outcome_trust": "Trust",
+    "outcome_clarity": "Clarity",
+    "outcome_conversion": "Conversion",
+    "outcome_performance": "Performance",
+    "button_link": "#review"
+  },
+  "problem": {
+    "eyebrow": "The real job of your website",
+    "heading": "Your website should help you win more business.",
+    "introduction": "Potential customers visit your website to decide whether they can trust you with the job.",
+    "description": "If your site looks outdated, is difficult to use on a phone, or makes the next step unclear, they may leave and contact a competitor.",
+    "questions_heading": "We answer the questions customers care about",
+    "question_services": "What services do you provide?",
+    "question_area": "Do you serve my area?",
+    "question_trust": "Why should I trust your company?",
+    "question_estimate": "How can I request an estimate?"
+  },
+  "outcomes": {
+    "items": [
+      {
+        "number": "01",
+        "title": "Trust",
+        "text": "Present your reviews, completed projects, credentials, and experience where potential customers can see them."
+      },
+      {
+        "number": "02",
+        "title": "Clarity",
+        "text": "Organize your services and service areas so visitors immediately understand how you can help."
+      },
+      {
+        "number": "03",
+        "title": "Conversion",
+        "text": "Make it simple to call, submit a request, or schedule the next step from any device."
+      },
+      {
+        "number": "04",
+        "title": "Performance",
+        "text": "Give visitors a fast, reliable, mobile-friendly experience that reflects the quality of your business."
+      }
+    ],
+    "eyebrow": "What we help improve",
+    "heading": "A better path from first visit to first call."
+  },
+  "work": {
+    "mobile_caption": "Mobile experience",
+    "project_name": "Energy Transport",
+    "view_project_text": "View project",
+    "eyebrow": "Selected work",
+    "heading": "Built to earn trust on every screen.",
+    "description": "A responsive website for a family-owned fuel carrier, designed to make decades of reliable service clear at a glance.",
+    "project_label": "Project / 01",
+    "service_strategy": "Strategy",
+    "service_design": "Web design",
+    "service_development": "Development",
+    "desktop_label": "Desktop",
+    "mobile_label": "Mobile",
+    "display_domain": "energytransport.com",
+    "note": "The same clear story, thoughtfully adapted from a wide desktop canvas to a focused mobile experience.",
+    "view_full_text": "View full design",
+    "desktop_caption": "Desktop experience"
+  },
+  "images": {
+    "mobile": {
+      "image": "/images/work/energy-transport-mobile.webp",
+      "width": 405,
+      "height": 4661,
+      "alt": "Energy Transport homepage shown at mobile size",
+      "full_alt": "Full Energy Transport mobile homepage design"
+    },
+    "desktop": {
+      "image": "/images/work/energy-transport-desktop.webp",
+      "alt": "Energy Transport homepage shown at desktop size",
+      "width": 2200,
+      "height": 4704,
+      "full_alt": "Full Energy Transport desktop homepage design"
+    },
+    "audit": {
+      "image": "/images/work/energy-transport-audit.webp",
+      "alt": "Annotated Energy Transport homepage audit highlighting its primary call to action and opportunities to add proof",
+      "width": 918,
+      "height": 1714
+    }
+  },
+  "testimonial": {
+    "eyebrow": "What clients say",
+    "heading": "A website that finally reflects the business.",
+    "quote": "",
+    "client_name": "",
+    "client_role": ""
+  },
+  "services": {
+    "items": [
+      {
+        "title": "Website strategy and design",
+        "text": "A professional website structured around your customers, services, and sales process."
+      },
+      {
+        "title": "Conversion-focused pages",
+        "text": "Clear service pages, service-area pages, calls to action, estimate forms, reviews, and project galleries."
+      },
+      {
+        "title": "Lead tracking",
+        "text": "Tracking for calls and form submissions so you can understand what your website is producing."
+      },
+      {
+        "title": "Ongoing management",
+        "text": "Hosting, security, backups, content updates, and continued website improvements after launch."
+      }
+    ],
+    "eyebrow": "Web design and website management services",
+    "heading": "A website built around how your business actually wins work."
+  },
+  "process": {
+    "steps": [
+      {
+        "title": "Review",
+        "text": "We learn about your business, customers, services, and current website."
+      },
+      {
+        "title": "Plan",
+        "text": "We determine what the site needs to communicate and how visitors should move toward contacting you."
+      },
+      {
+        "title": "Build",
+        "text": "We create the pages, content, and conversion paths that support those goals."
+      },
+      {
+        "title": "Launch and manage",
+        "text": "After testing the site across devices, we launch it and continue keeping it secure, current, and effective."
+      }
+    ],
+    "eyebrow": "A straightforward process",
+    "heading": "Clear steps. Direct communication. No mystery."
+  },
+  "why": {
+    "principles": [
+      "Clear strategy before design",
+      "Simple and professional user experiences",
+      "Decisions centered on trust and conversion",
+      "Direct communication throughout the project",
+      "Ongoing support after the site goes live"
+    ],
+    "eyebrow": "Why Devotion Creative",
+    "heading": "Polished is only useful when it has a purpose.",
+    "introduction": "We believe a business website should do more than look polished. It should communicate the quality of your work and help potential customers confidently take the next step.",
+    "description": "That means every decision has a purpose—from the information visitors see first to the placement of each call button and estimate form.",
+    "principles_heading": "Our approach is practical"
+  },
+  "review": {
+    "eyebrow": "A useful first step",
+    "heading": "See what your current website could do better.",
+    "introduction": "Send us your website address. We’ll return a screenshot with a few specific opportunities marked directly on the page.",
+    "description": "You’ll see where the site may be creating confusion, weakening trust, or making it harder for visitors to contact you.",
+    "name_label": "Name",
+    "email_label": "Email",
+    "website_label": "Website address",
+    "form_note": "Free, practical, and no sales pitch required.",
+    "security_error": "Please complete the security check before sending your request.",
+    "submit_text": "Get my free review",
+    "submit_error": "We couldn’t send your request. Please try again.",
+    "success_eyebrow": "Request received",
+    "success_heading": "You’re all set.",
+    "success_message": "We received your website and will email your marked-up review to",
+    "phone_eyebrow": "Optional next step",
+    "phone_heading": "Add your phone number",
+    "phone_description": "If you’d like us to have another way to reach you, add it below.",
+    "phone_security_error": "Please complete the security check before adding your number.",
+    "phone_label": "Phone number",
+    "phone_submit_text": "Add my number",
+    "phone_error": "We couldn’t add your number. Please try again.",
+    "phone_confirmation": "Your phone number was added.",
+    "name_placeholder": "Your name",
+    "email_placeholder": "you@company.com",
+    "website_placeholder": "https://yourwebsite.com",
+    "phone_placeholder": "(555) 555-5555"
+  },
+  "footer": {
+    "description": "Conversion-focused websites for local service businesses.",
+    "email": "",
+    "phone": "",
+    "location": "",
+    "back_text": "Back to top ↑",
+    "back_link": "#top"
+  }
+}
