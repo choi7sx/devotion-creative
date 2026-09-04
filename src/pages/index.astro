@@ -172,31 +172,121 @@ const principles = [
   <section class="section recent-work" id="work" aria-labelledby="work-heading">
     <div class="shell">
       <div class="work-heading">
-        <p class="eyebrow">Recent work</p>
-        <h2 id="work-heading">Websites designed with a clear purpose.</h2>
+        <p class="eyebrow">Selected work</p>
+        <h2 id="work-heading">Built to earn trust on every screen.</h2>
         <p>
-          Every project starts with the same question: what does a potential
-          customer need to see before they feel confident reaching out?
+          A responsive website for a family-owned fuel carrier, designed to
+          make decades of reliable service clear at a glance.
         </p>
       </div>
-      <div class="work-grid" aria-label="Recent project thumbnails">
-        {[1, 2, 3].map((project) => (
-          <article class="work-card">
-            <div
-              class="work-thumbnail image-placeholder"
-              role="img"
-              aria-label={`Recent project image placeholder ${project}`}
-            >
-              <div class="placeholder-label">
-                <span>Project {String(project).padStart(2, "0")}</span>
-                <span>Thumbnail</span>
-              </div>
+
+      <article class="project-feature" aria-labelledby="energy-project-title">
+        <header class="project-feature-header">
+          <div>
+            <p class="project-number">Project / 01</p>
+            <h3 id="energy-project-title">Energy Transport</h3>
+          </div>
+          <ul class="project-services" aria-label="Project services">
+            <li>Strategy</li>
+            <li>Web design</li>
+            <li>Development</li>
+          </ul>
+        </header>
+
+        <div class="device-switch" role="group" aria-label="Choose a design preview">
+          <button class="is-active" type="button" data-preview-choice="desktop" aria-pressed="true">
+            Desktop
+          </button>
+          <button type="button" data-preview-choice="mobile" aria-pressed="false">
+            Mobile
+          </button>
+        </div>
+
+        <div class="project-stage">
+          <div class="browser-frame project-device is-active" data-project-preview="desktop">
+            <div class="browser-bar" aria-hidden="true">
+              <span class="browser-dots"><i></i><i></i><i></i></span>
+              <span class="browser-address">energytransport.com</span>
             </div>
-          </article>
-        ))}
-      </div>
+            <div class="browser-viewport">
+              <img
+                src="/images/work/energy-transport-desktop.webp"
+                alt="Energy Transport homepage shown at desktop size"
+                width="2200"
+                height="4704"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <div class="phone-frame project-device" data-project-preview="mobile">
+            <div class="phone-speaker" aria-hidden="true"></div>
+            <div class="phone-viewport">
+              <img
+                src="/images/work/energy-transport-mobile.webp"
+                alt="Energy Transport homepage shown at mobile size"
+                width="405"
+                height="4661"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+
+        <footer class="project-feature-footer">
+          <p>
+            The same clear story, thoughtfully adapted from a wide desktop
+            canvas to a focused mobile experience.
+          </p>
+          <button class="project-view-button" type="button" data-open-project>
+            View full design <span aria-hidden="true">↗</span>
+          </button>
+        </footer>
+      </article>
     </div>
   </section>
+
+  <dialog class="project-dialog" id="energy-project-dialog" aria-labelledby="project-dialog-title">
+    <div class="project-dialog-inner">
+      <header class="project-dialog-header">
+        <div>
+          <span class="project-number">Project / 01</span>
+          <h2 id="project-dialog-title">Energy Transport</h2>
+        </div>
+        <div class="dialog-actions">
+          <div class="dialog-switch" role="group" aria-label="Choose a full design view">
+            <button class="is-active" type="button" data-dialog-choice="desktop" aria-pressed="true">Desktop</button>
+            <button type="button" data-dialog-choice="mobile" aria-pressed="false">Mobile</button>
+          </div>
+          <button class="dialog-close" type="button" data-close-project aria-label="Close full design viewer">×</button>
+        </div>
+      </header>
+      <div class="project-dialog-scroll">
+        <div class="dialog-design is-active" data-dialog-design="desktop">
+          <img
+            src="/images/work/energy-transport-desktop.webp"
+            alt="Full Energy Transport desktop homepage design"
+            width="2200"
+            height="4704"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="dialog-design" data-dialog-design="mobile">
+          <img
+            src="/images/work/energy-transport-mobile.webp"
+            alt="Full Energy Transport mobile homepage design"
+            width="405"
+            height="4661"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+  </dialog>
 
   <section class="section testimonials" aria-labelledby="testimonials-heading">
     <div class="shell testimonial-grid">
@@ -325,4 +415,63 @@ const principles = [
       </div>
     </div>
   </section>
+
+  <script>
+    const previewButtons = document.querySelectorAll<HTMLButtonElement>("[data-preview-choice]");
+    const previewDevices = document.querySelectorAll<HTMLElement>("[data-project-preview]");
+
+    const setPreview = (view: string) => {
+      previewButtons.forEach((button) => {
+        const isActive = button.dataset.previewChoice === view;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+      previewDevices.forEach((device) => {
+        device.classList.toggle("is-active", device.dataset.projectPreview === view);
+      });
+    };
+
+    previewButtons.forEach((button) => {
+      button.addEventListener("click", () => setPreview(button.dataset.previewChoice || "desktop"));
+    });
+
+    const projectDialog = document.querySelector<HTMLDialogElement>("#energy-project-dialog");
+    const dialogButtons = document.querySelectorAll<HTMLButtonElement>("[data-dialog-choice]");
+    const dialogDesigns = document.querySelectorAll<HTMLElement>("[data-dialog-design]");
+
+    const setDialogDesign = (view: string) => {
+      dialogButtons.forEach((button) => {
+        const isActive = button.dataset.dialogChoice === view;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+      dialogDesigns.forEach((design) => {
+        design.classList.toggle("is-active", design.dataset.dialogDesign === view);
+      });
+      projectDialog?.querySelector(".project-dialog-scroll")?.scrollTo({ top: 0 });
+    };
+
+    document.querySelectorAll<HTMLButtonElement>("[data-open-project]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const activePreview = document.querySelector<HTMLButtonElement>("[data-preview-choice].is-active");
+        setDialogDesign(activePreview?.dataset.previewChoice || "desktop");
+        projectDialog?.showModal();
+        document.body.classList.add("dialog-open");
+      });
+    });
+
+    dialogButtons.forEach((button) => {
+      button.addEventListener("click", () => setDialogDesign(button.dataset.dialogChoice || "desktop"));
+    });
+
+    document.querySelector<HTMLButtonElement>("[data-close-project]")?.addEventListener("click", () => {
+      projectDialog?.close();
+    });
+
+    projectDialog?.addEventListener("click", (event) => {
+      if (event.target === projectDialog) projectDialog.close();
+    });
+
+    projectDialog?.addEventListener("close", () => document.body.classList.remove("dialog-open"));
+  </script>
 </Layout>
