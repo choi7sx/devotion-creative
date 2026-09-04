@@ -19,3 +19,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# machine-local Conductor settings
+.conductor/settings.local.toml
