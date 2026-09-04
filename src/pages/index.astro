@@ -84,6 +84,11 @@ const principles = [
     author_twitter_handle: null,
   }}
 >
+  <div
+    data-editable="source"
+    data-path="/src/pages/index.astro"
+    data-key="homepage-content"
+  >
   <section class="hero" aria-labelledby="hero-heading">
     <div class="shell hero-grid">
       <div class="hero-copy">
@@ -482,6 +487,8 @@ const principles = [
       </div>
     </div>
   </section>
+
+  </div>
 
   <script>
     const previewButtons = document.querySelectorAll<HTMLButtonElement>("[data-preview-choice]");
