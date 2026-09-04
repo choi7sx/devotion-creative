@@ -902,22 +902,76 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .review-audit-screen { aspect-ratio: 5 / 3; }
 .review-audit-screen img { transform: translateY(-16.8%); }
 .review-form { padding: clamp(1.5rem, 3vw, 2.5rem) clamp(0.25rem, 1vw, 1rem) 0.5rem; }
-.review-form label { display: block; margin-bottom: 0.75rem; font-size: 0.82rem; font-weight: 600; }
+.review-form label, .phone-form label { display: block; margin-bottom: 0.6rem; font-size: 0.875rem; font-weight: 600; }
+.review-fields { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.review-field-wide { grid-column: 1 / -1; }
 .input-row { display: grid; grid-template-columns: 1fr auto; }
+.review-field input,
 .input-row input {
+  width: 100%;
   min-width: 0;
   min-height: 3.7rem;
   padding: 0.85rem 1rem;
   border: 1px solid var(--color-line);
-  border-right: 0;
-  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  border-radius: var(--radius-sm);
   background: var(--color-white);
   color: var(--color-ink);
   font-size: 1rem;
 }
+.input-row input { border-right: 0; border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.review-field input:focus-visible, .input-row input:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+.review-submit-row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 1.25rem; }
 .button-dark { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; background: var(--color-ink); color: var(--color-white); }
 .button-dark:hover { background: var(--color-accent); }
-.form-note { margin: 0.8rem 0 0; color: var(--color-muted); font-size: 0.78rem; }
+.review-submit-row .button-dark { flex: 0 0 auto; border-radius: var(--radius-sm); }
+.button-dark:disabled { cursor: wait; opacity: 0.72; }
+.form-note { margin: 0; color: var(--color-muted); font-size: 0.78rem; }
+.form-error { margin: 0.85rem 0 0; color: #a42b18; font-size: 0.875rem; font-weight: 600; }
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+
+.review-success {
+  padding: clamp(2rem, 4vw, 3rem) clamp(0.5rem, 2vw, 1.5rem) 0.75rem;
+  outline: none;
+}
+.review-success[hidden], .phone-step[hidden], .phone-confirmation[hidden] { display: none; }
+.success-mark {
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 1.35rem;
+  place-items: center;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.success-kicker, .phone-step-label {
+  margin: 0 0 0.55rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.review-success h3 { margin: 0 0 0.75rem; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; }
+.review-success > p:not(.success-kicker):not(.phone-confirmation) { max-width: 35rem; margin: 0; color: var(--color-muted); }
+.review-success strong { color: var(--color-ink); }
+.phone-step { margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--color-line); }
+.phone-step h4 { margin: 0 0 0.55rem; font-family: var(--font-display); font-size: 1.35rem; letter-spacing: -0.025em; }
+.phone-step > p:not(.phone-step-label) { margin: 0 0 1.25rem; color: var(--color-muted); font-size: 0.95rem; }
+.phone-confirmation {
+  margin: 2rem 0 0;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(240, 84, 50, 0.08);
+  font-weight: 600;
+}
+.phone-confirmation span { color: var(--color-accent); }
 
 .site-footer { padding-top: clamp(4rem, 7vw, 7rem); background: #0f1211; color: var(--color-white); }
 .footer-top {
@@ -1064,6 +1118,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .process-row h3 { margin-bottom: 0.75rem; }
   .input-row { grid-template-columns: 1fr; gap: 0.65rem; }
   .input-row input, .button-dark { border: 1px solid var(--color-line); border-radius: var(--radius-sm); }
+  .review-fields { grid-template-columns: 1fr; }
+  .review-field-wide { grid-column: auto; }
+  .review-submit-row { align-items: stretch; flex-direction: column-reverse; }
+  .review-submit-row .button-dark { width: 100%; }
   .footer-contact { align-items: start; }
 }
 

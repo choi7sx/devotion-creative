@@ -467,23 +467,118 @@ const principles = [
             </span>
           </span>
         </div>
-        <form class="review-form" action="#review" method="get">
-          <label for="website">Your website address</label>
-          <div class="input-row">
-            <input
-              id="website"
-              name="website"
-              type="url"
-              inputmode="url"
-              placeholder="https://yourwebsite.com"
-              required
-            />
-            <button class="button button-dark" type="submit">
-              Get my free review <span aria-hidden="true">↗</span>
+        <form
+          class="review-form"
+          id="review-request-form"
+          action="/?review=sent#review"
+          method="post"
+          data-review-request-form
+        >
+          <div class="review-fields">
+            <div class="review-field">
+              <label for="review-name">Name</label>
+              <input
+                id="review-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="review-field">
+              <label for="review-email">Email</label>
+              <input
+                id="review-email"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="you@company.com"
+                required
+              />
+            </div>
+            <div class="review-field review-field-wide">
+              <label for="website">Website address</label>
+              <input
+                id="website"
+                name="website"
+                type="url"
+                inputmode="url"
+                autocomplete="url"
+                placeholder="https://yourwebsite.com"
+                required
+              />
+            </div>
+          </div>
+          <input type="hidden" name="_replyto" value="" data-review-replyto />
+          <input type="hidden" name="_subject" value="Free website review request" />
+          <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+          <div class="review-submit-row">
+            <p class="form-note">Free, practical, and no sales pitch required.</p>
+            <button class="button button-dark" type="submit" data-review-submit>
+              <span data-review-submit-label>Get my free review</span> <span aria-hidden="true">↗</span>
             </button>
           </div>
-          <p class="form-note">Free, practical, and no sales pitch required.</p>
+          <p class="form-error" role="alert" data-review-error hidden>
+            We couldn’t send your request. Please try again.
+          </p>
         </form>
+
+        <section
+          class="review-success"
+          data-review-success
+          aria-labelledby="review-success-heading"
+          tabindex="-1"
+          hidden
+        >
+          <div class="success-mark" aria-hidden="true">✓</div>
+          <p class="success-kicker">Request received</p>
+          <h3 id="review-success-heading">You’re all set.</h3>
+          <p>
+            We received your website and will email your marked-up review to
+            <strong data-review-email>your inbox</strong>.
+          </p>
+
+          <div class="phone-step" data-phone-step>
+            <p class="phone-step-label">Optional next step</p>
+            <h4>Add your phone number</h4>
+            <p>If you’d like us to have another way to reach you, add it below.</p>
+            <form
+              class="phone-form"
+              action="/?review=sent&amp;phone=added#review"
+              method="post"
+              data-phone-form
+            >
+              <input type="hidden" name="name" value="" data-phone-name />
+              <input type="hidden" name="email" value="" data-phone-email />
+              <input type="hidden" name="website" value="" data-phone-website />
+              <input type="hidden" name="_subject" value="Phone number added to website review request" />
+              <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              <label for="review-phone">Phone number</label>
+              <div class="input-row phone-input-row">
+                <input
+                  id="review-phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="(555) 555-5555"
+                  required
+                />
+                <button class="button button-dark" type="submit" data-phone-submit>
+                  <span data-phone-submit-label>Add my number</span> <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+              <p class="form-error" role="alert" data-phone-error hidden>
+                We couldn’t add your number. Please try again.
+              </p>
+            </form>
+          </div>
+          <p class="phone-confirmation" data-phone-confirmation role="status" hidden>
+            <span aria-hidden="true">✓</span> Your phone number was added.
+          </p>
+        </section>
       </div>
     </div>
   </section>
@@ -547,5 +642,129 @@ const principles = [
     });
 
     projectDialog?.addEventListener("close", () => document.body.classList.remove("dialog-open"));
+
+    type ReviewContact = {
+      name: string;
+      email: string;
+      website: string;
+    };
+
+    const reviewForm = document.querySelector<HTMLFormElement>("[data-review-request-form]");
+    const reviewSuccess = document.querySelector<HTMLElement>("[data-review-success]");
+    const reviewEmail = document.querySelector<HTMLElement>("[data-review-email]");
+    const reviewError = document.querySelector<HTMLElement>("[data-review-error]");
+    const reviewSubmit = document.querySelector<HTMLButtonElement>("[data-review-submit]");
+    const reviewSubmitLabel = document.querySelector<HTMLElement>("[data-review-submit-label]");
+    const reviewReplyTo = document.querySelector<HTMLInputElement>("[data-review-replyto]");
+    const phoneForm = document.querySelector<HTMLFormElement>("[data-phone-form]");
+    const phoneStep = document.querySelector<HTMLElement>("[data-phone-step]");
+    const phoneConfirmation = document.querySelector<HTMLElement>("[data-phone-confirmation]");
+    const phoneError = document.querySelector<HTMLElement>("[data-phone-error]");
+    const phoneSubmit = document.querySelector<HTMLButtonElement>("[data-phone-submit]");
+    const phoneSubmitLabel = document.querySelector<HTMLElement>("[data-phone-submit-label]");
+
+    const setPhoneContext = (contact: ReviewContact) => {
+      const phoneName = document.querySelector<HTMLInputElement>("[data-phone-name]");
+      const phoneEmail = document.querySelector<HTMLInputElement>("[data-phone-email]");
+      const phoneWebsite = document.querySelector<HTMLInputElement>("[data-phone-website]");
+
+      if (phoneName) phoneName.value = contact.name;
+      if (phoneEmail) phoneEmail.value = contact.email;
+      if (phoneWebsite) phoneWebsite.value = contact.website;
+      if (reviewEmail && contact.email) reviewEmail.textContent = contact.email;
+    };
+
+    const showReviewSuccess = (contact?: ReviewContact, shouldFocus = true) => {
+      if (contact) setPhoneContext(contact);
+      if (reviewForm) reviewForm.hidden = true;
+      if (reviewSuccess) {
+        reviewSuccess.hidden = false;
+        if (shouldFocus) reviewSuccess.focus();
+      }
+    };
+
+    const encodeForm = (form: HTMLFormElement) => {
+      const params = new URLSearchParams();
+      new FormData(form).forEach((value, key) => {
+        if (typeof value === "string") params.append(key, value);
+      });
+      return params.toString();
+    };
+
+    const postForm = async (form: HTMLFormElement) => {
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm(form),
+      });
+
+      if (!response.ok) throw new Error("Form submission failed");
+    };
+
+    reviewForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      reviewError?.setAttribute("hidden", "");
+
+      const formData = new FormData(reviewForm);
+      const contact: ReviewContact = {
+        name: String(formData.get("name") || ""),
+        email: String(formData.get("email") || ""),
+        website: String(formData.get("website") || ""),
+      };
+
+      if (reviewReplyTo) reviewReplyTo.value = contact.email;
+      reviewSubmit?.setAttribute("disabled", "");
+      if (reviewSubmitLabel) reviewSubmitLabel.textContent = "Sending…";
+
+      try {
+        try {
+          sessionStorage.setItem("reviewContact", JSON.stringify(contact));
+        } catch {
+          // The submission still works when browser storage is unavailable.
+        }
+        await postForm(reviewForm);
+        showReviewSuccess(contact);
+      } catch {
+        reviewError?.removeAttribute("hidden");
+      } finally {
+        reviewSubmit?.removeAttribute("disabled");
+        if (reviewSubmitLabel) reviewSubmitLabel.textContent = "Get my free review";
+      }
+    });
+
+    phoneForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      phoneError?.setAttribute("hidden", "");
+      phoneSubmit?.setAttribute("disabled", "");
+      if (phoneSubmitLabel) phoneSubmitLabel.textContent = "Adding…";
+
+      try {
+        await postForm(phoneForm);
+        if (phoneStep) phoneStep.hidden = true;
+        phoneConfirmation?.removeAttribute("hidden");
+      } catch {
+        phoneError?.removeAttribute("hidden");
+      } finally {
+        phoneSubmit?.removeAttribute("disabled");
+        if (phoneSubmitLabel) phoneSubmitLabel.textContent = "Add my number";
+      }
+    });
+
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("review") === "sent") {
+      let savedContact: ReviewContact | undefined;
+      try {
+        const rawContact = sessionStorage.getItem("reviewContact");
+        if (rawContact) savedContact = JSON.parse(rawContact) as ReviewContact;
+      } catch {
+        savedContact = undefined;
+      }
+
+      showReviewSuccess(savedContact, false);
+      if (query.get("phone") === "added") {
+        if (phoneStep) phoneStep.hidden = true;
+        phoneConfirmation?.removeAttribute("hidden");
+      }
+    }
   </script>
 </Layout>
