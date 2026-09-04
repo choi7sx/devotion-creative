@@ -106,32 +106,38 @@ const principles = [
           </p>
         </div>
       </div>
-      <button
-        class="hero-visual device-card mobile-showcase"
-        type="button"
-        data-open-project
-        data-project-view="mobile"
-        aria-label="View the full Energy Transport mobile design"
-      >
-        <span class="slot-copy" aria-hidden="true">
-          <span class="slot-label">Mobile experience</span>
-          <strong>Energy<br />Transport</strong>
-          <span class="slot-action">View project ↗</span>
-        </span>
-        <span class="mini-phone" aria-hidden="true">
-          <span class="mini-phone-speaker"></span>
-          <span class="mini-phone-screen">
-            <img
-              src="/images/work/energy-transport-mobile.webp"
-              alt=""
-              width="405"
-              height="4661"
-              fetchpriority="high"
-              decoding="async"
-            />
+      <div class="project-tile hero-project-tile">
+        <button
+          class="hero-visual device-card mobile-showcase"
+          type="button"
+          data-open-project
+          data-project-view="mobile"
+          aria-label="View the full Energy Transport mobile design"
+        >
+          <span class="mini-phone" aria-hidden="true">
+            <span class="mini-phone-speaker"></span>
+            <span class="mini-phone-screen">
+              <img
+                src="/images/work/energy-transport-mobile.webp"
+                alt=""
+                width="405"
+                height="4661"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </span>
           </span>
-        </span>
-      </button>
+        </button>
+        <div class="project-tile-caption">
+          <div>
+            <span>Mobile experience</span>
+            <strong>Energy Transport</strong>
+          </div>
+          <button type="button" data-open-project data-project-view="mobile">
+            View project <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
     </div>
     <div class="shell value-rail" aria-label="Core website outcomes">
       <span>Trust</span>
@@ -329,35 +335,41 @@ const principles = [
       <div class="services-sticky">
         <p class="eyebrow">What we provide</p>
         <h2 id="services-heading">A website built around how your business actually wins work.</h2>
-        <button
-          class="services-visual device-card desktop-showcase"
-          type="button"
-          data-open-project
-          data-project-view="desktop"
-          aria-label="View the full Energy Transport desktop design"
-        >
-          <span class="mini-browser" aria-hidden="true">
-            <span class="mini-browser-bar">
-              <span class="mini-browser-dots"><i></i><i></i><i></i></span>
-              <span class="mini-browser-address">energytransport.com</span>
+        <div class="project-tile services-project-tile">
+          <button
+            class="services-visual device-card desktop-showcase"
+            type="button"
+            data-open-project
+            data-project-view="desktop"
+            aria-label="View the full Energy Transport desktop design"
+          >
+            <span class="mini-browser" aria-hidden="true">
+              <span class="mini-browser-bar">
+                <span class="mini-browser-dots"><i></i><i></i><i></i></span>
+                <span class="mini-browser-address">energytransport.com</span>
+              </span>
+              <span class="mini-browser-screen">
+                <img
+                  src="/images/work/energy-transport-desktop.webp"
+                  alt=""
+                  width="2200"
+                  height="4704"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
             </span>
-            <span class="mini-browser-screen">
-              <img
-                src="/images/work/energy-transport-desktop.webp"
-                alt=""
-                width="2200"
-                height="4704"
-                loading="lazy"
-                decoding="async"
-              />
-            </span>
-          </span>
-          <span class="desktop-slot-label" aria-hidden="true">
-            <span>Desktop experience</span>
-            <strong>Energy Transport</strong>
-            <span>View project ↗</span>
-          </span>
-        </button>
+          </button>
+          <div class="project-tile-caption">
+            <div>
+              <span>Desktop experience</span>
+              <strong>Energy Transport</strong>
+            </div>
+            <button type="button" data-open-project data-project-view="desktop">
+              View project <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </div>
       </div>
       <div class="service-list">
         {services.map((item, index) => (
