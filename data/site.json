@@ -1,8 +1,8 @@
 {
-  "site_title": "Astro Starter",
-  "description": "A starter template for Astro with Editable Regions, for CloudCannon CMS.",
+  "site_title": "Devotion Creative",
+  "description": "Conversion-focused websites for local service businesses.",
   "twitter_site": "",
-  "image": "/images/logos/logo-wordmark-blue.png",
-  "image_alt": "CloudCannon logo",
-  "default_author": "CloudCannon"
+  "image": "",
+  "image_alt": "",
+  "default_author": "Devotion Creative"
 }

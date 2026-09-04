@@ -1,0 +1,283 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const improvements = [
+  {
+    number: "01",
+    title: "Trust",
+    text: "Present your reviews, completed projects, credentials, and experience where potential customers can see them.",
+  },
+  {
+    number: "02",
+    title: "Clarity",
+    text: "Organize your services and service areas so visitors immediately understand how you can help.",
+  },
+  {
+    number: "03",
+    title: "Conversion",
+    text: "Make it simple to call, submit a request, or schedule the next step from any device.",
+  },
+  {
+    number: "04",
+    title: "Performance",
+    text: "Give visitors a fast, reliable, mobile-friendly experience that reflects the quality of your business.",
+  },
+];
+
+const services = [
+  {
+    title: "Website strategy and design",
+    text: "A professional website structured around your customers, services, and sales process.",
+  },
+  {
+    title: "Conversion-focused pages",
+    text: "Clear service pages, service-area pages, calls to action, estimate forms, reviews, and project galleries.",
+  },
+  {
+    title: "Lead tracking",
+    text: "Tracking for calls and form submissions so you can understand what your website is producing.",
+  },
+  {
+    title: "Ongoing management",
+    text: "Hosting, security, backups, content updates, and continued website improvements after launch.",
+  },
+];
+
+const process = [
+  {
+    title: "Review",
+    text: "We learn about your business, customers, services, and current website.",
+  },
+  {
+    title: "Plan",
+    text: "We determine what the site needs to communicate and how visitors should move toward contacting you.",
+  },
+  {
+    title: "Build",
+    text: "We create the pages, content, and conversion paths that support those goals.",
+  },
+  {
+    title: "Launch and manage",
+    text: "After testing the site across devices, we launch it and continue keeping it secure, current, and effective.",
+  },
+];
+
+const principles = [
+  "Clear strategy before design",
+  "Simple and professional user experiences",
+  "Decisions centered on trust and conversion",
+  "Direct communication throughout the project",
+  "Ongoing support after the site goes live",
+];
+---
+
+<Layout
+  title="Devotion Creative"
+  seo={{
+    page_description:
+      "Conversion-focused websites for local service businesses, built to establish trust and turn more visitors into calls and estimate requests.",
+    featured_image: null,
+    featured_image_alt: null,
+    canonical_url: null,
+    no_index: false,
+    open_graph_type: "website",
+    author_twitter_handle: null,
+  }}
+>
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Websites for local service businesses</p>
+        <h1 id="hero-heading">Turn your website into a <em>lead-generating</em> asset.</h1>
+        <div class="hero-intro">
+          <p>
+            We design and manage conversion-focused websites for local service
+            businesses. Each site is built to establish trust, explain your
+            services clearly, and turn more visitors into calls and estimate
+            requests.
+          </p>
+          <a class="button button-primary" href="#review">
+            Get a free website review
+            <span aria-hidden="true">↗</span>
+          </a>
+          <p class="microcopy">
+            No sales pitch required. We’ll review your homepage and show you a
+            few practical opportunities to improve it.
+          </p>
+        </div>
+      </div>
+      <div class="hero-visual image-placeholder" aria-label="Project image placeholder">
+        <div class="placeholder-label">
+          <span>Project image</span>
+          <span>4:5</span>
+        </div>
+      </div>
+    </div>
+    <div class="shell value-rail" aria-label="Core website outcomes">
+      <span>Trust</span>
+      <span>Clarity</span>
+      <span>Conversion</span>
+      <span>Performance</span>
+    </div>
+  </section>
+
+  <section class="section problem" id="approach" aria-labelledby="problem-heading">
+    <div class="shell">
+      <div class="section-heading split-heading">
+        <p class="eyebrow">The real job of your website</p>
+        <h2 id="problem-heading">Your website should help you win more business.</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-copy">
+          <p>
+            Potential customers visit your website to decide whether they can
+            trust you with the job.
+          </p>
+          <p>
+            If your site looks outdated, is difficult to use on a phone, or
+            makes the next step unclear, they may leave and contact a competitor.
+          </p>
+        </div>
+        <div class="question-panel">
+          <p class="panel-kicker">We answer the questions customers care about</p>
+          <ul>
+            <li><span>01</span> What services do you provide?</li>
+            <li><span>02</span> Do you serve my area?</li>
+            <li><span>03</span> Why should I trust your company?</li>
+            <li><span>04</span> How can I request an estimate?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section outcomes" id="outcomes" aria-labelledby="outcomes-heading">
+    <div class="shell">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">What we help improve</p>
+        <h2 id="outcomes-heading">A better path from first visit to first call.</h2>
+      </div>
+      <div class="outcome-grid">
+        {improvements.map((item) => (
+          <article class="outcome-card">
+            <span class="card-number">/{item.number}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="services" aria-labelledby="services-heading">
+    <div class="shell services-grid">
+      <div class="services-sticky">
+        <p class="eyebrow">What we provide</p>
+        <h2 id="services-heading">A website built around how your business actually wins work.</h2>
+        <div class="services-visual image-placeholder" aria-label="Website project image placeholder">
+          <div class="placeholder-label">
+            <span>Website project</span>
+            <span>4:3</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-list">
+        {services.map((item, index) => (
+          <article class="service-item">
+            <span class="service-number">0{index + 1}</span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section process" id="process" aria-labelledby="process-heading">
+    <div class="shell">
+      <div class="section-heading split-heading process-heading">
+        <p class="eyebrow eyebrow-light">A straightforward process</p>
+        <h2 id="process-heading">Clear steps. Direct communication. No mystery.</h2>
+      </div>
+      <div class="process-list">
+        {process.map((item, index) => (
+          <article class="process-row">
+            <span class="process-number">0{index + 1}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why" id="why" aria-labelledby="why-heading">
+    <div class="shell why-grid">
+      <div class="why-copy">
+        <p class="eyebrow">Why Devotion Creative</p>
+        <h2 id="why-heading">Polished is only useful when it has a purpose.</h2>
+        <p class="lead">
+          We believe a business website should do more than look polished. It
+          should communicate the quality of your work and help potential
+          customers confidently take the next step.
+        </p>
+        <p>
+          That means every decision has a purpose—from the information visitors
+          see first to the placement of each call button and estimate form.
+        </p>
+      </div>
+      <div class="principles-panel">
+        <p class="panel-kicker">Our approach is practical</p>
+        <ul>
+          {principles.map((principle) => (
+            <li><span aria-hidden="true">↳</span>{principle}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="review" id="review" aria-labelledby="review-heading">
+    <div class="shell review-grid">
+      <div class="review-copy">
+        <p class="eyebrow eyebrow-light">A useful first step</p>
+        <h2 id="review-heading">See what your current website could do better.</h2>
+        <p>
+          Send us your website address. We’ll return a screenshot with a few
+          specific opportunities marked directly on the page.
+        </p>
+        <p>
+          You’ll see where the site may be creating confusion, weakening trust,
+          or making it harder for visitors to contact you.
+        </p>
+      </div>
+      <div class="review-card">
+        <div class="review-placeholder image-placeholder" aria-label="Website review image placeholder">
+          <div class="placeholder-label">
+            <span>Marked-up review</span>
+            <span>Sample</span>
+          </div>
+        </div>
+        <form class="review-form" action="#review" method="get">
+          <label for="website">Your website address</label>
+          <div class="input-row">
+            <input
+              id="website"
+              name="website"
+              type="url"
+              inputmode="url"
+              placeholder="https://yourwebsite.com"
+              required
+            />
+            <button class="button button-dark" type="submit">
+              Get my free review <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <p class="form-note">Free, practical, and no sales pitch required.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
