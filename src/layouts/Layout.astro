@@ -1,5 +1,4 @@
 ---
-import path from "node:path";
 import "../styles/main.css";
 import site from "../../data/site.json";
 import Header from "../components/navigation/header.astro";
@@ -22,7 +21,7 @@ export interface Props {
 }
 
 const { seo, title } = Astro.props;
-const baseUrl = Astro.site?.toString() ?? "";
+const baseUrl = Astro.site?.toString();
 
 let pageTitle = "";
 if (!title) {
@@ -35,9 +34,11 @@ if (!title) {
 
 const description = seo?.page_description ?? site.description;
 const image = seo?.featured_image ?? site.image;
-const imagePath = path.join(baseUrl, image);
+const imagePath = image && baseUrl ? new URL(image, baseUrl).toString() : null;
 const imageAlt = seo?.featured_image_alt ?? site.image_alt;
-const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
+const canonicalURL = baseUrl
+  ? new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl)
+  : undefined;
 ---
 
 <!doctype html>
@@ -46,23 +47,29 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
 
     <SEO
       noindex={seo?.no_index || false}
       title={pageTitle}
       description={description}
-      canonical={canonicalURL.toString()}
-      openGraph={{
-        basic: {
-          title: pageTitle,
-          url: baseUrl?.toString(),
-          type: seo?.open_graph_type || "website",
-          image: imagePath,
-        },
-        optional: { description },
-        image: { url: imagePath, alt: imageAlt },
-      }}
+      canonical={canonicalURL?.toString()}
+      openGraph={imagePath ? {
+          basic: {
+            title: pageTitle,
+            url: baseUrl,
+            type: seo?.open_graph_type || "website",
+            image: imagePath,
+          },
+          optional: { description },
+          image: { url: imagePath, alt: imageAlt || "" },
+        } : undefined}
       twitter={{
         creator: `${seo?.author_twitter_handle || site.twitter_site}`,
         site: `${site.twitter_site}`,
@@ -70,18 +77,11 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
       }}
     />
   </head>
-  <body class="flex flex-col min-h-screen">
+  <body id="top">
     <Header />
-    <main class="flex-1">
+    <main>
       <slot />
     </main>
     <Footer />
-    <script>
-      if (window.inEditorMode) {
-        import("../scripts/register-components.ts").catch((error) => {
-          console.warn("Failed to load CloudCannon component registration:", error);
-        });
-      }
-    </script>
   </body>
 </html>
