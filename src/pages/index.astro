@@ -406,8 +406,6 @@ const structuredData = [
         <p {...editableText("review.description")}>
           {home.review.description}
         </p>
-      </div>
-      <div class="review-card">
         <div class="review-placeholder image-placeholder">
           <span class="mini-browser review-audit-browser">
             <span class="mini-browser-bar" aria-hidden="true">
@@ -426,6 +424,8 @@ const structuredData = [
             </span>
           </span>
         </div>
+      </div>
+      <div class="review-card">
         <form
           class="review-form"
           id="review-request-form"
@@ -468,6 +468,15 @@ const structuredData = [
                 placeholder={home.review.website_placeholder}
                 required
               />
+            </div>
+            <div class="review-field review-field-wide">
+              <label {...editableText("review.help_label")} for="review-help">{home.review.help_label}</label>
+              <textarea
+                id="review-help"
+                name="help_needed"
+                rows="5"
+                placeholder={home.review.help_placeholder}
+              ></textarea>
               <p {...editableText("review.form_note")} class="form-note review-form-note">{home.review.form_note}</p>
             </div>
           </div>
@@ -522,6 +531,7 @@ const structuredData = [
               <input type="hidden" name="name" value="" data-phone-name />
               <input type="hidden" name="email" value="" data-phone-email />
               <input type="hidden" name="website" value="" data-phone-website />
+              <input type="hidden" name="help_needed" value="" data-phone-help />
               <input type="hidden" name="inbox_key" value="potential-client-contact" />
               <input type="hidden" name="_subject" value="Phone number added to website review request" />
               <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
@@ -637,6 +647,7 @@ const structuredData = [
       name: string;
       email: string;
       website: string;
+      helpNeeded: string;
     };
 
     const reviewForm = document.querySelector<HTMLFormElement>("[data-review-request-form]");
@@ -689,10 +700,12 @@ const structuredData = [
       const phoneName = document.querySelector<HTMLInputElement>("[data-phone-name]");
       const phoneEmail = document.querySelector<HTMLInputElement>("[data-phone-email]");
       const phoneWebsite = document.querySelector<HTMLInputElement>("[data-phone-website]");
+      const phoneHelp = document.querySelector<HTMLInputElement>("[data-phone-help]");
 
       if (phoneName) phoneName.value = contact.name;
       if (phoneEmail) phoneEmail.value = contact.email;
       if (phoneWebsite) phoneWebsite.value = contact.website;
+      if (phoneHelp) phoneHelp.value = contact.helpNeeded || "";
       if (reviewEmail && contact.email) reviewEmail.textContent = contact.email;
     };
 
@@ -739,6 +752,7 @@ const structuredData = [
         name: String(formData.get("name") || ""),
         email: String(formData.get("email") || ""),
         website: String(formData.get("website") || ""),
+        helpNeeded: String(formData.get("help_needed") || ""),
       };
 
       if (reviewReplyTo) reviewReplyTo.value = contact.email;

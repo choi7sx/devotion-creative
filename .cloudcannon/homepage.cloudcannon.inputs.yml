@@ -629,6 +629,14 @@ review.website_label:
   type: text
   options:
     empty_type: string
+review.help_label:
+  type: text
+  options:
+    empty_type: string
+review.help_placeholder:
+  type: textarea
+  options:
+    empty_type: string
 review.form_note:
   type: text
   options:

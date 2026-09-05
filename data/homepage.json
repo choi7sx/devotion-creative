@@ -185,6 +185,8 @@
     "name_label": "Name",
     "email_label": "Email",
     "website_label": "Website address",
+    "help_label": "What do you need help with? (optional)",
+    "help_placeholder": "Tell us what you’d like to improve or where you’re getting stuck.",
     "form_note": "Free, practical, and no sales pitch required.",
     "security_error": "Please complete the security check before sending your request.",
     "submit_text": "Get my free review",
