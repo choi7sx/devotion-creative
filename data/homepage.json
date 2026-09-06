@@ -204,7 +204,7 @@
     "phone_confirmation": "Your phone number was added.",
     "name_placeholder": "Your name",
     "email_placeholder": "you@company.com",
-    "website_placeholder": "https://yourwebsite.com",
+    "website_placeholder": "yourwebsite.com",
     "phone_placeholder": "(555) 555-5555"
   },
   "footer": {
