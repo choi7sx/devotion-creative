@@ -537,17 +537,8 @@ const structuredData = [
               <input type="hidden" name="inbox_key" value="potential-client-contact" />
               <input type="hidden" name="_subject" value="Phone number added to website review request" />
               <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-              <div
-                class="recaptcha-field"
-                data-recaptcha-container
-                data-recaptcha-site-key={recaptchaSiteKey}
-                aria-label="Security check"
-              ></div>
-              <p {...editableText("review.phone_security_error")} class="form-error" role="alert" data-phone-recaptcha-error hidden>
-                {home.review.phone_security_error}
-              </p>
-              <label {...editableText("review.phone_label")} for="review-phone">{home.review.phone_label}</label>
-              <div class="input-row phone-input-row">
+              <div class="review-field">
+                <label {...editableText("review.phone_label")} for="review-phone">{home.review.phone_label}</label>
                 <input
                   id="review-phone"
                   name="phone"
@@ -557,6 +548,17 @@ const structuredData = [
                   placeholder={home.review.phone_placeholder}
                   required
                 />
+              </div>
+              <p {...editableText("review.phone_security_error")} class="form-error" role="alert" data-phone-recaptcha-error hidden>
+                {home.review.phone_security_error}
+              </p>
+              <div class="review-submit-row">
+                <div
+                  class="recaptcha-field"
+                  data-recaptcha-container
+                  data-recaptcha-site-key={recaptchaSiteKey}
+                  aria-label="Security check"
+                ></div>
                 <button class="button button-dark" type="submit" data-phone-submit>
                   <span {...editableText("review.phone_submit_text")} data-phone-submit-label>{home.review.phone_submit_text}</span> <span aria-hidden="true">↗</span>
                 </button>
