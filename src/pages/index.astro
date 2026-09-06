@@ -462,9 +462,11 @@ const structuredData = [
               <input
                 id="website"
                 name="website"
-                type="url"
+                type="text"
                 inputmode="url"
                 autocomplete="url"
+                autocapitalize="none"
+                spellcheck="false"
                 placeholder={home.review.website_placeholder}
                 required
               />
@@ -651,6 +653,31 @@ const structuredData = [
     };
 
     const reviewForm = document.querySelector<HTMLFormElement>("[data-review-request-form]");
+    const websiteInput = reviewForm?.querySelector<HTMLInputElement>("[name='website']");
+
+    const normalizeWebsite = () => {
+      if (!websiteInput) return false;
+      const value = websiteInput.value.trim();
+      const address = /^https?:\/\//i.test(value) ? value : `https://${value.replace(/^\/\//, "")}`;
+
+      try {
+        const url = new URL(address);
+        if (
+          !value || /\s/.test(value) ||
+          !["http:", "https:"].includes(url.protocol) ||
+          !url.hostname.includes(".") || url.username || url.password
+        ) throw new Error("Invalid website address");
+        websiteInput.setCustomValidity("");
+        websiteInput.value = address;
+        return true;
+      } catch {
+        websiteInput.setCustomValidity("Enter a website address like example.com.");
+        websiteInput.reportValidity();
+        return false;
+      }
+    };
+
+    websiteInput?.addEventListener("input", () => websiteInput.setCustomValidity(""));
     const reviewSuccess = document.querySelector<HTMLElement>("[data-review-success]");
     const reviewEmail = document.querySelector<HTMLElement>("[data-review-email]");
     const reviewError = document.querySelector<HTMLElement>("[data-review-error]");
@@ -741,6 +768,8 @@ const structuredData = [
       event.preventDefault();
       reviewError?.setAttribute("hidden", "");
       reviewRecaptchaError?.setAttribute("hidden", "");
+
+      if (!normalizeWebsite()) return;
 
       if (!hasRecaptchaResponse(reviewForm)) {
         reviewRecaptchaError?.removeAttribute("hidden");
