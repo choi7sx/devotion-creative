@@ -1099,8 +1099,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .button-primary { width: 100%; }
   .hero-visual { min-height: 17rem; }
   .mobile-showcase .mini-phone { top: 4%; width: 7.25rem; }
-  .value-rail { grid-template-columns: repeat(2, 1fr); }
-  .value-rail span:nth-child(3) { border-left: 0; }
+  .value-rail { grid-template-columns: repeat(2, 1fr); padding-inline: 0; }
+  .value-rail span:nth-child(odd) { padding-left: var(--space-page); border-left: 0; }
   .value-rail span:nth-child(n + 3) { border-top: 1px solid var(--color-line); }
   .section h2, .review h2 { font-size: clamp(2.65rem, 13vw, 4rem); }
   .compact-heading { display: block; }
