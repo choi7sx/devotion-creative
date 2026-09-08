@@ -1,5 +1,11 @@
 # Astro Minimal Starter
 
+## Website review outreach
+
+Use the [review delivery process and email templates](docs/website-review-outreach.md)
+for the Free Marked-Up Website Review. Deliver the marked-up screenshot before
+inviting someone to talk; a phone number or sales call is never required.
+
 ## Devotion Creative SEO
 
 - Set `SITE_URL` in the hosting **build environment** to the preferred public origin

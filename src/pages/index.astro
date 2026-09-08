@@ -484,7 +484,7 @@ const structuredData = [
           </div>
           <input type="hidden" name="inbox_key" value="potential-client-contact" />
           <input type="hidden" name="_replyto" value="" data-review-replyto />
-          <input type="hidden" name="_subject" value="Free website review request" />
+          <input type="hidden" name="_subject" value="Free Marked-Up Website Review request" />
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
           <p {...editableText("review.security_error")} class="form-error" role="alert" data-review-recaptcha-error hidden>
             {home.review.security_error}
@@ -535,7 +535,7 @@ const structuredData = [
               <input type="hidden" name="website" value="" data-phone-website />
               <input type="hidden" name="help_needed" value="" data-phone-help />
               <input type="hidden" name="inbox_key" value="potential-client-contact" />
-              <input type="hidden" name="_subject" value="Phone number added to website review request" />
+              <input type="hidden" name="_subject" value="Phone number added to Free Marked-Up Website Review request" />
               <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
               <div class="review-field">
                 <label {...editableText("review.phone_label")} for="review-phone">{home.review.phone_label}</label>
@@ -685,7 +685,7 @@ const structuredData = [
     const reviewError = document.querySelector<HTMLElement>("[data-review-error]");
     const reviewSubmit = document.querySelector<HTMLButtonElement>("[data-review-submit]");
     const reviewSubmitLabel = document.querySelector<HTMLElement>("[data-review-submit-label]");
-    const reviewSubmitText = reviewSubmitLabel?.textContent || "Get my free review";
+    const reviewSubmitText = reviewSubmitLabel?.textContent || "Get My Free Review";
     const reviewReplyTo = document.querySelector<HTMLInputElement>("[data-review-replyto]");
     const phoneForm = document.querySelector<HTMLFormElement>("[data-phone-form]");
     const phoneStep = document.querySelector<HTMLElement>("[data-phone-step]");

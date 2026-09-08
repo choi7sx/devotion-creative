@@ -1,7 +1,7 @@
 {
   "title": "Web Design for Local Service Businesses | Devotion Creative",
   "seo": {
-    "page_description": "Devotion Creative designs and manages websites for local service businesses. Turn more visitors into calls and estimate requests. Get a free website review."
+    "page_description": "Devotion Creative designs and manages conversion-focused websites for local service businesses. Build trust, clarify your services, and make it easier for visitors to contact you. Get a free marked-up website review."
   },
   "brand": {
     "first_line": "Devotion",
@@ -14,7 +14,7 @@
     "services_text": "Services",
     "process_text": "Process",
     "why_text": "Why us",
-    "review_text": "Free website review",
+    "review_text": "Get My Free Review",
     "outcomes_link": "/#outcomes",
     "services_link": "/#services",
     "process_link": "/#process",
@@ -26,9 +26,9 @@
     "heading_start": "Turn your website into a",
     "heading_highlight": "lead-generating",
     "heading_end": "asset.",
-    "description": "We design and manage conversion-focused websites for local service businesses. Each site is built to establish trust, explain your services clearly, and turn more visitors into calls and estimate requests.",
-    "button_text": "Get a free website review",
-    "note": "No sales pitch required. We’ll review your homepage and show you a few practical opportunities to improve it.",
+    "description": "We design and manage conversion-focused websites for local service businesses. Each site is built to establish trust, explain your services clearly, and make it easier for visitors to call or request an estimate.",
+    "button_text": "Get My Free Review",
+    "note": "Get a Free Marked-Up Website Review: a screenshot with a few practical opportunities marked directly on the page. No sales pitch required.",
     "outcome_trust": "Trust",
     "outcome_clarity": "Clarity",
     "outcome_conversion": "Conversion",
@@ -107,7 +107,7 @@
     },
     "audit": {
       "image": "/images/work/energy-transport-audit.webp",
-      "alt": "Annotated Energy Transport homepage audit highlighting its primary call to action and opportunities to add proof",
+      "alt": "Marked-up Energy Transport homepage screenshot highlighting its primary call to action and opportunities to add proof",
       "width": 918,
       "height": 1714
     }
@@ -178,25 +178,25 @@
     "principles_heading": "Our approach is practical"
   },
   "review": {
-    "eyebrow": "A useful first step",
+    "eyebrow": "Free Marked-Up Website Review",
     "heading": "See what your current website could do better.",
-    "introduction": "Send us your website address. We’ll return a screenshot with a few specific opportunities marked directly on the page.",
+    "introduction": "Send us your website address. We’ll email you a screenshot with a few practical opportunities marked directly on the page.",
     "description": "You’ll see where the site may be creating confusion, weakening trust, or making it harder for visitors to contact you.",
     "name_label": "Name",
     "email_label": "Email",
     "website_label": "Website address",
     "help_label": "What do you need help with? (optional)",
     "help_placeholder": "Tell us what you’d like to improve or where you’re getting stuck.",
-    "form_note": "Free, practical, and no sales pitch required.",
+    "form_note": "Free, practical, and no sales pitch required. No call is needed to receive your review.",
     "security_error": "Please complete the security check before sending your request.",
-    "submit_text": "Get my free review",
+    "submit_text": "Get My Free Review",
     "submit_error": "We couldn’t send your request. Please try again.",
     "success_eyebrow": "Request received",
     "success_heading": "You’re all set.",
-    "success_message": "We received your website and will email your marked-up review to",
+    "success_message": "We received your website and will email your Free Marked-Up Website Review—a screenshot with a few practical opportunities marked directly on the page—to",
     "phone_eyebrow": "Optional next step",
     "phone_heading": "Add your phone number",
-    "phone_description": "If you’d like us to have another way to reach you, add it below.",
+    "phone_description": "If you’d like us to have another way to reach you after we email your review, add it below. Your review does not require a phone number or a call.",
     "phone_security_error": "Please complete the security check before adding your number.",
     "phone_label": "Phone number",
     "phone_submit_text": "Add my number",
