@@ -15,9 +15,13 @@ inviting someone to talk; a phone number or sales call is never required.
 - The connected Sites preview is currently private. Search engines need a public
   deployment to crawl the site. These changes do not change hosting access.
 - Shared metadata is in `src/layouts/Layout.astro`; default description and optional
-  social image settings are in `data/site.json`. Give each new page a distinct title
+  social image settings are in `data/site.json`. The default sharing image is
+  `public/og.png`, a 1200 × 630 Devotion Creative logo card with a charcoal and orange
+  gradient. The shared layout uses it for Open Graph and Twitter/X previews, with
+  an absolute URL based on `SITE_URL`. Pages can override it with `featured_image`.
+  Give each new page a distinct title
   and description. The homepage title and description are editable in
-  `data/homepage.json`. Social title and description tags work without an image.
+  `data/homepage.json`.
 - The homepage includes Organization, WebSite, and service catalog JSON-LD derived
   from the displayed business information. Add real contact details or testimonials
   when available; do not add invented addresses, ratings, or service areas.
