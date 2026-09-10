@@ -73,13 +73,30 @@ This site is pre-configured for CloudCannon. Connect your repository and CloudCa
 
 Open **Pages → Devotion Creative** in CloudCannon. The Visual Editor connects individual text and image regions to `data/homepage.json`. The Data Editor and the Visual Editor sidebar expose the same content, grouped by section, including navigation links, repeated services and process steps, image descriptions, and form labels. Save after changing links or adding/reordering items so CloudCannon rebuilds the preview.
 
-The hero heading has separate beginning, highlighted, and ending fields to retain its orange emphasis. Project images are shared between thumbnails, previews, and the full design viewer. Header and footer content is shared across routes. Hidden form confirmation messages can be changed in the Review form and confirmation fields.
+The hero heading has separate beginning, highlighted, and ending fields to retain its orange emphasis. Project images are shared between homepage thumbnails and the Energy Transport case study. Header and footer content is shared across routes. Hidden form confirmation messages can be changed in the Review form and confirmation fields.
 
 The testimonial appears once both a real quote and client name are filled in. Blank footer contact fields are omitted; fill these through the Data Editor or sidebar to display them. Use homepage paths such as `/#review` for shared navigation so links also work from the 404 page.
 
-Content is plain text, escaped by Astro. Layout, styling, section IDs, form endpoints, reCAPTCHA, and interaction code remain in the templates. Do not wrap the homepage in a Source Editable Region: its forms, dialogs, and template loops cannot safely be edited as rich text. Homepage input configuration lives in `.cloudcannon/homepage.cloudcannon.inputs.yml`.
+Content is plain text, escaped by Astro. Layout, styling, section IDs, form endpoints, reCAPTCHA, and interaction code remain in the templates. Do not wrap the homepage in a Source Editable Region: its forms and template loops cannot safely be edited as rich text. Homepage input configuration lives in `.cloudcannon/homepage.cloudcannon.inputs.yml`.
 
 These changes take effect in CloudCannon after this branch is merged into the branch connected to the site and its build finishes. Open the homepage again from Pages; an old editor tab may still point to `src/pages/index.astro`.
+
+### Energy Transport case study
+
+Homepage project links open `/work/energy-transport/`. The page explains the visible design decisions and reuses the homepage’s combined desktop-browser and overlapping-phone presentation as a static hero. Both pages share `src/components/energy-transport-preview.astro`. The case study has no preview controls, scrollable image areas, or full-image links.
+
+Open **Energy Transport** in CloudCannon to edit the case study's copy and metadata in `data/energy-transport.json`. Screenshot assets remain shared with `data/homepage.json`. The copy describes the design, without claiming measured lead growth or an unverified client brief. Add project history, client feedback, or results only when confirmed.
+
+### About page
+
+The About navigation item and the homepage's Meet John link open `/about/`.
+Edit `data/about.json` through **About** in CloudCannon. The page currently uses
+John Choi's supplied professional background, personal interests, and confirmed
+service information. Upload John's portrait through `portrait.image`; the
+photo is hidden until supplied. Background paragraphs remain editable in
+`background`. No stock portrait is used.
+Keep its review turnaround and optional-management copy consistent with the
+homepage when the offer changes.
 
 ### Editable Regions
 

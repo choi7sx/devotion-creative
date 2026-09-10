@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import about from "../../data/about.json";
+const editable = (key: string) => ({
+  "data-editable": "text",
+  "data-prop": `@data[about].${key}`,
+  "data-type": "span",
+});
+const hasPortrait = Boolean(about.portrait.image.trim());
+---
+
+<Layout title={about.title} seo={{ page_description: about.description }}>
+  <div class="shell about-page">
+    <header class="about-intro">
+      <div>
+        <p class="eyebrow" {...editable("eyebrow")}>{about.eyebrow}</p>
+        <h1 {...editable("heading")}>{about.heading}</h1>
+        <p class="about-lead" {...editable("introduction")}>{about.introduction}</p>
+        <p class="about-description" {...editable("description_text")}>{about.description_text}</p>
+      </div>
+
+    </header>
+
+    {about.background.length > 0 && (
+      <section class="about-section" aria-labelledby="background-heading">
+        <h2 id="background-heading" {...editable("background_heading")}>{about.background_heading}</h2>
+        <div class:list={["about-background", { "with-portrait": hasPortrait }]}>
+          <div>{about.background.map((paragraph, index) => <p {...editable(`background.${index}`)}>{paragraph}</p>)}</div>
+          {hasPortrait && (
+            <img class="about-portrait" src={about.portrait.image} alt={about.portrait.alt} width="800" height="1000" loading="lazy" decoding="async" data-editable="image" data-prop-src="@data[about].portrait.image" data-prop-alt="@data[about].portrait.alt" />
+          )}
+        </div>
+      </section>
+    )}
+
+    <section class="about-section" aria-labelledby="approach-heading">
+      <h2 id="approach-heading" {...editable("approach_heading")}>{about.approach_heading}</h2>
+      <div>
+        <p {...editable("approach_text")}>{about.approach_text}</p>
+        <p {...editable("support_text")}>{about.support_text}</p>
+      </div>
+    </section>
+
+    <section class="about-review" aria-labelledby="review-heading">
+      <h2 id="review-heading" {...editable("review_heading")}>{about.review_heading}</h2>
+      <p {...editable("review_text")}>{about.review_text}</p>
+      <a class="button button-primary" href="/#review"><span {...editable("review_link_text")}>{about.review_link_text}</span><span aria-hidden="true">↗</span></a>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-page { max-width: 62rem; padding-block: clamp(2.5rem, 5vw, 4rem); }
+  .about-intro { max-width: 44rem; padding-bottom: clamp(2rem, 4vw, 3rem); }
+  h1, h2 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.04em; line-height: 1.15; text-wrap: balance; }
+  h1 { max-width: 25ch; font-size: clamp(2rem, 3.5vw, 2.75rem); margin-bottom: 1.5rem; }
+  h2 { font-size: clamp(1.5rem, 2.5vw, 1.875rem); margin-bottom: 1.25rem; }
+  p { max-width: 42rem; color: var(--color-muted); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 1rem; }
+  .about-intro .eyebrow { font-size: 0.875rem; margin-bottom: 1.25rem; }
+  .about-lead { color: var(--color-ink); }
+  .about-description { margin-bottom: 0; }
+  .about-section { padding-block: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--color-line); }
+  .about-background.with-portrait { display: grid; grid-template-columns: minmax(0, 1fr) minmax(10rem, 15rem); gap: 2.5rem; align-items: start; }
+  .about-portrait { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-sm); }
+  .about-section p:last-child { margin-bottom: 0; }
+  .about-review { padding-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--color-line); }
+  .about-review p { margin-bottom: 1.5rem; }
+  @media (max-width: 700px) {
+    .about-background.with-portrait { grid-template-columns: 1fr; gap: 1.5rem; }
+    .about-portrait { max-width: 15rem; }
+    .about-review .button { width: fit-content; }
+  }
+</style>

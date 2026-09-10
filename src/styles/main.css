@@ -43,7 +43,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.dialog-open { overflow: hidden; }
 
 body, h1, h2, h3, p, ul { padding: 0; }
 h1, h2, h3, p, ul { margin-top: 0; }
@@ -105,7 +104,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .nav-cta span { color: var(--color-accent); }
 .menu-button, .mobile-menu { display: none; }
 
-.hero { padding-top: clamp(3.5rem, 7vw, 7.5rem); }
+.hero { padding-top: clamp(3rem, 5vw, 5.5rem); }
 
 .hero-grid {
   display: grid;
@@ -123,8 +122,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .hero-copy h1 {
   max-width: 13ch;
-  margin: clamp(1.5rem, 3vw, 3rem) 0 clamp(2.5rem, 5vw, 5.5rem);
-  font-size: clamp(3.75rem, 7.8vw, 8.6rem);
+  margin: clamp(1.5rem, 2.5vw, 2.5rem) 0 clamp(2rem, 3vw, 3rem);
+  font-size: clamp(3.75rem, 6.6vw, 7.2rem);
   line-height: 0.9;
 }
 
@@ -244,7 +243,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   letter-spacing: -0.035em;
 }
 
-.project-tile-caption button {
+.project-tile-caption a {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -260,7 +259,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transition: color var(--ease), border-color var(--ease);
 }
 
-.project-tile-caption button:hover {
+.project-tile-caption a:hover {
   border-color: var(--color-accent-dark);
   color: var(--color-accent-dark);
 }
@@ -614,55 +613,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .project-view-button span { color: var(--color-accent); }
 
-.project-dialog {
-  width: calc(100% - 2rem);
-  max-width: 110rem;
-  height: calc(100% - 2rem);
-  max-height: 70rem;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  background: var(--color-paper);
-  color: var(--color-ink);
-}
-
-.project-dialog::backdrop {
-  background: rgba(10, 13, 12, 0.78);
-  backdrop-filter: blur(5px);
-}
-
-.project-dialog-inner { display: flex; height: 100%; flex-direction: column; }
-
-.project-dialog-header {
-  z-index: 2;
-  display: flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 1.2rem clamp(1rem, 3vw, 2.5rem);
-  border-bottom: 1px solid var(--color-line);
-  background: var(--color-paper);
-}
-
-.project-dialog-header .project-number { margin-bottom: 0.35rem; }
-.project-dialog-header h2 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3vw, 3rem);
-  font-weight: 600;
-  letter-spacing: -0.05em;
-}
-.dialog-actions { display: flex; align-items: center; gap: clamp(0.75rem, 2vw, 1.5rem); }
-.dialog-switch, .device-switch {
+.device-switch {
   align-items: center;
   padding: 0.25rem;
   border: 1px solid var(--color-line);
   border-radius: 100vw;
 }
 
-.dialog-switch { display: flex; }
-.dialog-switch button, .device-switch button {
+.device-switch button {
   min-height: 2.5rem;
   padding: 0.55rem 1rem;
   border: 0;
@@ -674,46 +632,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   font-weight: 600;
 }
 
-.dialog-switch button.is-active, .device-switch button.is-active {
+.device-switch button.is-active {
   background: var(--color-ink);
   color: var(--color-white);
 }
-
-.dialog-close {
-  display: grid;
-  width: 3rem;
-  height: 3rem;
-  place-items: center;
-  padding: 0 0 0.18rem;
-  border: 1px solid var(--color-line);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--color-ink);
-  cursor: pointer;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1;
-}
-
-.project-dialog-scroll {
-  flex: 1 1 auto;
-  overflow: auto;
-  padding: clamp(1rem, 4vw, 4rem);
-  background: #dce2df;
-  overscroll-behavior: contain;
-}
-
-.dialog-design { display: none; }
-.dialog-design.is-active { display: block; }
-.dialog-design img {
-  display: block;
-  width: 100%;
-  max-width: 90rem;
-  height: auto;
-  margin-inline: auto;
-  box-shadow: 0 1.5rem 4rem rgba(26, 35, 31, 0.16);
-}
-.dialog-design[data-dialog-design="mobile"] img { max-width: 25rem; }
 
 .testimonials {
   background: var(--color-ink);
@@ -869,7 +791,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   font-size: clamp(1.22rem, 1.9vw, 1.7rem);
   line-height: 1.45;
 }
-.why-copy > p:last-child { max-width: 36rem; margin-bottom: 0; }
+.why-copy .why-description { max-width: 36rem; margin-bottom: 0; }
+.why-copy > .project-view-button { margin-top: 1.5rem; }
 .principles-panel .panel-kicker { color: var(--color-ink); }
 .principles-panel li {
   display: flex;
@@ -1128,13 +1051,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   }
   .project-feature-footer { grid-template-columns: 1fr; gap: 1rem; }
   .project-view-button { width: fit-content; }
-  .project-dialog { width: 100%; height: 100%; max-height: none; }
-  .project-dialog-header { align-items: start; gap: 1rem; }
-  .project-dialog-header .project-number { display: none; }
-  .project-dialog-header h2 { margin-top: 0.5rem; font-size: 1.45rem; }
-  .dialog-actions { gap: 0.5rem; }
-  .dialog-switch button { min-height: 2.25rem; padding: 0.45rem 0.7rem; font-size: 0.72rem; }
-  .dialog-close { width: 2.65rem; height: 2.65rem; }
   .testimonial-card figcaption { grid-template-columns: 1fr; }
   .process-row { gap: 0.7rem; }
   .process-row h3 { margin-bottom: 0.75rem; }

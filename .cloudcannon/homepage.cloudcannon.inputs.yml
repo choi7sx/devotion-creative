@@ -1,4 +1,18 @@
 # Homepage-only inputs. Content values are plain text; layout stays in Astro.
+header.about_text:
+  type: text
+header.about_link:
+  type: text
+why.about_text:
+  type: text
+  label: About page link text
+why.about_link:
+  type: text
+  label: About page link
+review.delivery_note:
+  type: text
+  label: Review delivery expectation
+  comment: Shown after a review request. Keep consistent with the turnaround in the hero, process, and review introduction.
 title:
   type: text
   options:
@@ -343,7 +357,7 @@ images.mobile:
         - mobile
 images.mobile.image:
   type: image
-  comment: Shared by the project thumbnail, preview, and full design viewer where applicable.
+  comment: Shared by the homepage project preview and case study where applicable.
   options:
     empty_type: string
     required: true
@@ -379,7 +393,7 @@ images.desktop:
         - desktop
 images.desktop.image:
   type: image
-  comment: Shared by the project thumbnail, preview, and full design viewer where applicable.
+  comment: Shared by the homepage project preview and case study where applicable.
   options:
     empty_type: string
     required: true
@@ -415,7 +429,7 @@ images.audit:
         - audit
 images.audit.image:
   type: image
-  comment: Shared by the project thumbnail, preview, and full design viewer where applicable.
+  comment: Shared by the homepage project preview and case study where applicable.
   options:
     empty_type: string
     required: true
