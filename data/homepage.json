@@ -28,7 +28,7 @@
     "heading_end": "asset.",
     "description": "We design and manage conversion-focused websites for local service businesses. Each site is built to establish trust, explain your services clearly, and make it easier for visitors to call or request an estimate.",
     "button_text": "Get My Free Review",
-    "note": "Get a Free Marked-Up Website Review: a screenshot with a few practical opportunities marked directly on the page. No sales pitch required.",
+    "note": "Get a free marked-up website review: a screenshot with practical suggestions marked directly on the page. No sales call required.",
     "outcome_trust": "Trust",
     "outcome_clarity": "Clarity",
     "outcome_conversion": "Conversion",
@@ -61,7 +61,7 @@
       {
         "number": "03",
         "title": "Conversion",
-        "text": "Make it simple to call, submit a request, or schedule the next step from any device."
+        "text": "Make it simple to call, submit a request, or book an appointment from any device."
       },
       {
         "number": "04",
@@ -86,7 +86,7 @@
     "desktop_label": "Desktop",
     "mobile_label": "Mobile",
     "display_domain": "energytransport.com",
-    "note": "The same clear story, thoughtfully adapted from a wide desktop canvas to a focused mobile experience.",
+    "note": "Clear information and easy navigation on desktop and mobile.",
     "view_full_text": "View full design",
     "desktop_caption": "Desktop experience"
   },
@@ -131,7 +131,7 @@
       },
       {
         "title": "Lead tracking",
-        "text": "Tracking for calls and form submissions so you can understand what your website is producing."
+        "text": "Track calls and form submissions to see how your website brings in leads."
       },
       {
         "title": "Ongoing management",
@@ -139,7 +139,7 @@
       }
     ],
     "eyebrow": "Web design and website management services",
-    "heading": "A website built around how your business actually wins work."
+    "heading": "A website built to turn visitors into customers."
   },
   "process": {
     "steps": [
@@ -149,15 +149,15 @@
       },
       {
         "title": "Plan",
-        "text": "We determine what the site needs to communicate and how visitors should move toward contacting you."
+        "text": "We identify what customers need to know and plan a clear path for them to contact you."
       },
       {
         "title": "Build",
-        "text": "We create the pages, content, and conversion paths that support those goals."
+        "text": "We create clear pages, helpful content, and simple ways for customers to get in touch."
       },
       {
         "title": "Launch and manage",
-        "text": "After testing the site across devices, we launch it and continue keeping it secure, current, and effective."
+        "text": "We test the site across devices, launch it, and keep it secure, up to date, and working smoothly."
       }
     ],
     "eyebrow": "A straightforward process",
@@ -172,7 +172,7 @@
       "Ongoing support after the site goes live"
     ],
     "eyebrow": "Why Devotion Creative",
-    "heading": "Polished is only useful when it has a purpose.",
+    "heading": "A polished website should do more than look good.",
     "introduction": "We believe a business website should do more than look polished. It should communicate the quality of your work and help potential customers confidently take the next step.",
     "description": "That means every decision has a purpose—from the information visitors see first to the placement of each call button and estimate form.",
     "principles_heading": "Our approach is practical"
@@ -180,20 +180,20 @@
   "review": {
     "eyebrow": "Free Marked-Up Website Review",
     "heading": "See what your current website could do better.",
-    "introduction": "Send us your website address. We’ll email you a screenshot with a few practical opportunities marked directly on the page.",
+    "introduction": "Send us your website address. We’ll email you a screenshot with practical suggestions marked directly on the page.",
     "description": "You’ll see where the site may be creating confusion, weakening trust, or making it harder for visitors to contact you.",
     "name_label": "Name",
     "email_label": "Email",
     "website_label": "Website address",
     "help_label": "What do you need help with? (optional)",
     "help_placeholder": "Tell us what you’d like to improve or where you’re getting stuck.",
-    "form_note": "Free, practical, and no sales pitch required. No call is needed to receive your review.",
+    "form_note": "Your review is free and includes practical suggestions. No phone number or sales call required.",
     "security_error": "Please complete the security check before sending your request.",
     "submit_text": "Get My Free Review",
     "submit_error": "We couldn’t send your request. Please try again.",
     "success_eyebrow": "Request received",
     "success_heading": "You’re all set.",
-    "success_message": "We received your website and will email your Free Marked-Up Website Review—a screenshot with a few practical opportunities marked directly on the page—to",
+    "success_message": "We’ve received your request and will email your free marked-up website review to",
     "phone_eyebrow": "Optional next step",
     "phone_heading": "Add your phone number",
     "phone_description": "If you’d like us to have another way to reach you after we email your review, add it below. Your review does not require a phone number or a call.",
