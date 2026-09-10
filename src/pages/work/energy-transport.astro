@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import home from "../../../data/homepage.json";
+import project from "../../../data/energy-transport.json";
+import EnergyTransportPreview from "../../components/energy-transport-preview.astro";
+
+const editable = (key: string) => ({
+  "data-editable": "text",
+  "data-prop": `@data[energy-transport].${key}`,
+  "data-type": "span",
+});
+---
+
+<Layout title={project.title} seo={{ page_description: project.description }}>
+  <article class="case-study">
+    <header class="shell case-header">
+      <a class="case-back" href="/#work">← Back to selected work</a>
+      <p class="eyebrow" {...editable("eyebrow")}>{project.eyebrow}</p>
+      <div class="case-intro">
+        <h1 {...editable("heading")}>{project.heading}</h1>
+        <div>
+          <p class="case-lead" {...editable("introduction")}>{project.introduction}</p>
+          <p class="case-scope" {...editable("scope")}>{project.scope}</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="shell case-preview">
+      <EnergyTransportPreview priority />
+    </div>
+
+    <section class="shell case-story" aria-labelledby="approach-heading">
+      <div class="case-overview">
+        <p class="eyebrow" {...editable("overview_label")}>{project.overview_label}</p>
+        <h2 id="approach-heading" {...editable("overview_heading")}>{project.overview_heading}</h2>
+        <p {...editable("overview_text")}>{project.overview_text}</p>
+      </div>
+      <div class="case-decisions">
+        {project.decisions.map((decision, index) => (
+          <section class="case-decision" aria-labelledby={`decision-${index}`}>
+            <span class="case-number" aria-hidden="true">0{index + 1}</span>
+            <div>
+              <h3 id={`decision-${index}`} {...editable(`decisions.${index}.title`)}>{decision.title}</h3>
+              <p {...editable(`decisions.${index}.text`)}>{decision.text}</p>
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <aside class="case-closing">
+      <div class="shell case-closing-inner">
+        <div>
+          <h2 {...editable("closing_heading")}>{project.closing_heading}</h2>
+          <p {...editable("closing_text")}>{project.closing_text}</p>
+        </div>
+        <a class="button button-primary" href="/#review"><span {...editable("closing_button")}>{project.closing_button}</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+  </article>
+</Layout>
+
+<style>
+  .case-header { padding-top: clamp(2rem, 5vw, 4.5rem); padding-bottom: 2.5rem; }
+  .case-back { display: inline-block; margin-bottom: 2.5rem; color: var(--color-muted); font-size: 0.875rem; }
+  .case-back:hover { color: var(--color-accent-dark); }
+  .case-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 7vw, 7rem); align-items: end; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.045em; text-wrap: balance; }
+  h1 { max-width: 15ch; margin: 0; font-size: clamp(2.75rem, 5.5vw, 5.75rem); line-height: 1.04; }
+  .case-lead { max-width: 38rem; font-size: clamp(1.0625rem, 1.5vw, 1.25rem); color: var(--color-muted); }
+  .case-scope { margin: 1.5rem 0 0; font-size: 0.875rem; }
+  .case-story { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: start; gap: clamp(2.5rem, 8vw, 8rem); padding-block: clamp(4rem, 8vw, 8rem); }
+  .case-overview h2 { max-width: 19ch; margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem); font-size: clamp(2rem, 3vw, 3.25rem); line-height: 1.15; }
+  .case-overview > p:last-child, .case-decision p { color: var(--color-muted); line-height: 1.7; }
+  .case-decision { display: grid; grid-template-columns: 1.5rem 1fr; gap: 1rem; border-top: 1px solid var(--color-line); padding: 1.75rem 0; }
+  .case-decision:last-child { padding-bottom: 0; }
+  .case-number { padding-top: 0.25rem; color: var(--color-accent-dark); font-size: 0.875rem; }
+  .case-decision h3 { margin-bottom: 0.75rem; font-size: 1.5rem; line-height: 1.25; }
+  .case-decision p { margin: 0; }
+  .case-closing { padding-block: clamp(3rem, 6vw, 6rem); background: var(--color-ink); color: white; }
+  .case-closing-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .case-closing h2 { max-width: 24ch; font-size: clamp(2rem, 3vw, 3.25rem); line-height: 1.15; }
+  .case-closing p { max-width: 38rem; margin: 0; color: #c9cfcb; }
+  .case-closing .button { flex-shrink: 0; background: var(--color-white); color: var(--color-ink); }
+  .case-closing .button:hover { background: var(--color-paper); }
+  @media (max-width: 700px) {
+    .case-intro, .case-story { grid-template-columns: 1fr; }
+    .case-back { margin-bottom: 2rem; }
+    .case-intro { gap: 1.5rem; }
+    .case-closing-inner { align-items: start; flex-direction: column; }
+  }
+</style>

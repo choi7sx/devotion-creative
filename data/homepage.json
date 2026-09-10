@@ -19,16 +19,18 @@
     "services_link": "/#services",
     "process_link": "/#process",
     "why_link": "/#why",
-    "review_link": "/#review"
+    "review_link": "/#review",
+    "about_text": "About",
+    "about_link": "/about/"
   },
   "hero": {
     "eyebrow": "Web design for local service businesses",
     "heading_start": "Turn your website into a",
     "heading_highlight": "lead-generating",
     "heading_end": "asset.",
-    "description": "We design and manage conversion-focused websites for local service businesses. Each site is built to establish trust, explain your services clearly, and make it easier for visitors to call or request an estimate.",
+    "description": "We design and manage websites for local service businesses. Help customers understand your services, trust your work, and call or request an estimate.",
     "button_text": "Get My Free Review",
-    "note": "Get a free marked-up website review: a screenshot with practical suggestions marked directly on the page. No sales call required.",
+    "note": "Free Marked-Up Website Review: a screenshot with practical suggestions, usually emailed within one business day of your request. No sales call required.",
     "outcome_trust": "Trust",
     "outcome_clarity": "Clarity",
     "outcome_conversion": "Conversion",
@@ -75,7 +77,7 @@
   "work": {
     "mobile_caption": "Mobile experience",
     "project_name": "Energy Transport",
-    "view_project_text": "View project",
+    "view_project_text": "View case study",
     "eyebrow": "Selected work",
     "heading": "Built to earn trust on every screen.",
     "description": "See how we help service businesses explain what they do, show the quality of their work, and make it easy for customers to get in touch.",
@@ -86,8 +88,8 @@
     "desktop_label": "Desktop",
     "mobile_label": "Mobile",
     "display_domain": "energytransport.com",
-    "note": "Clear information and easy navigation on desktop and mobile.",
-    "view_full_text": "View full design",
+    "note": "Fuel services, family ownership, and clear paths for customers and drivers.",
+    "view_full_text": "Read the case study",
     "desktop_caption": "Desktop experience"
   },
   "images": {
@@ -122,20 +124,20 @@
   "services": {
     "items": [
       {
-        "title": "Website strategy and design",
-        "text": "A professional website structured around your customers, services, and sales process."
+        "title": "Website design and development",
+        "text": "Up to five agreed pages, adapted for desktop, tablet, and mobile. Includes organization and light editing of the business information you provide."
       },
       {
-        "title": "Conversion-focused pages",
-        "text": "Clear service pages, service-area pages, calls to action, estimate forms, reviews, and project galleries."
+        "title": "Clear paths to get in touch",
+        "text": "Calls to action tailored to your business, such as calling, submitting a contact form, or linking to your existing booking page. Your supplied photos, reviews, and credentials help build trust."
       },
       {
-        "title": "Lead tracking",
-        "text": "Track calls and form submissions to see how your website brings in leads."
+        "title": "Basic website analytics",
+        "text": "Basic analytics setup to help you understand website traffic. With ongoing management, we review available traffic and inquiry data and recommend next steps."
       },
       {
-        "title": "Ongoing management",
-        "text": "Hosting, security, backups, content updates, and continued website improvements after launch."
+        "title": "Optional ongoing management",
+        "text": "Hosting, SSL, platform-appropriate maintenance, monthly checks, and a brief monthly summary. Includes up to 30 minutes of requested content updates each month; unused time does not roll over."
       }
     ],
     "eyebrow": "Web design and website management services",
@@ -144,44 +146,46 @@
   "process": {
     "steps": [
       {
-        "title": "Review",
-        "text": "We learn about your business, customers, services, and current website."
+        "title": "Get your free screenshot review",
+        "text": "Send your website address. John will email your marked-up screenshot, usually within one business day of your request. No sales call required."
       },
       {
-        "title": "Plan",
-        "text": "We identify what customers need to know and plan a clear path for them to contact you."
+        "title": "Agree on the proposal",
+        "text": "If you want help with your website, we discuss your priorities. Before work begins, you receive a written proposal defining the pages, included work, price, payment schedule, and estimated build timeline."
       },
       {
-        "title": "Build",
-        "text": "We create clear pages, helpful content, and simple ways for customers to get in touch."
+        "title": "Design, build, and review",
+        "text": "Once the proposal is accepted, the deposit is paid, and your materials are ready, we design and build the agreed pages. Your project includes two rounds of consolidated revisions. Additional work is quoted for approval first."
       },
       {
-        "title": "Launch and manage",
-        "text": "We test the site across devices, launch it, and keep it secure, up to date, and working smoothly."
+        "title": "Approve and launch",
+        "text": "After your final approval and remaining build payment, we launch the site following checks of navigation, links, and forms. If you choose ongoing management, it starts at launch."
       }
     ],
     "eyebrow": "A straightforward process",
-    "heading": "Clear steps. Direct communication. No mystery."
+    "heading": "Start with a review. Decide what comes next."
   },
   "why": {
     "principles": [
-      "Clear strategy before design",
-      "Simple and professional user experiences",
-      "Decisions centered on trust and conversion",
-      "Direct communication throughout the project",
-      "Ongoing support after the site goes live"
+      "Free screenshot review, usually emailed within one business day",
+      "Written scope and pricing before website work begins",
+      "Two rounds of revisions within the agreed scope",
+      "Additional work quoted for approval first",
+      "Optional ongoing website management"
     ],
     "eyebrow": "Why Devotion Creative",
-    "heading": "A polished website should do more than look good.",
-    "introduction": "We believe a business website should do more than look polished. It should communicate the quality of your work and help potential customers confidently take the next step.",
-    "description": "That means every decision has a purpose—from the information visitors see first to the placement of each call button and estimate form.",
-    "principles_heading": "Our approach is practical"
+    "heading": "Work directly with John Choi.",
+    "introduction": "Share your priorities, questions, and feedback with the person designing and building your website.",
+    "description": "Based in Gallatin, Tennessee, John works with you from the first screenshot review through design and launch. Your website build timeline is estimated in the proposal and starts after the deposit and required materials are received.",
+    "principles_heading": "What you can expect",
+    "about_text": "Meet John Choi",
+    "about_link": "/about/"
   },
   "review": {
     "eyebrow": "Free Marked-Up Website Review",
     "heading": "See what your current website could do better.",
-    "introduction": "Send us your website address. We’ll email you a screenshot with practical suggestions marked directly on the page.",
-    "description": "You’ll see where the site may be creating confusion, weakening trust, or making it harder for visitors to contact you.",
+    "introduction": "Send us your website address. John will mark practical suggestions directly on a screenshot of your homepage and email it to you, usually within one business day of your request.",
+    "description": "Use the suggestions yourself or share them with whoever manages your website. If you’d like help putting them into practice, you can choose to talk with us after you receive your review.",
     "name_label": "Name",
     "email_label": "Email",
     "website_label": "Website address",
@@ -205,7 +209,8 @@
     "name_placeholder": "Your name",
     "email_placeholder": "you@company.com",
     "website_placeholder": "yourwebsite.com",
-    "phone_placeholder": "(555) 555-5555"
+    "phone_placeholder": "(555) 555-5555",
+    "delivery_note": "Your free marked-up screenshot is usually emailed within one business day of your request."
   },
   "footer": {
     "description": "Conversion-focused websites for local service businesses.",

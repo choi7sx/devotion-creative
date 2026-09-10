@@ -29,6 +29,56 @@ collections_config:
     # There is only one homepage route.
     disable_add: true
     disable_add_folder: true
+  about:
+    path: data
+    glob:
+      - 'about.json'
+    url: '/about/'
+    icon: person
+    preview:
+      text: About Devotion Creative
+    _enabled_editors:
+      - visual
+      - data
+    disable_add: true
+    disable_add_folder: true
+    _inputs:
+      portrait.image:
+        type: image
+        comment: Upload a real portrait of John. The image is hidden until one is provided.
+      portrait.alt:
+        type: text
+      background:
+        type: array
+        comment: Add confirmed background paragraphs. This section is hidden while empty.
+      background[*]:
+        type: textarea
+  energy_transport:
+    path: data
+    glob:
+      - 'energy-transport.json'
+    url: '/work/energy-transport/'
+    icon: web
+    preview:
+      text: Energy Transport
+      subtext: Case study
+    _enabled_editors:
+      - visual
+      - data
+    disable_add: true
+    disable_add_folder: true
+    _inputs:
+      description:
+        type: textarea
+        comment: Search and sharing description for this case study.
+      introduction:
+        type: textarea
+      overview_text:
+        type: textarea
+      text:
+        type: textarea
+      closing_text:
+        type: textarea
   blog:
     path: src/content/blog
     glob:

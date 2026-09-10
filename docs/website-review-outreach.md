@@ -23,9 +23,46 @@ guaranteed result.
 4. Keep any invitation to talk optional and make it only after delivery.
    An optional phone number does not make a call part of receiving the review.
 
+John Choi handles the review and works directly with clients. The free
+marked-up screenshot is usually emailed within one business day of the
+request; this is an estimate, not a guaranteed deadline. This estimate applies
+only to the screenshot, not to a proposal or website build. If screenshot
+delivery will take longer, let the recipient know.
+
+## From review to website project
+
+If the recipient wants help after receiving the screenshot, discuss their
+priorities and provide a written proposal before website work begins. The
+proposal defines the pages, scope, price, payment schedule, and estimated
+build timeline. The build timeline starts after the deposit and required
+materials are received.
+
+The supplied standard proposal includes up to five agreed pages, light
+editing of client-supplied information, basic analytics, and two rounds of
+consolidated revisions. Additional work needs a separate quote and approval
+before it begins. Final approval and the remaining build payment precede
+launch.
+
+Ongoing management is optional. If selected, it begins at launch. Its monthly
+content-update allowance is 30 minutes and does not roll over; work beyond
+that allowance is quoted separately. Keep the selected management option
+explicit in each client proposal rather than treating it as automatic.
+
 Replace bracketed placeholders and check all claims before sending. These are
 manual templates; this repository does not configure an automated review
 delivery or outreach sequence.
+
+## Evaluate the offer
+
+Use the existing lead records to track where each request came from, whether
+the business fits the service, when the review was delivered, the time spent
+preparing it, and whether it led to a conversation or a paid project.
+
+Compare qualified requests and paid projects from similar traffic sources
+before and after homepage changes. Treat a few requests as directional
+feedback, not proof of a conversion lift. Keep changes that improve qualified
+demand without disproportionate delivery work. If requests grow but paid work
+does not, review fit and follow-up before expanding the free deliverable.
 
 ## Initial outreach
 

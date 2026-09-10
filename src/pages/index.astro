@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import EnergyTransportPreview from "../components/energy-transport-preview.astro";
 import site from "../../data/site.json";
 import home from "../../data/homepage.json";
 import { editableText, editableImage, homepageProp } from "../utils/homepage-editing";
@@ -9,6 +10,7 @@ const improvements = home.outcomes.items;
 const services = home.services.items;
 const process = home.process.steps;
 const principles = home.why.principles;
+const projectUrl = "/work/energy-transport/";
 
 const siteUrl = Astro.site!.href;
 const organizationId = new URL("#organization", siteUrl).href;
@@ -78,12 +80,9 @@ const structuredData = [
         </div>
       </div>
       <div class="project-tile hero-project-tile">
-        <button
+        <a href={projectUrl}
           class="hero-visual device-card mobile-showcase"
-          type="button"
-          data-open-project
-          data-project-view="mobile"
-          aria-label={`View the full ${home.work.project_name} mobile design`}
+          aria-label={`Read the ${home.work.project_name} case study`}
         >
           <span class="mini-phone" aria-hidden="true">
             <span class="mini-phone-speaker"></span>
@@ -98,15 +97,15 @@ const structuredData = [
               />
             </span>
           </span>
-        </button>
+        </a>
         <div class="project-tile-caption">
           <div>
             <span {...editableText("work.mobile_caption")}>{home.work.mobile_caption}</span>
             <strong {...editableText("work.project_name")}>{home.work.project_name}</strong>
           </div>
-          <button type="button" data-open-project data-project-view="mobile">
+          <a href={projectUrl}>
             <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text> <span aria-hidden="true">↗</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -196,90 +195,19 @@ const structuredData = [
           </button>
         </div>
 
-        <div class="project-stage">
-          <div class="browser-frame project-device is-active" data-project-preview="desktop">
-            <div class="browser-bar" aria-hidden="true">
-              <span class="browser-dots"><i></i><i></i><i></i></span>
-              <span {...editableText("work.display_domain")} class="browser-address">{home.work.display_domain}</span>
-            </div>
-            <div class="browser-viewport">
-              <img {...editableImage("images.desktop", "alt")}
-                src={home.images.desktop.image}
-                alt={home.images.desktop.alt}
-                width={home.images.desktop.width}
-                height={home.images.desktop.height}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-
-          <div class="phone-frame project-device" data-project-preview="mobile">
-            <div class="phone-speaker" aria-hidden="true"></div>
-            <div class="phone-viewport">
-              <img {...editableImage("images.mobile", "alt")}
-                src={home.images.mobile.image}
-                alt={home.images.mobile.alt}
-                width={home.images.mobile.width}
-                height={home.images.mobile.height}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
+        <EnergyTransportPreview interactive />
 
         <footer class="project-feature-footer">
           <p {...editableText("work.note")}>
             {home.work.note}
           </p>
-          <button class="project-view-button" type="button" data-open-project>
+          <a href={projectUrl} class="project-view-button">
             <editable-text data-prop={homepageProp("work.view_full_text")} data-type="span">{home.work.view_full_text}</editable-text> <span aria-hidden="true">↗</span>
-          </button>
+          </a>
         </footer>
       </article>
     </div>
   </section>
-
-  <dialog class="project-dialog" id="energy-project-dialog" aria-labelledby="project-dialog-title">
-    <div class="project-dialog-inner">
-      <header class="project-dialog-header">
-        <div>
-          <span {...editableText("work.project_label")} class="project-number">{home.work.project_label}</span>
-          <h2 {...editableText("work.project_name")} id="project-dialog-title">{home.work.project_name}</h2>
-        </div>
-        <div class="dialog-actions">
-          <div class="dialog-switch" role="group" aria-label="Choose a full design view">
-            <button class="is-active" type="button" data-dialog-choice="desktop" aria-pressed="true"><editable-text data-prop={homepageProp("work.desktop_label")} data-type="span">{home.work.desktop_label}</editable-text></button>
-            <button type="button" data-dialog-choice="mobile" aria-pressed="false"><editable-text data-prop={homepageProp("work.mobile_label")} data-type="span">{home.work.mobile_label}</editable-text></button>
-          </div>
-          <button class="dialog-close" type="button" data-close-project aria-label="Close full design viewer">×</button>
-        </div>
-      </header>
-      <div class="project-dialog-scroll">
-        <div class="dialog-design is-active" data-dialog-design="desktop">
-          <img {...editableImage("images.desktop", "full_alt")}
-            src={home.images.desktop.image}
-            alt={home.images.desktop.full_alt}
-            width={home.images.desktop.width}
-            height={home.images.desktop.height}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="dialog-design" data-dialog-design="mobile">
-          <img {...editableImage("images.mobile", "full_alt")}
-            src={home.images.mobile.image}
-            alt={home.images.mobile.full_alt}
-            width={home.images.mobile.width}
-            height={home.images.mobile.height}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </div>
-  </dialog>
 
   {home.testimonial.quote.trim() && home.testimonial.client_name.trim() && (
   <section class="section testimonials" aria-labelledby="testimonials-heading">
@@ -305,12 +233,9 @@ const structuredData = [
         <p {...editableText("services.eyebrow")} class="eyebrow">{home.services.eyebrow}</p>
         <h2 {...editableText("services.heading")} id="services-heading">{home.services.heading}</h2>
         <div class="project-tile services-project-tile">
-          <button
+          <a href={projectUrl}
             class="services-visual device-card desktop-showcase"
-            type="button"
-            data-open-project
-            data-project-view="desktop"
-            aria-label={`View the full ${home.work.project_name} desktop design`}
+            aria-label={`Read the ${home.work.project_name} case study`}
           >
             <span class="mini-browser" aria-hidden="true">
               <span class="mini-browser-bar">
@@ -328,15 +253,15 @@ const structuredData = [
                 />
               </span>
             </span>
-          </button>
+          </a>
           <div class="project-tile-caption">
             <div>
               <span {...editableText("work.desktop_caption")}>{home.work.desktop_caption}</span>
               <strong {...editableText("work.project_name")}>{home.work.project_name}</strong>
             </div>
-            <button type="button" data-open-project data-project-view="desktop">
+            <a href={projectUrl}>
               <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text> <span aria-hidden="true">↗</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -380,9 +305,10 @@ const structuredData = [
         <p {...editableText("why.introduction")} class="lead">
           {home.why.introduction}
         </p>
-        <p {...editableText("why.description")}>
+        <p class="why-description" {...editableText("why.description")}>
           {home.why.description}
         </p>
+        <a class="project-view-button" href={home.why.about_link}><span {...editableText("why.about_text")}>{home.why.about_text}</span><span aria-hidden="true">↗</span></a>
       </div>
       <div class="principles-panel">
         <p {...editableText("why.principles_heading")} class="panel-kicker">{home.why.principles_heading}</p>
@@ -519,6 +445,7 @@ const structuredData = [
             <editable-text data-prop={homepageProp("review.success_message")} data-type="span">{home.review.success_message}</editable-text>
             <strong data-review-email>your inbox</strong>.
           </p>
+          <p {...editableText("review.delivery_note")}>{home.review.delivery_note}</p>
 
           <div class="phone-step" data-phone-step>
             <p {...editableText("review.phone_eyebrow")} class="phone-step-label">{home.review.phone_eyebrow}</p>
@@ -603,49 +530,6 @@ const structuredData = [
         setPreview(button.dataset.previewChoice || "desktop");
       });
     });
-
-    const projectDialog = document.querySelector<HTMLDialogElement>("#energy-project-dialog");
-    const dialogButtons = document.querySelectorAll<HTMLButtonElement>("[data-dialog-choice]");
-    const dialogDesigns = document.querySelectorAll<HTMLElement>("[data-dialog-design]");
-
-    const setDialogDesign = (view: string) => {
-      dialogButtons.forEach((button) => {
-        const isActive = button.dataset.dialogChoice === view;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-      dialogDesigns.forEach((design) => {
-        design.classList.toggle("is-active", design.dataset.dialogDesign === view);
-      });
-      projectDialog?.querySelector(".project-dialog-scroll")?.scrollTo({ top: 0 });
-    };
-
-    document.querySelectorAll<HTMLButtonElement>("[data-open-project]").forEach((button) => {
-      button.addEventListener("click", (event) => {
-        if (event.defaultPrevented) return; // CloudCannon is editing the image or label.
-        const activePreview = document.querySelector<HTMLButtonElement>("[data-preview-choice].is-active");
-        setDialogDesign(button.dataset.projectView || activePreview?.dataset.previewChoice || "desktop");
-        projectDialog?.showModal();
-        document.body.classList.add("dialog-open");
-      });
-    });
-
-    dialogButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        if (event.defaultPrevented) return;
-        setDialogDesign(button.dataset.dialogChoice || "desktop");
-      });
-    });
-
-    document.querySelector<HTMLButtonElement>("[data-close-project]")?.addEventListener("click", () => {
-      projectDialog?.close();
-    });
-
-    projectDialog?.addEventListener("click", (event) => {
-      if (event.target === projectDialog) projectDialog.close();
-    });
-
-    projectDialog?.addEventListener("close", () => document.body.classList.remove("dialog-open"));
 
     type ReviewContact = {
       name: string;
