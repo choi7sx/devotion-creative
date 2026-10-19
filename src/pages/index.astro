@@ -321,8 +321,8 @@ const structuredData = [
     </div>
   </section>
 
-  <section class="review" id="review" aria-labelledby="review-heading">
-    <div class="shell review-grid">
+  <section class="review" id="prototype" aria-labelledby="review-heading">
+    <div class="shell review-grid" id="review">
       <div class="review-copy">
         <p {...editableText("review.eyebrow")} class="eyebrow eyebrow-light">{home.review.eyebrow}</p>
         <h2 {...editableText("review.heading")} id="review-heading">{home.review.heading}</h2>
@@ -333,17 +333,17 @@ const structuredData = [
           {home.review.description}
         </p>
         <div class="review-placeholder image-placeholder">
-          <span class="mini-browser review-audit-browser">
+          <span class="mini-browser prototype-browser">
             <span class="mini-browser-bar" aria-hidden="true">
               <span class="mini-browser-dots"><i></i><i></i><i></i></span>
               <span {...editableText("work.display_domain")} class="mini-browser-address">{home.work.display_domain}</span>
             </span>
-            <span class="mini-browser-screen review-audit-screen">
-              <img {...editableImage("images.audit", "alt")}
-                src={home.images.audit.image}
-                alt={home.images.audit.alt}
-                width={home.images.audit.width}
-                height={home.images.audit.height}
+            <span class="mini-browser-screen prototype-screen">
+              <img {...editableImage("images.desktop", "alt")}
+                src={home.images.desktop.image}
+                alt={home.images.desktop.alt}
+                width={home.images.desktop.width}
+                height={home.images.desktop.height}
                 loading="lazy"
                 decoding="async"
               />
@@ -355,7 +355,7 @@ const structuredData = [
         <form
           class="review-form"
           id="review-request-form"
-          action="/?review=sent#review"
+          action="/?review=sent#prototype"
           method="post"
           data-review-request-form
         >
@@ -394,7 +394,6 @@ const structuredData = [
                 autocapitalize="none"
                 spellcheck="false"
                 placeholder={home.review.website_placeholder}
-                required
               />
             </div>
             <div class="review-field review-field-wide">
@@ -410,7 +409,7 @@ const structuredData = [
           </div>
           <input type="hidden" name="inbox_key" value="potential-client-contact" />
           <input type="hidden" name="_replyto" value="" data-review-replyto />
-          <input type="hidden" name="_subject" value="Free Marked-Up Website Review request" />
+          <input type="hidden" name="_subject" value="Free Working Prototype request" />
           <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
           <p {...editableText("review.security_error")} class="form-error" role="alert" data-review-recaptcha-error hidden>
             {home.review.security_error}
@@ -453,7 +452,7 @@ const structuredData = [
             <p {...editableText("review.phone_description")}>{home.review.phone_description}</p>
             <form
               class="phone-form"
-              action="/?review=sent&amp;phone=added#review"
+              action="/?review=sent&amp;phone=added#prototype"
               method="post"
               data-phone-form
             >
@@ -462,7 +461,7 @@ const structuredData = [
               <input type="hidden" name="website" value="" data-phone-website />
               <input type="hidden" name="help_needed" value="" data-phone-help />
               <input type="hidden" name="inbox_key" value="potential-client-contact" />
-              <input type="hidden" name="_subject" value="Phone number added to Free Marked-Up Website Review request" />
+              <input type="hidden" name="_subject" value="Phone number added to Free Working Prototype request" />
               <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
               <div class="review-field">
                 <label {...editableText("review.phone_label")} for="review-phone">{home.review.phone_label}</label>
@@ -541,9 +540,21 @@ const structuredData = [
     const reviewForm = document.querySelector<HTMLFormElement>("[data-review-request-form]");
     const websiteInput = reviewForm?.querySelector<HTMLInputElement>("[name='website']");
 
+    const summaryInput = reviewForm?.querySelector<HTMLTextAreaElement>("[name='help_needed']");
+
     const normalizeWebsite = () => {
       if (!websiteInput) return false;
       const value = websiteInput.value.trim();
+      if (!value) {
+        websiteInput.value = "";
+        websiteInput.setCustomValidity("");
+        if (!summaryInput?.value.trim()) {
+          summaryInput?.setCustomValidity("Share your website address or a quick summary of your business.");
+          summaryInput?.reportValidity();
+          return false;
+        }
+        return true;
+      }
       const address = /^https?:\/\//i.test(value) ? value : `https://${value.replace(/^\/\//, "")}`;
 
       try {
@@ -563,13 +574,18 @@ const structuredData = [
       }
     };
 
-    websiteInput?.addEventListener("input", () => websiteInput.setCustomValidity(""));
+    const clearRequestValidity = () => {
+      websiteInput?.setCustomValidity("");
+      summaryInput?.setCustomValidity("");
+    };
+    websiteInput?.addEventListener("input", clearRequestValidity);
+    summaryInput?.addEventListener("input", clearRequestValidity);
     const reviewSuccess = document.querySelector<HTMLElement>("[data-review-success]");
     const reviewEmail = document.querySelector<HTMLElement>("[data-review-email]");
     const reviewError = document.querySelector<HTMLElement>("[data-review-error]");
     const reviewSubmit = document.querySelector<HTMLButtonElement>("[data-review-submit]");
     const reviewSubmitLabel = document.querySelector<HTMLElement>("[data-review-submit-label]");
-    const reviewSubmitText = reviewSubmitLabel?.textContent || "Get My Free Review";
+    const reviewSubmitText = reviewSubmitLabel?.textContent || "Get My Free Prototype";
     const reviewReplyTo = document.querySelector<HTMLInputElement>("[data-review-replyto]");
     const phoneForm = document.querySelector<HTMLFormElement>("[data-phone-form]");
     const phoneStep = document.querySelector<HTMLElement>("[data-phone-step]");

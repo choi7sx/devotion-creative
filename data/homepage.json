@@ -1,7 +1,7 @@
 {
   "title": "Web Design for Local Service Businesses | Devotion Creative",
   "seo": {
-    "page_description": "Devotion Creative designs and manages conversion-focused websites for local service businesses. Build trust, clarify your services, and make it easier for visitors to contact you. Get a free marked-up website review."
+    "page_description": "Devotion Creative designs and manages websites for local service businesses. Get a free working prototype within 72 hours of reaching out."
   },
   "brand": {
     "first_line": "Devotion",
@@ -14,12 +14,12 @@
     "services_text": "Services",
     "process_text": "Process",
     "why_text": "Why us",
-    "review_text": "Get My Free Review",
+    "review_text": "Get My Free Prototype",
     "outcomes_link": "/#outcomes",
     "services_link": "/#services",
     "process_link": "/#process",
     "why_link": "/#why",
-    "review_link": "/#review",
+    "review_link": "/#prototype",
     "about_text": "About",
     "about_link": "/about/"
   },
@@ -29,13 +29,13 @@
     "heading_highlight": "lead-generating",
     "heading_end": "asset.",
     "description": "We design and manage websites for local service businesses. Help customers understand your services, trust your work, and call or request an estimate.",
-    "button_text": "Get My Free Review",
-    "note": "Free Marked-Up Website Review: a screenshot with practical suggestions, usually emailed within one business day of your request. No sales call required.",
+    "button_text": "Get My Free Prototype",
+    "note": "Get a free working prototype within 72 hours of reaching out, based on your existing website or a quick summary of your business. No sales call required.",
     "outcome_trust": "Trust",
     "outcome_clarity": "Clarity",
     "outcome_conversion": "Conversion",
     "outcome_performance": "Performance",
-    "button_link": "#review"
+    "button_link": "#prototype"
   },
   "problem": {
     "eyebrow": "The real job of your website",
@@ -106,12 +106,6 @@
       "width": 2200,
       "height": 4704,
       "full_alt": "Full Energy Transport desktop homepage design"
-    },
-    "audit": {
-      "image": "/images/work/energy-transport-audit.webp",
-      "alt": "Marked-up Energy Transport homepage screenshot highlighting its primary call to action and opportunities to add proof",
-      "width": 918,
-      "height": 1714
     }
   },
   "testimonial": {
@@ -146,12 +140,12 @@
   "process": {
     "steps": [
       {
-        "title": "Get your free screenshot review",
-        "text": "Send your website address. John will email your marked-up screenshot, usually within one business day of your request. No sales call required."
+        "title": "Get your free working prototype",
+        "text": "Send your existing website or a quick summary of your business. John will email a link to your free working prototype within 72 hours of reaching out. No sales call required."
       },
       {
         "title": "Agree on the proposal",
-        "text": "If you want help with your website, we discuss your priorities. Before work begins, you receive a written proposal defining the pages, included work, price, payment schedule, and estimated build timeline."
+        "text": "If you want to take your prototype further, we discuss your priorities. Before the full website build begins, you receive a written proposal defining the pages, included work, price, payment schedule, and estimated build timeline."
       },
       {
         "title": "Design, build, and review",
@@ -163,12 +157,12 @@
       }
     ],
     "eyebrow": "A straightforward process",
-    "heading": "Start with a review. Decide what comes next."
+    "heading": "Start with a working prototype. Decide what comes next."
   },
   "why": {
     "principles": [
-      "Free screenshot review, usually emailed within one business day",
-      "Written scope and pricing before website work begins",
+      "Free working prototype within 72 hours of reaching out",
+      "Written scope and pricing before the full website build begins",
       "Two rounds of revisions within the agreed scope",
       "Additional work quoted for approval first",
       "Optional ongoing website management"
@@ -176,31 +170,31 @@
     "eyebrow": "Why Devotion Creative",
     "heading": "Work directly with John Choi.",
     "introduction": "Share your priorities, questions, and feedback with the person designing and building your website.",
-    "description": "Based in Gallatin, Tennessee, John works with you from the first screenshot review through design and launch. Your website build timeline is estimated in the proposal and starts after the deposit and required materials are received.",
+    "description": "Based in Gallatin, Tennessee, John works with you from the first working prototype through design and launch. Your full website build timeline is estimated in the proposal and starts after the deposit and required materials are received.",
     "principles_heading": "What you can expect",
     "about_text": "Meet John Choi",
     "about_link": "/about/"
   },
   "review": {
-    "eyebrow": "Free Marked-Up Website Review",
-    "heading": "See what your current website could do better.",
-    "introduction": "Send us your website address. John will mark practical suggestions directly on a screenshot of your homepage and email it to you, usually within one business day of your request.",
-    "description": "Use the suggestions yourself or share them with whoever manages your website. If you’d like help putting them into practice, you can choose to talk with us after you receive your review.",
+    "eyebrow": "Free Working Prototype",
+    "heading": "See what your website could be.",
+    "introduction": "Share your existing website or, if you don’t have one, a quick summary of your business. John will create a free working prototype within 72 hours of reaching out and email you a link.",
+    "description": "Explore a working version of what your website could be. If you like the direction, we can talk about turning it into your full website.",
     "name_label": "Name",
     "email_label": "Email",
-    "website_label": "Website address",
-    "help_label": "What do you need help with? (optional)",
-    "help_placeholder": "Tell us what you’d like to improve or where you’re getting stuck.",
-    "form_note": "Your review is free and includes practical suggestions. No phone number or sales call required.",
+    "website_label": "Website address (if you have one)",
+    "help_label": "Quick business summary (required if you don’t have a website)",
+    "help_placeholder": "Tell us what your business does, who you serve, and what you’d like your website to do.",
+    "form_note": "Your working prototype is free. No phone number or sales call required.",
     "security_error": "Please complete the security check before sending your request.",
-    "submit_text": "Get My Free Review",
+    "submit_text": "Get My Free Prototype",
     "submit_error": "We couldn’t send your request. Please try again.",
     "success_eyebrow": "Request received",
     "success_heading": "You’re all set.",
-    "success_message": "We’ve received your request and will email your free marked-up website review to",
+    "success_message": "We’ve received your request and will email a link to your free working prototype to",
     "phone_eyebrow": "Optional next step",
     "phone_heading": "Add your phone number",
-    "phone_description": "If you’d like us to have another way to reach you after we email your review, add it below. Your review does not require a phone number or a call.",
+    "phone_description": "If you’d like us to have another way to reach you after we email your prototype, add it below. Your prototype does not require a phone number or a call.",
     "phone_security_error": "Please complete the security check before adding your number.",
     "phone_label": "Phone number",
     "phone_submit_text": "Add my number",
@@ -210,7 +204,7 @@
     "email_placeholder": "you@company.com",
     "website_placeholder": "yourwebsite.com",
     "phone_placeholder": "(555) 555-5555",
-    "delivery_note": "Your free marked-up screenshot is usually emailed within one business day of your request."
+    "delivery_note": "Your free working prototype will be ready within 72 hours of reaching out."
   },
   "footer": {
     "description": "Conversion-focused websites for local service businesses.",
