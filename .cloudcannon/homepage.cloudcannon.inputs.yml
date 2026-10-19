@@ -11,8 +11,8 @@ why.about_link:
   label: About page link
 review.delivery_note:
   type: text
-  label: Review delivery expectation
-  comment: Shown after a review request. Keep consistent with the turnaround in the hero, process, and review introduction.
+  label: Prototype delivery expectation
+  comment: Shown after a prototype request. Keep consistent with the turnaround in the hero, process, and prototype introduction.
 title:
   type: text
   options:
@@ -48,7 +48,7 @@ brand.second_line:
     empty_type: string
 brand.home_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
@@ -86,31 +86,31 @@ header.review_text:
     empty_type: string
 header.outcomes_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
 header.services_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
 header.process_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
 header.why_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
 header.review_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
@@ -170,7 +170,7 @@ hero.outcome_performance:
     empty_type: string
 hero.button_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
@@ -420,38 +420,6 @@ images.desktop.full_alt:
   type: textarea
   options:
     empty_type: string
-images.audit:
-  type: object
-  options:
-    preview:
-      text:
-        - key: heading
-        - audit
-images.audit.image:
-  type: image
-  comment: Shared by the homepage project preview and case study where applicable.
-  options:
-    empty_type: string
-    required: true
-    paths:
-      static: public
-      uploads: public/images/work
-images.audit.alt:
-  type: textarea
-  options:
-    empty_type: string
-images.audit.width:
-  type: number
-  comment: Original image dimension in pixels. Update when replacing this image with a different size.
-  options:
-    required: true
-    min: 1
-images.audit.height:
-  type: number
-  comment: Original image dimension in pixels. Update when replacing this image with a different size.
-  options:
-    required: true
-    min: 1
 testimonial:
   type: object
   options:
@@ -614,7 +582,7 @@ review:
       text:
         - key: heading
         - review
-  label: Review form and confirmation
+  label: Prototype form and confirmation
 review.eyebrow:
   type: text
   options:
@@ -757,7 +725,7 @@ footer.back_text:
     empty_type: string
 footer.back_link:
   type: text
-  comment: "Use a section anchor such as #review, a site path such as /, or a full https:// URL."
+  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true

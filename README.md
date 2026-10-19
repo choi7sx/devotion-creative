@@ -1,10 +1,10 @@
 # Astro Minimal Starter
 
-## Website review outreach
+## Working prototype outreach
 
-Use the [review delivery process and email templates](docs/website-review-outreach.md)
-for the Free Marked-Up Website Review. Deliver the marked-up screenshot before
-inviting someone to talk; a phone number or sales call is never required.
+Use the [prototype delivery process and email templates](docs/working-prototype-outreach.md)
+for the Free Working Prototype, delivered within 72 hours of reaching out.
+Accept an existing website or a quick business summary; a phone number or sales call is never required.
 
 ## Devotion Creative SEO
 
@@ -73,9 +73,9 @@ This site is pre-configured for CloudCannon. Connect your repository and CloudCa
 
 Open **Pages → Devotion Creative** in CloudCannon. The Visual Editor connects individual text and image regions to `data/homepage.json`. The Data Editor and the Visual Editor sidebar expose the same content, grouped by section, including navigation links, repeated services and process steps, image descriptions, and form labels. Save after changing links or adding/reordering items so CloudCannon rebuilds the preview.
 
-The hero heading has separate beginning, highlighted, and ending fields to retain its orange emphasis. Project images are shared between homepage thumbnails and the Energy Transport case study. Header and footer content is shared across routes. Hidden form confirmation messages can be changed in the Review form and confirmation fields.
+The hero heading has separate beginning, highlighted, and ending fields to retain its orange emphasis. Project images are shared between homepage thumbnails and the Energy Transport case study. Header and footer content is shared across routes. Hidden form confirmation messages can be changed in the Prototype form and confirmation fields.
 
-The testimonial appears once both a real quote and client name are filled in. Blank footer contact fields are omitted; fill these through the Data Editor or sidebar to display them. Use homepage paths such as `/#review` for shared navigation so links also work from the 404 page.
+The testimonial appears once both a real quote and client name are filled in. Blank footer contact fields are omitted; fill these through the Data Editor or sidebar to display them. Use homepage paths such as `/#prototype` for shared navigation so links also work from the 404 page.
 
 Content is plain text, escaped by Astro. Layout, styling, section IDs, form endpoints, reCAPTCHA, and interaction code remain in the templates. Do not wrap the homepage in a Source Editable Region: its forms and template loops cannot safely be edited as rich text. Homepage input configuration lives in `.cloudcannon/homepage.cloudcannon.inputs.yml`.
 
@@ -95,7 +95,7 @@ John Choi's supplied professional background, personal interests, and confirmed
 service information. Upload John's portrait through `portrait.image`; the
 photo is hidden until supplied. Background paragraphs remain editable in
 `background`. No stock portrait is used.
-Keep its review turnaround and optional-management copy consistent with the
+Keep its prototype turnaround and optional-management copy consistent with the
 homepage when the offer changes.
 
 ### Editable Regions
