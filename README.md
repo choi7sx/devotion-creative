@@ -6,14 +6,80 @@ Use the [prototype delivery process and email templates](docs/working-prototype-
 for the Free Working Prototype, delivered within 72 hours of reaching out.
 Accept an existing website or a quick business summary; a phone number or sales call is never required.
 
+## Google Analytics 4
+
+Tracking is configured for measurement ID `G-V28M1Q2K76` on
+`https://devotioncreative.com`. Collection starts after deployment through
+CloudCannon. If its build environment already defines `SITE_URL`, ensure it is
+`https://devotioncreative.com`; this overrides the default in `astro.config.mjs`.
+
+1. Create a Google Analytics property named **Devotion Creative** and a **Web**
+   data stream for the live website. Copy its `G-…` measurement ID.
+2. Set `google_analytics_id` in `data/site.json`, or set
+   `PUBLIC_GA_MEASUREMENT_ID` in the hosting build environment to override it.
+   This is a public identifier, not a secret. Do not paste a full script or a `GTM-` ID.
+3. Set `SITE_URL` to the live website origin. Build and deploy with `npm run build`.
+   Analytics runs only in production builds on that exact origin, outside iframes;
+   development, alternate preview origins, and the CMS Visual Editor are excluded.
+4. In the web stream's **Enhanced measurement** settings, keep page views, scrolls,
+   outbound clicks, and downloads enabled. Turn **Form interactions** off: this
+   site measures the two forms itself, including their actual server responses.
+5. Mark **generate_lead** as a key event in Analytics. This is the primary
+   conversion. `phone_added` is an optional follow-up, not a second lead.
+6. Check **Realtime** while browsing the deployed website. Use Google Tag
+   Assistant and **DebugView** to inspect event parameters. Browser blockers can
+   prevent collection. Test form submissions on the live site create real inquiries.
+
+| Event | Meaning |
+| --- | --- |
+| `page_view` | One automatic view per page load, including About and the case study |
+| `cta_click` | Prototype buttons, with their location and destination |
+| `navigation_click` | Other internal/external navigation links |
+| `project_click` | Energy Transport or Excel SPT preview/text links |
+| `contact_click` | Email or telephone link clicks, without the contact address/number |
+| `section_view` | A section heading becomes at least half visible, once per page |
+| `scroll_depth` | 25%, 50%, 75%, 90%, and 100% of scrollable distance, once each |
+| `lead_form_start` | First input in each form, once per page |
+| `lead_form_submit` | A validated, security-checked submission attempt |
+| `lead_form_error` | Website/summary validation, security check, or request failure |
+| `generate_lead` | Server accepted a prototype request |
+| `phone_added` | Server accepted the optional phone follow-up |
+
+The success URL (`?review=sent`) and reloading the confirmation do not emit
+conversions. The existing form endpoint's successful HTTP response is the
+confirmation boundary; this does not verify eventual email delivery.
+
+Custom events never read or send names, emails, phone numbers, website inputs,
+free-text answers, CAPTCHA tokens, or session-stored contact details. Custom link
+URLs exclude query strings and unknown fragments. Page URLs retain only campaign
+parameters (`utm_*` fields listed in the implementation, `gclid`, and `dclid`);
+referrers exclude query strings and fragments. Keep personal information out of
+campaign values. Google Signals and ad personalization are disabled.
+
+For breakdowns in reports, add event-scoped custom dimensions for `link_location`,
+`project_name`, `section_name`, `form_name`, `error_type`, and `contact_method` in
+**Admin → Custom definitions**. `scroll_depth` is separate from Google's built-in
+90% `scroll`; use one event when reporting scroll totals. Likewise, Google's
+outbound `click` and our project/navigation events describe different aspects of
+one interaction and should not be added together as a click total.
+
+Implementation: `src/components/GoogleAnalytics.astro` and
+`src/scripts/analytics.ts`; form outcome hooks are in `src/pages/index.astro`.
+No consent manager is currently installed; any future consent controls should gate
+initialization here before the Google script loads.
+
+References: [Google Analytics setup](https://support.google.com/analytics/answer/9304153),
+[page views](https://developers.google.com/analytics/devguides/collection/ga4/views),
+and [event parameters and custom dimensions](https://developers.google.com/analytics/devguides/collection/ga4/event-parameters).
+
 ## Devotion Creative SEO
 
 - Set `SITE_URL` in the hosting **build environment** to the preferred public origin
   (including `https://`) and rebuild before launching on a custom domain. It currently
-  defaults to `https://devotion-creative.choi7sx.chatgpt.site`. Use the same origin
+  defaults to `https://devotioncreative.com`. Use the same origin
   for canonicals, the sitemap, and structured data; redirect alternate domains to it.
-- The connected Sites preview is currently private. Search engines need a public
-  deployment to crawl the site. These changes do not change hosting access.
+- The live custom domain is hosted on CloudCannon. The separate Sites preview
+  configuration does not publish changes to this domain.
 - Shared metadata is in `src/layouts/Layout.astro`; default description and optional
   social image settings are in `data/site.json`. The default sharing image is
   `public/og.png`, a 1200 × 630 Devotion Creative logo card with a charcoal and orange
@@ -73,7 +139,7 @@ This site is pre-configured for CloudCannon. Connect your repository and CloudCa
 
 Open **Pages → Devotion Creative** in CloudCannon. The Visual Editor connects individual text and image regions to `data/homepage.json`. The Data Editor and the Visual Editor sidebar expose the same content, grouped by section, including navigation links, repeated services and process steps, image descriptions, and form labels. Save after changing links or adding/reordering items so CloudCannon rebuilds the preview.
 
-The hero heading has separate beginning, highlighted, and ending fields to retain its orange emphasis. Project images are shared between homepage thumbnails and the Energy Transport case study. Header and footer content is shared across routes. Hidden form confirmation messages can be changed in the Prototype form and confirmation fields.
+The homepage has four main sections: a short introduction, three services, selected work, and the prototype form with a concise process. Energy Transport and Excel Sports Performance Therapy appear side by side on desktop and stack on mobile. The hero heading has separate beginning, highlighted, and optional ending fields to retain its orange emphasis. Energy Transport images are shared between the homepage preview and its case study. Header and footer content is shared across routes. Hidden form confirmation messages can be changed in the Prototype form and confirmation fields.
 
 The testimonial appears once both a real quote and client name are filled in. Blank footer contact fields are omitted; fill these through the Data Editor or sidebar to display them. Use homepage paths such as `/#prototype` for shared navigation so links also work from the 404 page.
 
@@ -83,7 +149,9 @@ These changes take effect in CloudCannon after this branch is merged into the br
 
 ### Energy Transport case study
 
-Homepage project links open `/work/energy-transport/`. The page explains the visible design decisions and reuses the homepage’s combined desktop-browser and overlapping-phone presentation as a static hero. Both pages share `src/components/energy-transport-preview.astro`. The case study has no preview controls, scrollable image areas, or full-image links.
+Energy Transport project links open `/work/energy-transport/`. The page explains the visible design decisions and reuses the homepage’s combined desktop-browser and overlapping-phone presentation as a static hero. Both pages share `src/components/energy-transport-preview.astro`, a wrapper around the reusable `src/components/project-preview.astro`. The desktop image is cropped to its hero section, ending before the stats band; update `desktopCropHeight` in the wrapper if a replacement screenshot has different hero dimensions. The mobile preview uses the iPhone 17 portrait display ratio (1206:2622) and crops the image from the top to one screen. Neither preview has device switches, scrollable image areas, or full-image links.
+
+Excel Sports Performance Therapy uses the same preview component and links to `https://excelspt.com/` in a new tab. Edit its description, link, and screenshot fields under `work.excel` in `data/homepage.json`. Its locally stored images capture the live desktop hero and mobile opening screen; update the image dimensions when replacing them. The new project does not add a separate case-study page.
 
 Open **Energy Transport** in CloudCannon to edit the case study's copy and metadata in `data/energy-transport.json`. Screenshot assets remain shared with `data/homepage.json`. The copy describes the design, without claiming measured lead growth or an unverified client brief. Add project history, client feedback, or results only when confirmed.
 

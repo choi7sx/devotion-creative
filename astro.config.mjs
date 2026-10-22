@@ -5,8 +5,8 @@ import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
-// Set SITE_URL in the hosting build environment when using a custom domain.
-const siteUrl = process.env.SITE_URL || "https://devotion-creative.choi7sx.chatgpt.site";
+// Override SITE_URL in the hosting build environment if the production domain changes.
+const siteUrl = process.env.SITE_URL || "https://devotioncreative.com";
 
 export default defineConfig({
   site: siteUrl,

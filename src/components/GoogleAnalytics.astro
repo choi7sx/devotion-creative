@@ -1,0 +1,19 @@
+---
+import site from "../../data/site.json";
+
+// The public ID can live in site settings, or be overridden by the build environment.
+const measurementId = (import.meta.env.PUBLIC_GA_MEASUREMENT_ID || site.google_analytics_id).trim();
+if (measurementId && !/^G-[A-Z0-9]+$/.test(measurementId)) {
+  throw new Error("Google Analytics requires a GA4 measurement ID beginning with G-.");
+}
+const enabled = import.meta.env.PROD && Boolean(measurementId);
+---
+
+{enabled && (
+  <meta name="google-analytics" content={measurementId} data-site-origin={Astro.site?.origin} />
+)}
+
+<script>
+  import { initializeAnalytics } from "../scripts/analytics";
+  initializeAnalytics();
+</script>

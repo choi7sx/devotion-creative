@@ -1,0 +1,135 @@
+---
+import { editableText, editableImage } from "../utils/homepage-editing";
+
+interface PreviewImage {
+  image: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+interface Props {
+  name: string;
+  domain: string;
+  images: { desktop: PreviewImage; mobile: PreviewImage };
+  imagesKey: string;
+  domainKey: string;
+  desktopCropHeight?: number;
+  priority?: boolean;
+}
+const { name, domain, images, imagesKey, domainKey, desktopCropHeight = images.desktop.height, priority = false } = Astro.props;
+---
+
+<div class="project-stage" role="group" aria-label={`${name} desktop and mobile designs`}>
+  <div class="browser-frame">
+    <div class="browser-bar" aria-hidden="true">
+      <span class="browser-dots"><i></i><i></i><i></i></span>
+      <span {...editableText(domainKey)} class="browser-address">{domain}</span>
+    </div>
+    <div class="browser-viewport" style={{ aspectRatio: `${images.desktop.width} / ${desktopCropHeight}` }}>
+      <img {...editableImage(`${imagesKey}.desktop`, "alt")}
+        src={images.desktop.image}
+        alt={images.desktop.alt}
+        width={images.desktop.width}
+        height={images.desktop.height}
+        loading={priority ? "eager" : "lazy"}
+        fetchpriority={priority ? "high" : "auto"}
+        decoding="async"
+      />
+    </div>
+  </div>
+  <div class="phone-frame">
+    <div class="phone-speaker" aria-hidden="true"></div>
+    <div class="phone-viewport">
+      <img {...editableImage(`${imagesKey}.mobile`, "alt")}
+        src={images.mobile.image}
+        alt={images.mobile.alt}
+        width={images.mobile.width}
+        height={images.mobile.height}
+        loading={priority ? "eager" : "lazy"}
+        fetchpriority={priority ? "high" : "auto"}
+        decoding="async"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Both devices stay visible; all dimensions follow this preview's width. */
+  .project-stage {
+    position: relative;
+    container-type: inline-size;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    padding: 7%;
+    border: 1px solid rgba(23, 27, 26, 0.1);
+    border-radius: var(--radius-sm);
+    background: #e8e4dc;
+  }
+  .browser-frame {
+    width: 91%;
+    overflow: hidden;
+    border: 1px solid rgba(23, 27, 26, 0.18);
+    border-radius: 0.6cqw;
+    background: var(--color-white);
+    box-shadow: 0 1.5cqw 4cqw rgba(26, 35, 31, 0.14);
+  }
+  .browser-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 4cqw;
+    padding-inline: 1.2cqw;
+    border-bottom: 1px solid #e0e1df;
+    background: #f7f7f5;
+  }
+  .browser-dots { display: flex; gap: 0.5cqw; }
+  .browser-dots i { width: 0.7cqw; height: 0.7cqw; border-radius: 50%; background: #c5c8c5; }
+  .browser-dots i:first-child { background: var(--color-accent); }
+  .browser-address {
+    position: absolute;
+    left: 50%;
+    width: 48%;
+    padding: 0.15cqw 1cqw;
+    transform: translateX(-50%);
+    border: 1px solid #e1e3e0;
+    border-radius: 100vw;
+    background: var(--color-white);
+    color: #626966;
+    font-size: 1.2cqw;
+    text-align: center;
+  }
+  /* Each project provides a desktop hero crop; images stay out of layout flow. */
+  .browser-viewport { position: relative; overflow: hidden; background: #f8f7f2; }
+  .browser-viewport img, .phone-viewport img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .phone-frame {
+    position: absolute;
+    right: 5%;
+    bottom: 7%;
+    width: 20%;
+    padding: 0.7cqw;
+    border: 1px solid #3a3e3c;
+    border-radius: 2.2cqw;
+    background: #151817;
+    box-shadow: 0 1.5cqw 4cqw rgba(16, 23, 20, 0.25);
+  }
+  .phone-speaker {
+    position: absolute;
+    z-index: 2;
+    top: 1cqw;
+    left: 50%;
+    width: 27%;
+    height: 0.35cqw;
+    transform: translateX(-50%);
+    border-radius: 100vw;
+    background: #262a28;
+  }
+  /* iPhone 17 portrait display: https://www.apple.com/iphone-17/specs/ */
+  .phone-viewport { position: relative; aspect-ratio: 1206 / 2622; overflow: hidden; border-radius: 1.5cqw; background: #f8f7f2; }
+</style>

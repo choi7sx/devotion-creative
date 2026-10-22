@@ -3,6 +3,7 @@ import "../styles/main.css";
 import site from "../../data/site.json";
 import Header from "../components/navigation/header.astro";
 import Footer from "../components/navigation/footer.astro";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
 export interface SEOProps {
   page_description?: string | null;
@@ -62,6 +63,7 @@ const twitterCreator = seo?.author_twitter_handle?.trim() || twitterSite;
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>
+    <GoogleAnalytics />
     <meta name="description" content={description} />
     <meta name="robots" content={seo?.no_index ? "noindex, follow" : "index, follow, max-image-preview:large"} />
     {canonicalURL && <link rel="canonical" href={canonicalURL.href} />}

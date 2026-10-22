@@ -11,7 +11,7 @@ const hasPortrait = Boolean(about.portrait.image.trim());
 
 <Layout title={about.title} seo={{ page_description: about.description }}>
   <div class="shell about-page">
-    <header class="about-intro">
+    <header class="about-intro" data-analytics-section="about_intro">
       <div>
         <p class="eyebrow" {...editable("eyebrow")}>{about.eyebrow}</p>
         <h1 {...editable("heading")}>{about.heading}</h1>
@@ -22,7 +22,7 @@ const hasPortrait = Boolean(about.portrait.image.trim());
     </header>
 
     {about.background.length > 0 && (
-      <section class="about-section" aria-labelledby="background-heading">
+      <section class="about-section" data-analytics-section="about_background" aria-labelledby="background-heading">
         <h2 id="background-heading" {...editable("background_heading")}>{about.background_heading}</h2>
         <div class:list={["about-background", { "with-portrait": hasPortrait }]}>
           <div>{about.background.map((paragraph, index) => <p {...editable(`background.${index}`)}>{paragraph}</p>)}</div>
@@ -33,7 +33,7 @@ const hasPortrait = Boolean(about.portrait.image.trim());
       </section>
     )}
 
-    <section class="about-section" aria-labelledby="approach-heading">
+    <section class="about-section" data-analytics-section="about_approach" aria-labelledby="approach-heading">
       <h2 id="approach-heading" {...editable("approach_heading")}>{about.approach_heading}</h2>
       <div>
         <p {...editable("approach_text")}>{about.approach_text}</p>
@@ -41,7 +41,7 @@ const hasPortrait = Boolean(about.portrait.image.trim());
       </div>
     </section>
 
-    <section class="about-review" aria-labelledby="review-heading">
+    <section class="about-review" data-analytics-section="about_prototype" aria-labelledby="review-heading">
       <h2 id="review-heading" {...editable("review_heading")}>{about.review_heading}</h2>
       <p {...editable("review_text")}>{about.review_text}</p>
       <a class="button button-primary" href="/#prototype"><span {...editable("review_link_text")}>{about.review_link_text}</span><span aria-hidden="true">↗</span></a>
