@@ -1,15 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import EnergyTransportPreview from "../components/energy-transport-preview.astro";
+import ProjectPreview from "../components/project-preview.astro";
 import site from "../../data/site.json";
 import home from "../../data/homepage.json";
-import { editableText, editableImage, homepageProp } from "../utils/homepage-editing";
+import { editableText, homepageProp } from "../utils/homepage-editing";
 
 const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
-const improvements = home.outcomes.items;
 const services = home.services.items;
 const process = home.process.steps;
-const principles = home.why.principles;
 const projectUrl = "/work/energy-transport/";
 
 const siteUrl = Astro.site!.href;
@@ -60,295 +59,132 @@ const structuredData = [
     author_twitter_handle: null,
   }}
 >
-  <div>
-  <section class="hero" aria-labelledby="hero-heading">
+  <section class="hero" aria-labelledby="hero-heading" data-analytics-section="hero">
     <div class="shell hero-grid">
       <div class="hero-copy">
         <p {...editableText("hero.eyebrow")} class="eyebrow">{home.hero.eyebrow}</p>
         <h1 id="hero-heading"><editable-text data-prop={homepageProp("hero.heading_start")} data-type="span">{home.hero.heading_start}</editable-text> <em {...editableText("hero.heading_highlight")}>{home.hero.heading_highlight}</em> <editable-text data-prop={homepageProp("hero.heading_end")} data-type="span">{home.hero.heading_end}</editable-text></h1>
-        <div class="hero-intro">
-          <p {...editableText("hero.description")}>
-            {home.hero.description}
-          </p>
-          <a class="button button-primary" href={home.hero.button_link}>
-            <editable-text data-prop={homepageProp("hero.button_text")} data-type="span">{home.hero.button_text}</editable-text>
-            <span aria-hidden="true">↗</span>
-          </a>
-          <p {...editableText("hero.note")} class="microcopy">
-            {home.hero.note}
-          </p>
-        </div>
       </div>
-      <div class="project-tile hero-project-tile">
-        <a href={projectUrl}
-          class="hero-visual device-card mobile-showcase"
-          aria-label={`Read the ${home.work.project_name} case study`}
-        >
-          <span class="mini-phone" aria-hidden="true">
-            <span class="mini-phone-speaker"></span>
-            <span class="mini-phone-screen">
-              <img {...editableImage("images.mobile")}
-                src={home.images.mobile.image}
-                alt=""
-                width={home.images.mobile.width}
-                height={home.images.mobile.height}
-                fetchpriority="high"
-                decoding="async"
-              />
-            </span>
-          </span>
+      <div class="hero-intro">
+        <p {...editableText("hero.description")}>{home.hero.description}</p>
+        <a class="button button-primary" href={home.hero.button_link}>
+          <editable-text data-prop={homepageProp("hero.button_text")} data-type="span">{home.hero.button_text}</editable-text>
+          <span aria-hidden="true">↗</span>
         </a>
-        <div class="project-tile-caption">
-          <div>
-            <span {...editableText("work.mobile_caption")}>{home.work.mobile_caption}</span>
-            <strong {...editableText("work.project_name")}>{home.work.project_name}</strong>
-          </div>
-          <a href={projectUrl}>
-            <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text> <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="shell value-rail" aria-label="Core website outcomes">
-      <span {...editableText("hero.outcome_trust")}>{home.hero.outcome_trust}</span>
-      <span {...editableText("hero.outcome_clarity")}>{home.hero.outcome_clarity}</span>
-      <span {...editableText("hero.outcome_conversion")}>{home.hero.outcome_conversion}</span>
-      <span {...editableText("hero.outcome_performance")}>{home.hero.outcome_performance}</span>
-    </div>
-  </section>
-
-  <section class="section problem" id="approach" aria-labelledby="problem-heading">
-    <div class="shell">
-      <div class="section-heading split-heading">
-        <p {...editableText("problem.eyebrow")} class="eyebrow">{home.problem.eyebrow}</p>
-        <h2 {...editableText("problem.heading")} id="problem-heading">{home.problem.heading}</h2>
-      </div>
-      <div class="problem-grid">
-        <div class="problem-copy">
-          <p {...editableText("problem.introduction")}>
-            {home.problem.introduction}
-          </p>
-          <p {...editableText("problem.description")}>
-            {home.problem.description}
-          </p>
-        </div>
-        <div class="question-panel">
-          <p {...editableText("problem.questions_heading")} class="panel-kicker">{home.problem.questions_heading}</p>
-          <ul>
-            <li><span>01</span> <editable-text data-prop={homepageProp("problem.question_services")} data-type="span">{home.problem.question_services}</editable-text></li>
-            <li><span>02</span> <editable-text data-prop={homepageProp("problem.question_area")} data-type="span">{home.problem.question_area}</editable-text></li>
-            <li><span>03</span> <editable-text data-prop={homepageProp("problem.question_trust")} data-type="span">{home.problem.question_trust}</editable-text></li>
-            <li><span>04</span> <editable-text data-prop={homepageProp("problem.question_estimate")} data-type="span">{home.problem.question_estimate}</editable-text></li>
-          </ul>
-        </div>
+        <p {...editableText("hero.note")} class="microcopy">{home.hero.note}</p>
       </div>
     </div>
   </section>
 
-  <section class="section outcomes" id="outcomes" aria-labelledby="outcomes-heading">
+  <section class="section services" id="services" aria-labelledby="services-heading" data-analytics-section="services">
     <div class="shell">
-      <div class="section-heading compact-heading">
-        <p {...editableText("outcomes.eyebrow")} class="eyebrow">{home.outcomes.eyebrow}</p>
-        <h2 {...editableText("outcomes.heading")} id="outcomes-heading">{home.outcomes.heading}</h2>
-      </div>
-      <div class="outcome-grid">
-        {improvements.map((item, index) => (
-          <article class="outcome-card">
-            <span class="card-number">/<editable-text data-prop={homepageProp(`outcomes.items.${index}.number`)} data-type="span">{item.number}</editable-text></span>
-            <h3 {...editableText(`outcomes.items.${index}.title`)}>{item.title}</h3>
-            <p {...editableText(`outcomes.items.${index}.text`)}>{item.text}</p>
+      <header class="section-heading">
+        <p {...editableText("services.eyebrow")} class="eyebrow">{home.services.eyebrow}</p>
+        <h2 {...editableText("services.heading")} id="services-heading">{home.services.heading}</h2>
+      </header>
+      <div class="service-list">
+        {services.map((item, index) => (
+          <article class="service-item">
+            <span class="service-number" aria-hidden="true">0{index + 1}</span>
+            <h3 {...editableText(`services.items.${index}.title`)}>{item.title}</h3>
+            <p {...editableText(`services.items.${index}.text`)}>{item.text}</p>
           </article>
         ))}
       </div>
+      <p class="personal-note">
+        <editable-text data-prop={homepageProp("services.personal_note")} data-type="span">{home.services.personal_note}</editable-text>
+        <a href={home.services.about_link}><editable-text data-prop={homepageProp("services.about_text")} data-type="span">{home.services.about_text}</editable-text> <span aria-hidden="true">↗</span></a>
+      </p>
     </div>
   </section>
 
-  <section class="section recent-work" id="work" aria-labelledby="work-heading">
+  <section class="section recent-work" id="work" aria-labelledby="work-heading" data-analytics-section="work">
     <div class="shell">
-      <div class="work-heading">
-        <p {...editableText("work.eyebrow")} class="eyebrow">{home.work.eyebrow}</p>
-        <h2 {...editableText("work.heading")} id="work-heading">{home.work.heading}</h2>
-        <p {...editableText("work.description")}>
-          {home.work.description}
-        </p>
-      </div>
-
-      <article class="project-feature" aria-labelledby="energy-project-title">
-        <header class="project-feature-header">
-          <div>
-            <p {...editableText("work.project_label")} class="project-number">{home.work.project_label}</p>
-            <h3 {...editableText("work.project_name")} id="energy-project-title">{home.work.project_name}</h3>
-          </div>
-          <ul class="project-services" aria-label="Project services">
-            <li {...editableText("work.service_strategy")}>{home.work.service_strategy}</li>
-            <li {...editableText("work.service_design")}>{home.work.service_design}</li>
-            <li {...editableText("work.service_development")}>{home.work.service_development}</li>
-          </ul>
-        </header>
-
-        <div class="device-switch" role="group" aria-label="Choose a design preview">
-          <button class="is-active" type="button" data-preview-choice="desktop" aria-pressed="true">
-            <editable-text data-prop={homepageProp("work.desktop_label")} data-type="span">{home.work.desktop_label}</editable-text>
-          </button>
-          <button type="button" data-preview-choice="mobile" aria-pressed="false">
-            <editable-text data-prop={homepageProp("work.mobile_label")} data-type="span">{home.work.mobile_label}</editable-text>
-          </button>
-        </div>
-
-        <EnergyTransportPreview interactive />
-
-        <footer class="project-feature-footer">
-          <p {...editableText("work.note")}>
-            {home.work.note}
-          </p>
-          <a href={projectUrl} class="project-view-button">
-            <editable-text data-prop={homepageProp("work.view_full_text")} data-type="span">{home.work.view_full_text}</editable-text> <span aria-hidden="true">↗</span>
+      <header class="section-heading">
+        <h2 {...editableText("work.eyebrow")} id="work-heading">{home.work.eyebrow}</h2>
+      </header>
+      <div class="work-list">
+        <article class="work-project" aria-labelledby="energy-work-heading">
+          <a class="work-preview" data-analytics-project="energy_transport" href={projectUrl} aria-label={`View the ${home.work.project_name} case study`}>
+            <EnergyTransportPreview />
           </a>
-        </footer>
-      </article>
+          <div class="work-copy">
+            <h3 {...editableText("work.project_name")} id="energy-work-heading">{home.work.project_name}</h3>
+            <p {...editableText("work.description")}>{home.work.description}</p>
+            <ul class="project-services" aria-label="Project services">
+              <li {...editableText("work.service_design")}>{home.work.service_design}</li>
+              <li {...editableText("work.service_development")}>{home.work.service_development}</li>
+            </ul>
+            <a href={projectUrl} class="text-link" data-analytics-project="energy_transport">
+              <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+        <article class="work-project" aria-labelledby="excel-work-heading">
+          <a class="work-preview" data-analytics-project="excel_spt" href={home.work.excel.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${home.work.excel.project_name} (opens in a new tab)`}>
+            <ProjectPreview
+              name={home.work.excel.project_name}
+              domain={home.work.excel.display_domain}
+              images={home.work.excel.images}
+              imagesKey="work.excel.images"
+              domainKey="work.excel.display_domain"
+            />
+          </a>
+          <div class="work-copy">
+            <h3 {...editableText("work.excel.project_name")} id="excel-work-heading">{home.work.excel.project_name}</h3>
+            <p {...editableText("work.excel.description")}>{home.work.excel.description}</p>
+            <ul class="project-services" aria-label="Project services">
+              <li {...editableText("work.service_design")}>{home.work.service_design}</li>
+              <li {...editableText("work.service_development")}>{home.work.service_development}</li>
+            </ul>
+            <a href={home.work.excel.link} class="text-link" data-analytics-project="excel_spt" target="_blank" rel="noopener noreferrer" aria-label={`Visit ${home.work.excel.project_name} (opens in a new tab)`}>
+              <editable-text data-prop={homepageProp("work.excel.link_text")} data-type="span">{home.work.excel.link_text}</editable-text>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
   {home.testimonial.quote.trim() && home.testimonial.client_name.trim() && (
-  <section class="section testimonials" aria-labelledby="testimonials-heading">
-    <div class="shell testimonial-grid">
-      <div class="testimonial-heading">
-        <p {...editableText("testimonial.eyebrow")} class="eyebrow eyebrow-light">{home.testimonial.eyebrow}</p>
-        <h2 {...editableText("testimonial.heading")} id="testimonials-heading">{home.testimonial.heading}</h2>
+    <section class="section testimonials" aria-labelledby="testimonials-heading" data-analytics-section="testimonials">
+      <div class="shell testimonial-grid">
+        <div>
+          <p {...editableText("testimonial.eyebrow")} class="eyebrow">{home.testimonial.eyebrow}</p>
+          <h2 {...editableText("testimonial.heading")} id="testimonials-heading">{home.testimonial.heading}</h2>
+        </div>
+        <figure class="testimonial-card">
+          <blockquote {...editableText("testimonial.quote")}>{home.testimonial.quote}</blockquote>
+          <figcaption>
+            <strong {...editableText("testimonial.client_name")}>{home.testimonial.client_name}</strong>
+            <span {...editableText("testimonial.client_role")}>{home.testimonial.client_role}</span>
+          </figcaption>
+        </figure>
       </div>
-      <figure class="testimonial-card">
-        <blockquote {...editableText("testimonial.quote")}>{home.testimonial.quote}</blockquote>
-        <figcaption>
-          <strong {...editableText("testimonial.client_name")}>{home.testimonial.client_name}</strong>
-          <span {...editableText("testimonial.client_role")}>{home.testimonial.client_role}</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
+    </section>
   )}
 
-  <section class="section services" id="services" aria-labelledby="services-heading">
-    <div class="shell services-grid">
-      <div class="services-sticky">
-        <p {...editableText("services.eyebrow")} class="eyebrow">{home.services.eyebrow}</p>
-        <h2 {...editableText("services.heading")} id="services-heading">{home.services.heading}</h2>
-        <div class="project-tile services-project-tile">
-          <a href={projectUrl}
-            class="services-visual device-card desktop-showcase"
-            aria-label={`Read the ${home.work.project_name} case study`}
-          >
-            <span class="mini-browser" aria-hidden="true">
-              <span class="mini-browser-bar">
-                <span class="mini-browser-dots"><i></i><i></i><i></i></span>
-                <span {...editableText("work.display_domain")} class="mini-browser-address">{home.work.display_domain}</span>
-              </span>
-              <span class="mini-browser-screen">
-                <img {...editableImage("images.desktop")}
-                  src={home.images.desktop.image}
-                  alt=""
-                  width={home.images.desktop.width}
-                  height={home.images.desktop.height}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            </span>
-          </a>
-          <div class="project-tile-caption">
-            <div>
-              <span {...editableText("work.desktop_caption")}>{home.work.desktop_caption}</span>
-              <strong {...editableText("work.project_name")}>{home.work.project_name}</strong>
-            </div>
-            <a href={projectUrl}>
-              <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text> <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="service-list">
-        {services.map((item, index) => (
-          <article class="service-item">
-            <span class="service-number">0{index + 1}</span>
-            <div>
-              <h3 {...editableText(`services.items.${index}.title`)}>{item.title}</h3>
-              <p {...editableText(`services.items.${index}.text`)}>{item.text}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section process" id="process" aria-labelledby="process-heading">
-    <div class="shell">
-      <div class="section-heading split-heading process-heading">
-        <p {...editableText("process.eyebrow")} class="eyebrow eyebrow-light">{home.process.eyebrow}</p>
-        <h2 {...editableText("process.heading")} id="process-heading">{home.process.heading}</h2>
-      </div>
-      <div class="process-list">
-        {process.map((item, index) => (
-          <article class="process-row">
-            <span class="process-number">0{index + 1}</span>
-            <h3 {...editableText(`process.steps.${index}.title`)}>{item.title}</h3>
-            <p {...editableText(`process.steps.${index}.text`)}>{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section why" id="why" aria-labelledby="why-heading">
-    <div class="shell why-grid">
-      <div class="why-copy">
-        <p {...editableText("why.eyebrow")} class="eyebrow">{home.why.eyebrow}</p>
-        <h2 {...editableText("why.heading")} id="why-heading">{home.why.heading}</h2>
-        <p {...editableText("why.introduction")} class="lead">
-          {home.why.introduction}
-        </p>
-        <p class="why-description" {...editableText("why.description")}>
-          {home.why.description}
-        </p>
-        <a class="project-view-button" href={home.why.about_link}><span {...editableText("why.about_text")}>{home.why.about_text}</span><span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="principles-panel">
-        <p {...editableText("why.principles_heading")} class="panel-kicker">{home.why.principles_heading}</p>
-        <ul>
-          {principles.map((principle, index) => (
-            <li><span aria-hidden="true">↳</span><editable-text data-prop={homepageProp(`why.principles.${index}`)} data-type="span">{principle}</editable-text></li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="review" id="prototype" aria-labelledby="review-heading">
+  <section class="review" id="prototype" data-analytics-section="prototype" aria-labelledby="review-heading">
     <div class="shell review-grid" id="review">
       <div class="review-copy">
         <p {...editableText("review.eyebrow")} class="eyebrow eyebrow-light">{home.review.eyebrow}</p>
         <h2 {...editableText("review.heading")} id="review-heading">{home.review.heading}</h2>
-        <p {...editableText("review.introduction")}>
-          {home.review.introduction}
-        </p>
-        <p {...editableText("review.description")}>
-          {home.review.description}
-        </p>
-        <div class="review-placeholder image-placeholder">
-          <span class="mini-browser prototype-browser">
-            <span class="mini-browser-bar" aria-hidden="true">
-              <span class="mini-browser-dots"><i></i><i></i><i></i></span>
-              <span {...editableText("work.display_domain")} class="mini-browser-address">{home.work.display_domain}</span>
-            </span>
-            <span class="mini-browser-screen prototype-screen">
-              <img {...editableImage("images.desktop", "alt")}
-                src={home.images.desktop.image}
-                alt={home.images.desktop.alt}
-                width={home.images.desktop.width}
-                height={home.images.desktop.height}
-                loading="lazy"
-                decoding="async"
-              />
-            </span>
-          </span>
+        <p {...editableText("review.introduction")}>{home.review.introduction}</p>
+        <div class="process" id="process">
+          <h3 {...editableText("process.heading")}>{home.process.heading}</h3>
+          <ol class="process-list">
+            {process.map((item, index) => (
+              <li class="process-step">
+                <span class="process-number" aria-hidden="true">0{index + 1}</span>
+                <div>
+                  <h4 {...editableText(`process.steps.${index}.title`)}>{item.title}</h4>
+                  <p {...editableText(`process.steps.${index}.text`)}>{item.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
       <div class="review-card">
@@ -401,7 +237,7 @@ const structuredData = [
               <textarea
                 id="review-help"
                 name="help_needed"
-                rows="5"
+                rows="3"
                 placeholder={home.review.help_placeholder}
               ></textarea>
               <p {...editableText("review.form_note")} class="form-note review-form-note">{home.review.form_note}</p>
@@ -502,33 +338,12 @@ const structuredData = [
     </div>
   </section>
 
-  </div>
-
   {recaptchaSiteKey && (
     <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
   )}
 
   <script>
-    const previewButtons = document.querySelectorAll<HTMLButtonElement>("[data-preview-choice]");
-    const previewDevices = document.querySelectorAll<HTMLElement>("[data-project-preview]");
-
-    const setPreview = (view: string) => {
-      previewButtons.forEach((button) => {
-        const isActive = button.dataset.previewChoice === view;
-        button.classList.toggle("is-active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-      previewDevices.forEach((device) => {
-        device.classList.toggle("is-active", device.dataset.projectPreview === view);
-      });
-    };
-
-    previewButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        if (event.defaultPrevented) return; // CloudCannon is editing the button label.
-        setPreview(button.dataset.previewChoice || "desktop");
-      });
-    });
+    import { trackFormEvent } from "../scripts/analytics";
 
     type ReviewContact = {
       name: string;
@@ -599,7 +414,7 @@ const structuredData = [
     const recaptchaContainers = document.querySelectorAll<HTMLElement>("[data-recaptcha-container]");
 
     type Recaptcha = {
-      render: (container: HTMLElement, options: { sitekey: string; theme: "light" | "dark" }) => number;
+      render: (container: HTMLElement, options: { sitekey: string; theme: "light" | "dark"; size: "compact" }) => number;
     };
 
     const getRecaptcha = () => (window as Window & { grecaptcha?: Recaptcha }).grecaptcha;
@@ -610,7 +425,7 @@ const structuredData = [
       const recaptcha = getRecaptcha();
       if (!siteKey || !recaptcha) return;
       container.dataset.recaptchaWidgetId = String(
-        recaptcha.render(container, { sitekey: siteKey, theme: "light" }),
+        recaptcha.render(container, { sitekey: siteKey, theme: "light", size: "compact" }),
       );
     };
 
@@ -671,10 +486,14 @@ const structuredData = [
       reviewError?.setAttribute("hidden", "");
       reviewRecaptchaError?.setAttribute("hidden", "");
 
-      if (!normalizeWebsite()) return;
+      if (!normalizeWebsite()) {
+        trackFormEvent("lead_form_error", "prototype_request", "validation");
+        return;
+      }
 
       if (!hasRecaptchaResponse(reviewForm)) {
         reviewRecaptchaError?.removeAttribute("hidden");
+        trackFormEvent("lead_form_error", "prototype_request", "security_check");
         return;
       }
 
@@ -696,9 +515,12 @@ const structuredData = [
         } catch {
           // The submission still works when browser storage is unavailable.
         }
+        trackFormEvent("lead_form_submit", "prototype_request");
         await postForm(reviewForm);
+        trackFormEvent("generate_lead", "prototype_request");
         showReviewSuccess(contact);
       } catch {
+        trackFormEvent("lead_form_error", "prototype_request", "submission_failed");
         reviewError?.removeAttribute("hidden");
       } finally {
         reviewSubmit?.removeAttribute("disabled");
@@ -713,16 +535,20 @@ const structuredData = [
 
       if (!hasRecaptchaResponse(phoneForm)) {
         phoneRecaptchaError?.removeAttribute("hidden");
+        trackFormEvent("lead_form_error", "phone_followup", "security_check");
         return;
       }
       phoneSubmit?.setAttribute("disabled", "");
       if (phoneSubmitLabel) phoneSubmitLabel.textContent = "Adding…";
 
       try {
+        trackFormEvent("lead_form_submit", "phone_followup");
         await postForm(phoneForm);
+        trackFormEvent("phone_added", "phone_followup");
         if (phoneStep) phoneStep.hidden = true;
         phoneConfirmation?.removeAttribute("hidden");
       } catch {
+        trackFormEvent("lead_form_error", "phone_followup", "submission_failed");
         phoneError?.removeAttribute("hidden");
       } finally {
         phoneSubmit?.removeAttribute("disabled");

@@ -11,47 +11,13 @@ import { editableText, homepageProp } from "../../utils/homepage-editing";
         <span><editable-text data-prop={homepageProp("brand.first_line")} data-type="span">{home.brand.first_line}</editable-text><br /><editable-text data-prop={homepageProp("brand.second_line")} data-type="span">{home.brand.second_line}</editable-text></span>
       </a>
 
-      <ul class="desktop-nav">
-        <li><a {...editableText("header.outcomes_text")} href={home.header.outcomes_link}>{home.header.outcomes_text}</a></li>
+      <ul class="nav-links">
         <li><a {...editableText("header.services_text")} href={home.header.services_link}>{home.header.services_text}</a></li>
-        <li><a {...editableText("header.process_text")} href={home.header.process_link}>{home.header.process_text}</a></li>
-        <li><a {...editableText("header.why_text")} href={home.header.why_link}>{home.header.why_text}</a></li>
+        <li><a {...editableText("header.work_text")} href={home.header.work_link}>{home.header.work_text}</a></li>
         <li><a {...editableText("header.about_text")} href={home.header.about_link}>{home.header.about_text}</a></li>
       </ul>
 
       <a class="nav-cta" href={home.header.review_link}><editable-text data-prop={homepageProp("header.review_text")} data-type="span">{home.header.review_text}</editable-text> <span aria-hidden="true">↗</span></a>
-
-      <button
-        class="menu-button"
-        aria-label="Open navigation menu"
-        popovertarget="mobile-menu"
-        popovertargetaction="show"
-      >
-        <span></span><span></span>
-      </button>
-
-      <div popover id="mobile-menu" class="mobile-menu">
-        <div class="mobile-menu-head">
-          <a class="wordmark" href={home.brand.home_link}>
-            <span class="wordmark-mark" aria-hidden="true"></span>
-            <span><editable-text data-prop={homepageProp("brand.first_line")} data-type="span">{home.brand.first_line}</editable-text><br /><editable-text data-prop={homepageProp("brand.second_line")} data-type="span">{home.brand.second_line}</editable-text></span>
-          </a>
-          <button
-            class="menu-close"
-            aria-label="Close navigation menu"
-            popovertarget="mobile-menu"
-            popovertargetaction="hide"
-          >×</button>
-        </div>
-        <ul>
-          <li><a {...editableText("header.outcomes_text")} href={home.header.outcomes_link}>{home.header.outcomes_text}</a></li>
-          <li><a {...editableText("header.services_text")} href={home.header.services_link}>{home.header.services_text}</a></li>
-          <li><a {...editableText("header.process_text")} href={home.header.process_link}>{home.header.process_text}</a></li>
-          <li><a {...editableText("header.why_text")} href={home.header.why_link}>{home.header.why_text}</a></li>
-        <li><a {...editableText("header.about_text")} href={home.header.about_link}>{home.header.about_text}</a></li>
-          <li><a {...editableText("header.review_text")} href={home.header.review_link}>{home.header.review_text}</a></li>
-        </ul>
-      </div>
     </nav>
   </div>
 </header>

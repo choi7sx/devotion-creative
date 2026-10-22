@@ -10,99 +10,66 @@
     "copyright_name": "Devotion Creative"
   },
   "header": {
-    "outcomes_text": "Outcomes",
     "services_text": "Services",
-    "process_text": "Process",
-    "why_text": "Why us",
-    "review_text": "Get My Free Prototype",
-    "outcomes_link": "/#outcomes",
     "services_link": "/#services",
-    "process_link": "/#process",
-    "why_link": "/#why",
-    "review_link": "/#prototype",
+    "work_text": "Our work",
+    "work_link": "/#work",
     "about_text": "About",
-    "about_link": "/about/"
+    "about_link": "/about/",
+    "review_text": "Free prototype",
+    "review_link": "/#prototype"
   },
   "hero": {
-    "eyebrow": "Web design for local service businesses",
-    "heading_start": "Turn your website into a",
-    "heading_highlight": "lead-generating",
-    "heading_end": "asset.",
-    "description": "We design and manage websites for local service businesses. Help customers understand your services, trust your work, and call or request an estimate.",
+    "eyebrow": "Web design & website management",
+    "heading_start": "Web design for",
+    "heading_highlight": "local businesses.",
+    "heading_end": "",
+    "description": "We build and manage websites for local service businesses. Clear services, a great experience on every screen, and an easy way for customers to get in touch.",
     "button_text": "Get My Free Prototype",
-    "note": "Get a free working prototype within 72 hours of reaching out, based on your existing website or a quick summary of your business. No sales call required.",
-    "outcome_trust": "Trust",
-    "outcome_clarity": "Clarity",
-    "outcome_conversion": "Conversion",
-    "outcome_performance": "Performance",
-    "button_link": "#prototype"
-  },
-  "problem": {
-    "eyebrow": "The real job of your website",
-    "heading": "Your website should help you win more business.",
-    "introduction": "Potential customers visit your website to decide whether they can trust you with the job.",
-    "description": "If your site looks outdated, is difficult to use on a phone, or makes the next step unclear, they may leave and contact a competitor.",
-    "questions_heading": "We answer the questions customers care about",
-    "question_services": "What services do you provide?",
-    "question_area": "Do you serve my area?",
-    "question_trust": "Why should I trust your company?",
-    "question_estimate": "How can I request an estimate?"
-  },
-  "outcomes": {
-    "items": [
-      {
-        "number": "01",
-        "title": "Trust",
-        "text": "Present your reviews, completed projects, credentials, and experience where potential customers can see them."
-      },
-      {
-        "number": "02",
-        "title": "Clarity",
-        "text": "Organize your services and service areas so visitors immediately understand how you can help."
-      },
-      {
-        "number": "03",
-        "title": "Conversion",
-        "text": "Make it simple to call, submit a request, or book an appointment from any device."
-      },
-      {
-        "number": "04",
-        "title": "Performance",
-        "text": "Give visitors a fast, reliable, mobile-friendly experience that reflects the quality of your business."
-      }
-    ],
-    "eyebrow": "What we help improve",
-    "heading": "A better path from first visit to first call."
+    "button_link": "#prototype",
+    "note": "Free Working Prototype within 72 hours. No sales call required."
   },
   "work": {
-    "mobile_caption": "Mobile experience",
-    "project_name": "Energy Transport",
-    "view_project_text": "View case study",
     "eyebrow": "Selected work",
-    "heading": "Built to earn trust on every screen.",
-    "description": "See how we help service businesses explain what they do, show the quality of their work, and make it easy for customers to get in touch.",
-    "project_label": "Project / 01",
-    "service_strategy": "Strategy",
+    "project_name": "Energy Transport",
+    "description": "A fuel transport website that puts services, family ownership, and the next step front and center for customers and drivers.",
     "service_design": "Web design",
     "service_development": "Development",
-    "desktop_label": "Desktop",
-    "mobile_label": "Mobile",
     "display_domain": "energytransport.com",
-    "note": "Fuel services, family ownership, and clear paths for customers and drivers.",
-    "view_full_text": "Read the case study",
-    "desktop_caption": "Desktop experience"
+    "view_project_text": "View case study",
+    "excel": {
+      "project_name": "Excel Sports Performance Therapy",
+      "description": "A chiropractic and sports therapy website with clear service information, two locations, and a direct path to booking.",
+      "display_domain": "excelspt.com",
+      "link": "https://excelspt.com/",
+      "link_text": "Visit live site",
+      "images": {
+        "desktop": {
+          "image": "/images/work/excel-spt-desktop.webp",
+          "alt": "Excel Sports Performance Therapy homepage hero at desktop size",
+          "width": 1200,
+          "height": 750
+        },
+        "mobile": {
+          "image": "/images/work/excel-spt-mobile.webp",
+          "alt": "Excel Sports Performance Therapy homepage in an iPhone 17 portrait viewport",
+          "width": 402,
+          "height": 900
+        }
+      }
+    }
   },
   "images": {
     "mobile": {
       "image": "/images/work/energy-transport-mobile.webp",
       "width": 405,
       "height": 4661,
-      "alt": "Energy Transport homepage shown at mobile size",
+      "alt": "Energy Transport homepage shown in an iPhone 17 portrait viewport",
       "full_alt": "Full Energy Transport mobile homepage design"
     },
     "desktop": {
       "image": "/images/work/energy-transport-desktop.webp",
-      "alt": "Energy Transport homepage shown at desktop size",
+      "alt": "Energy Transport homepage hero shown at desktop size",
       "width": 2200,
       "height": 4704,
       "full_alt": "Full Energy Transport desktop homepage design"
@@ -116,76 +83,53 @@
     "client_role": ""
   },
   "services": {
+    "eyebrow": "What we do",
+    "heading": "A better website. Help keeping it that way.",
     "items": [
       {
-        "title": "Website design and development",
-        "text": "Up to five agreed pages, adapted for desktop, tablet, and mobile. Includes organization and light editing of the business information you provide."
+        "title": "Website design & development",
+        "text": "Up to five pages that explain your services and show your work, with light editing of the content you provide. Built for desktop, tablet, and mobile."
       },
       {
-        "title": "Clear paths to get in touch",
-        "text": "Calls to action tailored to your business, such as calling, submitting a contact form, or linking to your existing booking page. Your supplied photos, reviews, and credentials help build trust."
+        "title": "Contact forms & analytics",
+        "text": "Make it easy to call, request an estimate, or book through your existing service. Basic analytics help you understand your website traffic."
       },
       {
-        "title": "Basic website analytics",
-        "text": "Basic analytics setup to help you understand website traffic. With ongoing management, we review available traffic and inquiry data and recommend next steps."
-      },
-      {
-        "title": "Optional ongoing management",
-        "text": "Hosting, SSL, platform-appropriate maintenance, monthly checks, and a brief monthly summary. Includes up to 30 minutes of requested content updates each month; unused time does not roll over."
+        "title": "Ongoing care, if you need it",
+        "text": "Optional hosting, SSL, maintenance, and monthly checks. Includes a monthly summary and up to 30 minutes of content updates each month."
       }
     ],
-    "eyebrow": "Web design and website management services",
-    "heading": "A website built to turn visitors into customers."
+    "personal_note": "Work directly with John Choi, from the first prototype to launch.",
+    "about_text": "Meet John",
+    "about_link": "/about/"
   },
   "process": {
+    "heading": "How it works",
     "steps": [
       {
-        "title": "Get your free working prototype",
-        "text": "Send your existing website or a quick summary of your business. John will email a link to your free working prototype within 72 hours of reaching out. No sales call required."
+        "title": "See your free prototype",
+        "text": "Share your website or a business summary. John emails a working preview within 72 hours of reaching out."
       },
       {
-        "title": "Agree on the proposal",
-        "text": "If you want to take your prototype further, we discuss your priorities. Before the full website build begins, you receive a written proposal defining the pages, included work, price, payment schedule, and estimated build timeline."
+        "title": "Agree on the plan",
+        "text": "If you want to continue, we put the pages, scope, price, payment schedule, and build timeline in writing."
       },
       {
-        "title": "Design, build, and review",
-        "text": "Once the proposal is accepted, the deposit is paid, and your materials are ready, we design and build the agreed pages. Your project includes two rounds of consolidated revisions. Additional work is quoted for approval first."
-      },
-      {
-        "title": "Approve and launch",
-        "text": "After your final approval and remaining build payment, we launch the site following checks of navigation, links, and forms. If you choose ongoing management, it starts at launch."
+        "title": "Review, then launch",
+        "text": "Two rounds of revisions are included. We launch after your approval and final payment. Ongoing care is optional."
       }
-    ],
-    "eyebrow": "A straightforward process",
-    "heading": "Start with a working prototype. Decide what comes next."
-  },
-  "why": {
-    "principles": [
-      "Free working prototype within 72 hours of reaching out",
-      "Written scope and pricing before the full website build begins",
-      "Two rounds of revisions within the agreed scope",
-      "Additional work quoted for approval first",
-      "Optional ongoing website management"
-    ],
-    "eyebrow": "Why Devotion Creative",
-    "heading": "Work directly with John Choi.",
-    "introduction": "Share your priorities, questions, and feedback with the person designing and building your website.",
-    "description": "Based in Gallatin, Tennessee, John works with you from the first working prototype through design and launch. Your full website build timeline is estimated in the proposal and starts after the deposit and required materials are received.",
-    "principles_heading": "What you can expect",
-    "about_text": "Meet John Choi",
-    "about_link": "/about/"
+    ]
   },
   "review": {
     "eyebrow": "Free Working Prototype",
-    "heading": "See what your website could be.",
-    "introduction": "Share your existing website or, if you don’t have one, a quick summary of your business. John will create a free working prototype within 72 hours of reaching out and email you a link.",
-    "description": "Explore a working version of what your website could be. If you like the direction, we can talk about turning it into your full website.",
+    "heading": "See your new website before committing.",
+    "introduction": "Start with a free working preview of what your website could be. You decide whether to take it further.",
     "name_label": "Name",
     "email_label": "Email",
-    "website_label": "Website address (if you have one)",
-    "help_label": "Quick business summary (required if you don’t have a website)",
-    "help_placeholder": "Tell us what your business does, who you serve, and what you’d like your website to do.",
-    "form_note": "Your working prototype is free. No phone number or sales call required.",
+    "website_label": "Website (if you have one)",
+    "help_label": "Business summary",
+    "help_placeholder": "What does your business do, and who do you serve?",
+    "form_note": "Share a website or a short business summary. No phone number or sales call required.",
     "security_error": "Please complete the security check before sending your request.",
     "submit_text": "Get My Free Prototype",
     "submit_error": "We couldn’t send your request. Please try again.",
@@ -194,7 +138,7 @@
     "success_message": "We’ve received your request and will email a link to your free working prototype to",
     "phone_eyebrow": "Optional next step",
     "phone_heading": "Add your phone number",
-    "phone_description": "If you’d like us to have another way to reach you after we email your prototype, add it below. Your prototype does not require a phone number or a call.",
+    "phone_description": "Leave a number if you’d like another way for us to reach you. This is optional.",
     "phone_security_error": "Please complete the security check before adding your number.",
     "phone_label": "Phone number",
     "phone_submit_text": "Add my number",
@@ -207,7 +151,7 @@
     "delivery_note": "Your free working prototype will be ready within 72 hours of reaching out."
   },
   "footer": {
-    "description": "Conversion-focused websites for local service businesses.",
+    "description": "Web design and website care for local businesses.",
     "email": "john@devotioncreative.com",
     "phone": "",
     "location": "Gallatin, TN",

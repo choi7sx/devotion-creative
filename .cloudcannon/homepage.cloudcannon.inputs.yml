@@ -3,12 +3,6 @@ header.about_text:
   type: text
 header.about_link:
   type: text
-why.about_text:
-  type: text
-  label: About page link text
-why.about_link:
-  type: text
-  label: About page link
 review.delivery_note:
   type: text
   label: Prototype delivery expectation
@@ -64,19 +58,7 @@ header:
         - key: heading
         - header
   label: Header navigation
-header.outcomes_text:
-  type: text
-  options:
-    empty_type: string
 header.services_text:
-  type: text
-  options:
-    empty_type: string
-header.process_text:
-  type: text
-  options:
-    empty_type: string
-header.why_text:
   type: text
   options:
     empty_type: string
@@ -84,25 +66,7 @@ header.review_text:
   type: text
   options:
     empty_type: string
-header.outcomes_link:
-  type: text
-  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
-  options:
-    empty_type: string
-    required: true
 header.services_link:
-  type: text
-  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
-  options:
-    empty_type: string
-    required: true
-header.process_link:
-  type: text
-  comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
-  options:
-    empty_type: string
-    required: true
-header.why_link:
   type: text
   comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
@@ -152,122 +116,12 @@ hero.note:
   type: textarea
   options:
     empty_type: string
-hero.outcome_trust:
-  type: text
-  options:
-    empty_type: string
-hero.outcome_clarity:
-  type: text
-  options:
-    empty_type: string
-hero.outcome_conversion:
-  type: text
-  options:
-    empty_type: string
-hero.outcome_performance:
-  type: text
-  options:
-    empty_type: string
 hero.button_link:
   type: text
   comment: "Use a section anchor such as #prototype, a site path such as /, or a full https:// URL."
   options:
     empty_type: string
     required: true
-problem:
-  type: object
-  options:
-    preview:
-      text:
-        - key: heading
-        - problem
-  label: Customer questions
-problem.eyebrow:
-  type: text
-  options:
-    empty_type: string
-problem.heading:
-  type: text
-  options:
-    empty_type: string
-problem.introduction:
-  type: text
-  options:
-    empty_type: string
-problem.description:
-  type: textarea
-  options:
-    empty_type: string
-problem.questions_heading:
-  type: text
-  options:
-    empty_type: string
-problem.question_services:
-  type: text
-  options:
-    empty_type: string
-problem.question_area:
-  type: text
-  options:
-    empty_type: string
-problem.question_trust:
-  type: text
-  options:
-    empty_type: string
-problem.question_estimate:
-  type: text
-  options:
-    empty_type: string
-outcomes:
-  type: object
-  options:
-    preview:
-      text:
-        - key: heading
-        - outcomes
-  label: Outcomes
-outcomes.items:
-  type: array
-  options:
-    empty_type: array
-    structures:
-      values:
-        - label: Outcome
-          icon: article
-          value:
-            number: ""
-            title: ""
-            text: ""
-  comment: Edit text inline, or add, remove, and reorder items here. Save to rebuild the preview.
-outcomes.items[*]:
-  type: object
-  options:
-    preview:
-      text:
-        - key: title
-        - New item
-      subtext:
-        - key: text
-outcomes.items[*].number:
-  type: text
-  options:
-    empty_type: string
-outcomes.items[*].title:
-  type: text
-  options:
-    empty_type: string
-outcomes.items[*].text:
-  type: textarea
-  options:
-    empty_type: string
-outcomes.eyebrow:
-  type: text
-  options:
-    empty_type: string
-outcomes.heading:
-  type: text
-  options:
-    empty_type: string
 work:
   type: object
   options:
@@ -276,10 +130,6 @@ work:
         - key: heading
         - work
   label: Selected work
-work.mobile_caption:
-  type: text
-  options:
-    empty_type: string
 work.project_name:
   type: text
   options:
@@ -292,20 +142,8 @@ work.eyebrow:
   type: text
   options:
     empty_type: string
-work.heading:
-  type: text
-  options:
-    empty_type: string
 work.description:
   type: textarea
-  options:
-    empty_type: string
-work.project_label:
-  type: text
-  options:
-    empty_type: string
-work.service_strategy:
-  type: text
   options:
     empty_type: string
 work.service_design:
@@ -316,27 +154,7 @@ work.service_development:
   type: text
   options:
     empty_type: string
-work.desktop_label:
-  type: text
-  options:
-    empty_type: string
-work.mobile_label:
-  type: text
-  options:
-    empty_type: string
 work.display_domain:
-  type: text
-  options:
-    empty_type: string
-work.note:
-  type: textarea
-  options:
-    empty_type: string
-work.view_full_text:
-  type: text
-  options:
-    empty_type: string
-work.desktop_caption:
   type: text
   options:
     empty_type: string
@@ -530,48 +348,7 @@ process.steps[*].text:
   type: text
   options:
     empty_type: string
-process.eyebrow:
-  type: text
-  options:
-    empty_type: string
 process.heading:
-  type: text
-  options:
-    empty_type: string
-why:
-  type: object
-  options:
-    preview:
-      text:
-        - key: heading
-        - why
-  label: Why us
-why.principles:
-  type: array
-  options:
-    empty_type: array
-  comment: Add, remove, or reorder principles here. Save to rebuild the preview.
-why.principles[*]:
-  type: text
-  options:
-    empty_type: string
-why.eyebrow:
-  type: text
-  options:
-    empty_type: string
-why.heading:
-  type: text
-  options:
-    empty_type: string
-why.introduction:
-  type: textarea
-  options:
-    empty_type: string
-why.description:
-  type: textarea
-  options:
-    empty_type: string
-why.principles_heading:
   type: text
   options:
     empty_type: string
@@ -592,10 +369,6 @@ review.heading:
   options:
     empty_type: string
 review.introduction:
-  type: textarea
-  options:
-    empty_type: string
-review.description:
   type: textarea
   options:
     empty_type: string
@@ -729,3 +502,105 @@ footer.back_link:
   options:
     empty_type: string
     required: true
+header.work_text:
+  type: text
+header.work_link:
+  type: text
+  comment: "Use /#work so the link works from every page."
+  options:
+    required: true
+services.personal_note:
+  type: text
+  label: Direct contact note
+services.about_text:
+  type: text
+  label: About page link text
+services.about_link:
+  type: text
+  label: About page link
+work.excel:
+  type: object
+  label: Excel Sports Performance Therapy
+  options:
+    preview:
+      text:
+        - key: project_name
+work.excel.project_name:
+  type: text
+work.excel.description:
+  type: textarea
+work.excel.display_domain:
+  type: text
+work.excel.link:
+  type: text
+  label: Live website link
+  options:
+    required: true
+work.excel.link_text:
+  type: text
+  label: Live website link text
+work.excel.images:
+  type: object
+  label: Excel project previews
+work.excel.images.desktop:
+  type: object
+  label: Desktop hero
+work.excel.images.desktop.image:
+  type: image
+  comment: Use a real screenshot of Excel. Keep the desktop capture limited to the
+    hero and the mobile capture limited to one portrait screen.
+  options:
+    empty_type: string
+    required: true
+    paths:
+      static: public
+      uploads: public/images/work
+work.excel.images.desktop.alt:
+  type: textarea
+  options:
+    empty_type: string
+work.excel.images.desktop.width:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
+work.excel.images.desktop.height:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
+work.excel.images.mobile:
+  type: object
+  label: Mobile screen
+work.excel.images.mobile.image:
+  type: image
+  comment: Use a real screenshot of Excel. Keep the desktop capture limited to the
+    hero and the mobile capture limited to one portrait screen.
+  options:
+    empty_type: string
+    required: true
+    paths:
+      static: public
+      uploads: public/images/work
+work.excel.images.mobile.alt:
+  type: textarea
+  options:
+    empty_type: string
+work.excel.images.mobile.width:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
+work.excel.images.mobile.height:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
