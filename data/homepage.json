@@ -57,6 +57,27 @@
           "height": 900
         }
       }
+    },
+    "counsel": {
+      "project_name": "Counsel Concierge Nursing",
+      "description": "A concierge nursing website that explains each service, introduces the founder, and invites families to request a consultation.",
+      "display_domain": "counselconciergenursing.com",
+      "link": "https://counselconciergenursing.com/",
+      "link_text": "Visit live site",
+      "images": {
+        "desktop": {
+          "image": "/images/work/counsel-concierge-nursing-desktop.webp",
+          "alt": "Counsel Concierge Nursing homepage hero at desktop size",
+          "width": 1200,
+          "height": 750
+        },
+        "mobile": {
+          "image": "/images/work/counsel-concierge-nursing-mobile.webp",
+          "alt": "Counsel Concierge Nursing homepage in an iPhone 17 portrait viewport",
+          "width": 402,
+          "height": 900
+        }
+      }
     }
   },
   "images": {

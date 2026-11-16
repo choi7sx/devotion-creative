@@ -604,3 +604,89 @@ work.excel.images.mobile.height:
   options:
     required: true
     min: 1
+work.counsel:
+  type: object
+  label: Counsel Concierge Nursing
+  options:
+    preview:
+      text:
+        - key: project_name
+work.counsel.project_name:
+  type: text
+work.counsel.description:
+  type: textarea
+work.counsel.display_domain:
+  type: text
+work.counsel.link:
+  type: text
+  label: Live website link
+  options:
+    required: true
+work.counsel.link_text:
+  type: text
+  label: Live website link text
+work.counsel.images:
+  type: object
+  label: Counsel project previews
+work.counsel.images.desktop:
+  type: object
+  label: Desktop hero
+work.counsel.images.desktop.image:
+  type: image
+  comment: Use a real screenshot of Counsel. Keep the desktop capture limited to the
+    hero and the mobile capture limited to one portrait screen.
+  options:
+    empty_type: string
+    required: true
+    paths:
+      static: public
+      uploads: public/images/work
+work.counsel.images.desktop.alt:
+  type: textarea
+  options:
+    empty_type: string
+work.counsel.images.desktop.width:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
+work.counsel.images.desktop.height:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
+work.counsel.images.mobile:
+  type: object
+  label: Mobile screen
+work.counsel.images.mobile.image:
+  type: image
+  comment: Use a real screenshot of Counsel. Keep the desktop capture limited to the
+    hero and the mobile capture limited to one portrait screen.
+  options:
+    empty_type: string
+    required: true
+    paths:
+      static: public
+      uploads: public/images/work
+work.counsel.images.mobile.alt:
+  type: textarea
+  options:
+    empty_type: string
+work.counsel.images.mobile.width:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
+work.counsel.images.mobile.height:
+  type: number
+  comment: Original image dimension in pixels. Update when replacing this image
+    with a different size.
+  options:
+    required: true
+    min: 1
