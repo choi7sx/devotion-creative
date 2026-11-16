@@ -10,6 +10,12 @@ const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 const services = home.services.items;
 const process = home.process.steps;
 const projectUrl = "/work/energy-transport/";
+// Projects that link to their live site instead of a case study, in display order.
+// They appear before the Energy Transport case study card.
+const liveProjects = [
+  { key: "counsel", analyticsId: "counsel_concierge_nursing" },
+  { key: "excel", analyticsId: "excel_spt" },
+] as const;
 
 const siteUrl = Astro.site!.href;
 const organizationId = new URL("#organization", siteUrl).href;
@@ -104,6 +110,35 @@ const structuredData = [
         <h2 {...editableText("work.eyebrow")} id="work-heading">{home.work.eyebrow}</h2>
       </header>
       <div class="work-list">
+        {liveProjects.map(({ key, analyticsId }) => {
+          const project = home.work[key];
+          const linkLabel = `Visit ${project.project_name} (opens in a new tab)`;
+          return (
+            <article class="work-project" aria-labelledby={`${key}-work-heading`}>
+              <a class="work-preview" data-analytics-project={analyticsId} href={project.link} target="_blank" rel="noopener noreferrer" aria-label={linkLabel}>
+                <ProjectPreview
+                  name={project.project_name}
+                  domain={project.display_domain}
+                  images={project.images}
+                  imagesKey={`work.${key}.images`}
+                  domainKey={`work.${key}.display_domain`}
+                />
+              </a>
+              <div class="work-copy">
+                <h3 {...editableText(`work.${key}.project_name`)} id={`${key}-work-heading`}>{project.project_name}</h3>
+                <p {...editableText(`work.${key}.description`)}>{project.description}</p>
+                <ul class="project-services" aria-label="Project services">
+                  <li {...editableText("work.service_design")}>{home.work.service_design}</li>
+                  <li {...editableText("work.service_development")}>{home.work.service_development}</li>
+                </ul>
+                <a href={project.link} class="text-link" data-analytics-project={analyticsId} target="_blank" rel="noopener noreferrer" aria-label={linkLabel}>
+                  <editable-text data-prop={homepageProp(`work.${key}.link_text`)} data-type="span">{project.link_text}</editable-text>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </article>
+          );
+        })}
         <article class="work-project" aria-labelledby="energy-work-heading">
           <a class="work-preview" data-analytics-project="energy_transport" href={projectUrl} aria-label={`View the ${home.work.project_name} case study`}>
             <EnergyTransportPreview />
@@ -117,29 +152,6 @@ const structuredData = [
             </ul>
             <a href={projectUrl} class="text-link" data-analytics-project="energy_transport">
               <editable-text data-prop={homepageProp("work.view_project_text")} data-type="span">{home.work.view_project_text}</editable-text>
-              <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </article>
-        <article class="work-project" aria-labelledby="excel-work-heading">
-          <a class="work-preview" data-analytics-project="excel_spt" href={home.work.excel.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${home.work.excel.project_name} (opens in a new tab)`}>
-            <ProjectPreview
-              name={home.work.excel.project_name}
-              domain={home.work.excel.display_domain}
-              images={home.work.excel.images}
-              imagesKey="work.excel.images"
-              domainKey="work.excel.display_domain"
-            />
-          </a>
-          <div class="work-copy">
-            <h3 {...editableText("work.excel.project_name")} id="excel-work-heading">{home.work.excel.project_name}</h3>
-            <p {...editableText("work.excel.description")}>{home.work.excel.description}</p>
-            <ul class="project-services" aria-label="Project services">
-              <li {...editableText("work.service_design")}>{home.work.service_design}</li>
-              <li {...editableText("work.service_development")}>{home.work.service_development}</li>
-            </ul>
-            <a href={home.work.excel.link} class="text-link" data-analytics-project="excel_spt" target="_blank" rel="noopener noreferrer" aria-label={`Visit ${home.work.excel.project_name} (opens in a new tab)`}>
-              <editable-text data-prop={homepageProp("work.excel.link_text")} data-type="span">{home.work.excel.link_text}</editable-text>
               <span aria-hidden="true">↗</span>
             </a>
           </div>
